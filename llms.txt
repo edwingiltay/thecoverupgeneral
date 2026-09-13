@@ -1,0 +1,67 @@
+# The Cover-up General (De doofpotgeneraal) — Edwin Giltay
+
+> Documentary website about *The Cover-up General* by Dutch investigative
+> journalist Edwin Giltay: the only Dutch book to overcome a full judicial
+> ban. The book documents a Dutch military intelligence cover-up of
+> photographic evidence relating to the 1995 Srebrenica genocide. Banned in
+> 2015, the ban was overturned in 2016 by the Court of Appeal of The Hague,
+> which explicitly validated the book's accuracy (ECLI:NL:GHDHA:2016:870).
+> The book served as evidence for the Mothers of Srebrenica's claim that
+> photographs of the genocide are being withheld. In 2019 the Supreme Court
+> established partial Dutch state liability for approximately 350 victims of
+> the genocide (ECLI:NL:HR:2019:1223). The e-book is freely downloadable
+> worldwide as a protest against censorship. Every published claim on this
+> site traces to an unedited source document.
+
+Key facts:
+- Author: Edwin Giltay (The Hague, Netherlands), investigative journalist
+- Dutch original: *De doofpotgeneraal* (2014; revised edition 2016; third revised edition 2022)
+- Full ban imposed 2015 (ECLI:NL:RBDHA:2015:15050); overturned on appeal 2016
+- Free English e-book edition: 2025, 292 pages, editor Michael Wynne
+- Free Dutch e-book edition: 2025, 304 pages, afterword Hans Laroes
+- Website selected by the KB, national library of the Netherlands, for its
+  web collection (archiving from 12 July 2026)
+- Wikidata: https://www.wikidata.org/wiki/Q65066725
+- Wikipedia: https://en.wikipedia.org/wiki/The_Cover-up_General
+- DOI (English edition): 10.5281/zenodo.21115325
+- DOI (Dutch edition): 10.5281/zenodo.21116205
+
+## Free e-book
+
+- [The Cover-up General — English edition (PDF)](https://www.dedoofpotgeneraal.nl/book.pdf): Complete free e-book, 292 pages, The Hague 2025
+- [De doofpotgeneraal — Dutch edition (PDF)](https://www.dedoofpotgeneraal.nl/boek.pdf): Complete free e-book in Dutch, 304 pages, The Hague 2025
+
+## Language editions of this website
+
+- [English](https://www.dedoofpotgeneraal.nl/english.htm): Full documentation in English
+- [Nederlands](https://www.dedoofpotgeneraal.nl/index.htm): Dutch original version
+- [Deutsch](https://www.dedoofpotgeneraal.nl/deutsch.htm): German version
+- [Français](https://www.dedoofpotgeneraal.nl/francais.htm): French version
+- [Bosanski](https://www.dedoofpotgeneraal.nl/bosanski.htm): Bosnian version
+
+## Key legal documents
+
+- [Court of Appeal judgment, 12 April 2016 (PDF)](https://www.dedoofpotgeneraal.nl/doc/arrest.pdf): ECLI:NL:GHDHA:2016:870 — lifts the book ban and validates the book's accuracy
+- [District Court ban ruling, 14 December 2015 (PDF)](https://www.dedoofpotgeneraal.nl/doc/censuurvonnis.pdf): ECLI:NL:RBDHA:2015:15050 — the original full ban
+- [Letter to the National Ombudsman with nine grievances, 2018 (PDF)](https://www.dedoofpotgeneraal.nl/doc/verzoekschrift.pdf): Nine substantiated grievances with 19 exhibits, which the Ombudsman declined to address on the merits
+- [Court ruling against the National Ombudsman, 2023 (PDF)](https://www.dedoofpotgeneraal.nl/doc/uitspraak.pdf): ECLI:NL:RBDHA:2023:17841 — unlawful blocking of information request
+- [Penalty payments ruling, 2023 (PDF)](https://www.dedoofpotgeneraal.nl/doc/dwangsom.pdf): ECLI:NL:RBDHA:2023:20409 — court-ordered payments that funded the free English edition
+- [National Ombudsman report 1999/507](https://www.nationaleombudsman.nl/uploads/rapporten/19990507_1998.07789.pdf): Contains the Minister of Defence's never-retracted characterisation of the author
+
+## Annotated essay and sources
+
+- [The Ban Fell, the Book Stood — annotated essay (PDF)](https://www.dedoofpotgeneraal.nl/doc/the-ban-fell.pdf): English essay on the affair with numbered endnotes to primary documents and a fully cited bibliography of the international media coverage
+
+## Site sections (English page anchors)
+
+- [Book](https://www.dedoofpotgeneraal.nl/english.htm#book): Synopsis and why this international edition matters
+- [News](https://www.dedoofpotgeneraal.nl/english.htm#news): Ban overturned as a unique legal precedent, government contradictions, the Srebrenica cover-up and its international dimension, three converging affairs, institutional silence, six independent validations
+- [Voices](https://www.dedoofpotgeneraal.nl/english.htm#voices): 100 verified quotes from court rulings, official documents, international media, survivors and experts, in 17 thematic sections, each with a source reference
+- [Author](https://www.dedoofpotgeneraal.nl/english.htm#author): Biography of Edwin Giltay
+
+## Optional
+
+- [Full text of the English website](https://www.dedoofpotgeneraal.nl/llms-full.txt): Complete textual content in Markdown for AI ingestion
+- [Mobile site](https://www.dedoofpotgeneraal.nl/m/english.htm): Mobile version
+- [GitHub mirror](https://github.com/edwingiltay/thecoverupgeneral.com): Continuity mirror of the website source
+- [Banned Books Museum](https://bannedbooksmuseum.com/): Holds the book; hosted the 2024 launch of the English edition
