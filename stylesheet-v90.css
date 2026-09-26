@@ -1,0 +1,1962 @@
+/* CSS stylesheet behorend bij dedoofpotgeneraal.nl */
+
+/* Voor vaste maten van blokken */
+html           {box-sizing:border-box}
+*,*:before,*:after{box-sizing:inherit;}
+
+/* Voor vervagingseffect aan begin */
+body           {opacity:1;transition:2.5s;animation:kleuren 0s linear 1 forwards;}
+body.fade-out  {opacity:0;transition:none;}
+@keyframes kleuren {from {background:#FAFAFA;} to {background:#E8E8E8;}}
+
+/* CSS voor de gefixeerde header */
+.header        {position:sticky;left:0;top:0;z-index:100 !important;  /* Hoog genoeg om boven video/content te blijven */}
+/* Header "tilt op": subtiele schaduw onder de balk zodra de pagina gescrold is (klasse .elevated via JS) */
+.header .box          {transition:box-shadow .25s ease;}
+.header.elevated .box {box-shadow:0 8px 18px -8px rgba(0,0,0,0.5);}
+
+/* Fix overlap met sticky header: Header altijd bovenop */
+/* Zorg dat video-sectie lager zit */
+.graybar {
+  position: relative;  /* Voorkom dat tabel uit context breekt */
+  z-index: 1;  /* Lager dan header */
+  background:#F8F8F8;border-radius:3px 3px 0px 0px;
+}
+
+.table  {width:100%;max-width:970px;margin:0 auto;border-collapse:separate;border-spacing:0;}
+
+.infographicline3  {stroke:black;stroke-width:0.5;stroke-linecap:round;}
+.groktweets        {max-width:999px;min-width:999px;margin:16px 0 7px 30px;border: solid 0.5px #CCCCCC;display:inline-block;
+                    background-image:linear-gradient(-110deg, #F0F1F2, #D8D9DA 100%);border-radius:3px;height:220px;}
+.vimeos            {max-width:999px;min-width:999px;margin:18px 0 7px 30px;border: solid 0.5px #CCCCCC;display:inline-block;
+                    background-image:linear-gradient(-110deg, #F0F1F2, #D8D9DA 100%);border-radius:3px;height:220px;}
+
+.vimeo, .vimeo2 {
+  z-index: 2 !important;  /* Iframe expliciet lager */
+  border-radius:3px;
+  position:relative;
+  pointer-events: auto;  /* Zorg dat iframe clicks vangt */
+}
+
+/* Voor de geneste positioned divs in video (top:-25px etc.) */
+div[style*="top:-25px"], div[style*="top:-24px"] {
+  z-index: 1 !important;
+  pointer-events: none;  /* Selecteer de specifieke positioned divs */
+}
+
+
+
+/* Voor correcte interne hyperlinks */
+.anchor        {display:block;height:55px;margin-top:-55px;visibility:hidden;}
+
+/* voor de headers */
+.languagebar   {background-image:linear-gradient(110deg, #52565D, #52565D 100%);border-radius:3px;}
+.blurbbar      {background-image:radial-gradient(circle, #4B4B58, #3B3B44);border-radius:3px;}
+.menubar       {background-image:linear-gradient(110deg, #2B2B34, #2B2B34 100%);}
+.authorbar, .authorbar2  {box-shadow: 0 10px 16px 0 rgba(0,0,0,0.2);border-radius:3px;}
+.authorbar     {background-image:linear-gradient(to left, #373B3F 0%, #34383C 40%, #373B3F 100%);}
+.authorbar2    {background:#F8F8F8;}
+.synopsisbar   {background-image:linear-gradient(110deg, #494C50, #494C50 45%, #2B2B34 75%, #2B2B34 100%);margin-left:auto;margin-right:auto;}
+.whitebar      {background-color:#D0D0D0;}
+.boxshadow     {box-shadow:0 10px 16px 0 rgba(0,0,0,0.1), 0px 76px 52px -82px rgba(0,0,0,1);}
+.boxshadow2    {box-shadow:0px 25px 30px -30px rgba(0,0,0,0.7);}
+.boxshadow3    {box-shadow:0px 25px 30px -30px rgba(0,0,0,0.3);}
+
+/* voor andere kleuren */
+.kleur6        {background:#2B2B34;border-radius:3px;}
+.kleur8        {background-image:linear-gradient(110deg, #C00000, #B00000 100%);}
+/* De rode balk boven en onder de knop zat als border-top en border-bottom op een
+   vlak met afgeronde hoeken. In de hoek loopt zo'n rand een paar pixels langs de
+   zijkant mee, want er is links en rechts geen rand om op aan te sluiten, en dat
+   is als klein rood streepje zichtbaar. Een inset-schaduw volgt de afronding wel
+   netjes; de padding vangt de hoogte op die de weggehaalde randen innamen. */
+.kleur35       {background-image:radial-gradient(circle, #FBFDFF, #A0A2A4);border-radius:3px;
+                box-shadow:inset 0 5px 0 #B00000, inset 0 -5px 0 #B00000;}
+.kleur35:hover {background-image:radial-gradient(circle, #F00000, #D50000);}
+.kleur36       {background-image:radial-gradient(circle, #D00000, #900000);border-radius:3px;
+                box-shadow:inset 0 5px 0 #A00000, inset 0 -5px 0 #A00000;}
+/* De padding vangt de hoogte op die de weggehaalde randen innamen. Twee klassen in
+   de selector, want .card3 verderop zet de padding met een verkorte notatie en zou
+   deze regel anders overrulen. */
+.card3.kleur35, .card3.kleur36 {padding-top:calc(14pt + 5px);padding-bottom:calc(13.5pt + 5px);}
+.kleur36:hover {background-image:radial-gradient(circle, #F00000, #D50000);}
+.red           {color:#B00000}
+.white         {color:#FFFFFF}
+.black         {background:#333333;}
+
+
+
+
+
+.kleur45       {background:#F8F8F8;;border-radius:3px;}
+.kleur46       {background-image:radial-gradient(circle, #F0F1F2, #E4E5E6);border-radius:3px;}
+
+/* Voor de tabellen */
+.box           {border-radius:3px;}
+.box2          {border-radius:3 3 0 0;}
+
+/* Voor headers en alinea's */
+h1            {color:#000000;filter:url(#f3);font-weight:normal;font-family:"Helvetica","Arial";}
+h2            {color:#222222;filter:url(#f3);margin:36px 0 1px 33px;font-weight:normal;font-family:"Helvetica","Arial";font-size:19.5pt;letter-spacing:0.6px;z-index:1;}
+p             {margin:0 0 0 0;font-family:"Helvetica","Arial";color:#000000;font-size:11pt;}
+
+a:link, a:visited {color:#000000;text-decoration-color:#000000;}
+a:hover           {color:#800000;box-shadow:0 4px 10px 0 rgba(20,0,0,0.2);}
+a:active          {color:#800000;}
+
+.languagebar a.link,
+.container5 a.link {
+  cursor: pointer !important;
+}
+
+a.redlink:link, a.redlink:visited {color:#900000;text-decoration:none;}
+a.redlink:hover   {color:#900000;}
+a.redlink:active  {color:#900000;}
+
+
+
+
+
+a.whitelink:link, a.whitelink:active, a.whitelink:visited {color:#CCCCCC;overflow-wrap:anywhere; -webkit-hyphens:none;hyphens:none;}
+#bronnenLijst a.whitelink, #bronnenLijst a.redlink {-webkit-hyphens:manual;hyphens:manual;}  /* labels breken op de &shy;-punten, met streepje */
+#bronnenLijst .urlbreek {word-break:break-all;}  /* alleen de URL-tekst breekt gulzig; de labels ervoor volgen de nette anywhere-regel */
+a.whitelink:hover {color:#FA8072;box-shadow:0 4px 10px 0 rgba(20,0,0,0.2);}
+a.noshadow        {box-shadow:none;}
+a.citations       {box-shadow:none;text-decoration:none;}
+.redbox           {text-decoration:none;box-shadow:none;}
+
+sup            {font-size:80%;top:-0.4em;}
+table          {border-spacing:0;border:none;
+                /* bootst de vroegere quirks-modus na: tabellen erfden Helvetica via open <p>'s en kregen fontgrootte 16px */
+                font-family:"Helvetica","Arial";font-size:16px;line-height:normal;}
+img, svg       {vertical-align:bottom;}  /* geen descender-ruimte onder losse afbeeldingen/svg's (quirks-regelmodel) */
+.groktweets, .vimeos {line-height:0;}    /* geen struts in de mediakaarten (quirks-regelmodel); bijschriften zetten hun eigen line-height */
+td             {padding:0px;vertical-align:top;}
+.taal          {display:inline-block;position:relative;left:3px;filter:grayscale(0.2);}
+.taalsvg       {display:inline-block;width:18px;height:18px;position:relative;top:-3px;left:-5px;transform:scale(.95);}
+/* De taalcodes stonden ingesprongen om plaats te maken voor het vlagcirkeltje ervoor.
+   Dat is weg, dus de inspringing ook: de knop houdt zijn eigen padding van 10px. */
+.style1        {font-size:14.5px;margin-left:0;font-family:"Helvetica","Arial";
+                letter-spacing:0.12px;}   /* op de desktop is er ruimte; dit maakt de codes
+                                            en de domeinnaam iets rustiger leesbaar */
+
+/* De 74% regelhoogte kwam uit de tijd dat het vlagcirkeltje de hoogte van de knop
+   bepaalde; zonder vlag hing de code er scheef in. Normale regelhoogte, en de knop
+   centreert zelf. De pixel omhoog is optisch: de codes staan met alleen onderkast
+   en zonder staarten net te laag in de pil. */
+.style3        {position:relative;top:-1px;line-height:normal;}
+
+.kop1          {display:inline;z-index:1;position:relative;top:  23px;left:22px;font-size:9pt;}
+.kop2          {display:inline;z-index:1;position:relative;top:  -3px;color:#222222;filter:url(#f3);}
+
+
+/* Haarspatie als vaste breedte i.p.v. &hairsp;-teken (font-onafhankelijk; o.a. cursief-correctie) */
+.hs            {display:inline-block;width:0.08em;}
+.ths           {display:inline-block;width:0.15em;}  /* smalle spatie tussen bedrag en €, en tussen getal en % (22 sept 2026: van 0,2 naar 0,15 em, Edwin: mooier; Helvetica's eigen U+202F is 0,139 em) */
+.thsf          {display:inline-block;width:0.2em;}  /* afstandhouder in de footercel vóór #ton4, sinds 22 sept 2026 losgekoppeld van .ths zodat de bedragen apart af te stellen zijn */
+
+
+.hoofd         {margin-left:17pt;text-align:justify;line-height:135%;-webkit-hyphens:auto;hyphens:auto;font-size:11.5pt;}
+.margintop     {margin-top:12px;}
+.tekst         {margin:5.5pt 18pt 0pt 18pt;text-align:justify;-webkit-hyphens:auto;hyphens:auto;line-height:125%;}
+.kop           {margin: 18pt  8pt 8pt 18pt;text-align:left;line-height:125%;font-size:15pt;font-weight:normal;filter:url(#f3);}
+.star          {color:#B8860B;font-size:13.4pt;margin-left:0.5px;letter-spacing:0.05em;filter:url(#f4);}
+.auteurtxt     {color:black;line-height:135%;font-size:11.5pt;-webkit-hyphens:auto;hyphens:auto;margin-top:10px;}
+.auteurfoto    {margin:10px 40px 0 22px;font-size:11.3pt;-webkit-hyphens:none;hyphens:none;text-align:left;line-height:126%;font-style:italic;}
+.portretcirkel {border:solid 1px #AAAAAA;width:262px;border-radius:0.5%;box-shadow: 3px 6px 10px 0 rgba(0,0,0,0.3);margin:3px 0 0 22px;border-radius:3px;}
+.auteurstyle   {margin:38px 0 24px 306px}
+
+
+
+.mediastyle, .mediastylekop, .mediastylekopje, .mediastyle1, .mediastyle2, .mediastyle3
+                 {font-size:11.5pt;line-height:135%;text-align:justify;-webkit-hyphens:auto;hyphens:auto;margin:10px 18.5pt 0px 18.5pt;}
+.mediastylekop   {font-size:17.5pt;margin-top:10px;-webkit-hyphens:none;hyphens:none;text-align:left;}
+h3               {font-size:14.15pt;margin:20px 0 12px 24.5px;font-style:italic;font-weight:normal;}
+
+.mediastyle2     {font-size:13.5px;margin-top:7px;margin-left:27px;   color:#292929;}
+.mediastyle3     {font-size:13.5px;margin-top:-18.2px;margin-left:467.5px;color:#292929;}
+/* Bijschriften van de videoblokken links uitlijnen i.p.v. uitvullen (zichtbaar zodra ze op M/S afbreken) */
+.vimeos .mediastyle2, .vimeos .mediastyle3, .groktweets .mediastyle2, .groktweets .mediastyle3{text-align:left;}
+
+/* Forceer handcursor voor ALLE links in de Grok-sectie */
+.groktweets a {
+    cursor: pointer !important;
+}
+
+.citatenintro  {margin:4px 26px 0px 25px;font-size:11.5pt;line-height:135%;text-align:justify;-webkit-hyphens:auto;hyphens:auto;}
+
+.kleinvlaggetje  {font-size:7pt;margin-left:0.07em;margin-right:0.1em;font-style:normal;}
+
+.blurbstyle    {margin:23.5pt 18pt 25pt 18pt;font-size:11.5pt;color:#FFFFFF;text-align:center;filter:url(#f1);letter-spacing:0.1px;line-height:130%;}
+.creditsstyle, .bronstyle  {font-size:11px;text-align:justify;-webkit-hyphens:auto;hyphens:auto;color:#EEEEEE;}
+#bronnenLijst .vlag{font-size:0.9em;vertical-align:baseline;}
+.lastlinestyle {font-size:10pt;text-transform:uppercase;color:#FFFFFF;letter-spacing:.1px;position:relative;top:0.8px;}
+.padd          {padding:2.5px  3px 3.5px 3.5px;font-size:10pt;}  /* strut gelijk aan .lastlinestyle (quirks-hoogte) */
+.padd2         {padding:2.5px 15px 3.5px  15px;font-size:10pt;}  /* strut gelijk aan .lastlinestyle (quirks-hoogte) */
+
+.meer1         {width:20px;height:20px;position:relative;left:0.5px;top:-0.5px;}
+.meer2         {fill:none;stroke:#900000;stroke-width:2.5px;}
+/* Chevron in de creditsbalk: de doos blijft 11px, zodat de regelhoogte van de balk niet
+   verandert; de vergroting tot 14px zit in de transform, en die telt niet mee in de lay-out. */
+.meer3         {width:11px;height:11px;vertical-align:-1.5px;margin-left:2px;overflow:visible;
+                transform:scale(1.27);transition:transform .35s;}
+.meer4         {fill:none;stroke:#FF0000;stroke-width:2.6px;}                   /* felrood: op de donkere balk valt het donkerrood van de klapblokken weg */
+/* De chevron draait om als de bronnenlijst openstaat; de tekst ernaast wisselt apart (#bronnenTekst). */
+#bronnenLink.open .meer3{transform:rotate(180deg) scale(1.27);}
+
+/* voor de afbeeldingen */
+.avatar, .icon           {width:78px;height:78px;position:relative;transform:scale(0.54);top:-17px;left:-15.2px;}
+
+/* Voor de kleuren bij het selecteren van tekst */
+::selection {color:white;background:#52565D;}
+
+/* Voor de quotes, indeling in 4 kolommen en 2 achtergrondkleuren */
+.col1       {margin: 11.5pt  0pt 0   0;}
+.col2a      {margin: 16.5pt 18pt 0 17pt;color:#000000;font-size:10.5pt;line-height:122%;text-indent:-0.5px;}
+.col2b      {margin:    1pt 18pt 0 17pt;color:#000000;font-size:10.5pt;line-height:122%;text-indent:19.4px}
+
+.col4       {margin:  1.3pt 18pt 0 17.5pt;color:#800000;font-size:7.5pt;line-height:120%;}
+p.col4      {opacity:0;transition:opacity 0.4s ease;}
+/* Zonder muis (tablets vanaf 710px krijgen de desktopversie) vuurt de hover-onthulling
+   hieronder nooit, dus daar staat de bronregel meteen aan. */
+@media (hover: none) {
+p.col4      {opacity:1;}
+}
+
+.sectie     {margin-left:auto;margin-right:auto;border-radius:19pt;overflow:hidden;border:#CCCCCC solid 0.5px;
+             box-shadow:0px -25px 30px -30px rgba(0,0,0,0.35), 0px 25px 30px -30px rgba(0,0,0,0.35),
+                        6px   0px 30px -30px rgba(0,0,0,0.35),-6px  0px 30px -30px rgba(0,0,0,0.35);}
+.ttd1       {width: 30px;padding:10px 0 10px    0;}
+.ttd2       {width:305px;-webkit-hyphens:auto;hyphens:auto;}
+.table2     {height:246px;width:100%;background:#FFFFFF;}
+.table1     {height:246px;width:100%;background-image:linear-gradient(135deg, #E7E7E7, #E7E7E7 50%, #FAFAFA 100%);}
+.tableDEU   {height:262px;}
+.tableFR    {height:278px;}
+.tablehead  {width:100%;filter:grayscale(0.4);background-image:linear-gradient(to right, #3A4A64, #5A6A84);}
+.tableheader {margin:21px 0 8px 27px;color:#FFFFFF;font-size:12.6pt;font-weight:normal;text-transform:uppercase;}
+.tabletext   {margin:0px 17px 19.5px 27px;color:#FFFFFF;font-size:11.5pt;font-style:italic;}
+.tablewidth  {width:55.3pt}
+
+.svgicon1   {width:120px;height:120px;position:relative;left:-11px;top:5px;}
+.svgicon2   {width:120px;height:120px;position:relative;left:-33px;top:-37px;}
+.svgrect1   {fill:url(#grad1);filter:url(#f2);z-index:0;cx:61;cy:52;r:38;transform-origin: center;}
+.svgrect2   {fill:url(#grad1);filter:url(#f2);z-index:0;cx:148;cy:102;r:85;}
+.svgrect3   {fill:#52565D;z-index:1;stroke:#000000;stroke-width:0.5px;}
+.number     {fill:white;font-size:11.5pt;font-weight:normal;}
+.hidden     {position:relative;top:-7px;left:9px;display:inline-block;}
+
+
+
+
+.svgiconN   {width:130px;height:130px;position:relative;left:-11px;top:-10px;}
+.svgrectN   {filter:url(#f2);z-index:1;cx:61;cy:53.5;r:24;fill:#1A2A44;stroke:#111115;stroke-width:0.5px;}
+.svgtextN   {fill:#FFFFFF;font-size:35px;}
+
+/* Oplossing van Grok voor dode hoek bij hover */
+table.table1:hover p.col4, table.table2:hover p.col4 {opacity: 1;}
+td.ttd2:hover p.col4 {opacity: 1;}
+td.ttd1:hover ~ td.ttd2 p.col4 {opacity: 1;}
+.hidden, .icon, .avatar, img.icons, img.sprite {pointer-events: none;}
+
+/* Voor de buttons */
+button              {font-family:"Helvetica","Arial";}
+.taalbutton, .taalbuttonX {background:#B4B4B4;color:#000000;text-align:left;height:22px;
+                     /* Sinds de vlagcirkel eruit is, bepaalt de tekst zelf de basislijn en zakten de
+                        knoppen scheef in de balk. Middenuitlijning zet ze weer netjes. */
+                     vertical-align:middle;display:inline-flex;align-items:center;
+                     cursor:pointer;border-radius:2px;padding:4px 10px;
+                     border:solid 0.5pt #666666;margin-right:2.5px;text-decoration:#FAFAFA;font-family:"Helvetica","Arial";}
+/* Dezelfde #F8F8F8 als .graybar, het tekstblok onder de kopregel: de pil met de
+   domeinnaam leest zo als hetzelfde papier en niet als een aparte tint. */
+.taalbuttonX        {background:#F8F8F8;pointer-events:none;}
+.taalbutton, .taalbuttonX {font-size:0;}  /* geen strut op de vlaggetjesregel (bootst quirks-regelhoogte na) */
+/* De vier codeknoppen even breed, zoals op mobiel: de letters verschillen in breedte
+   (fr is smaller dan en of de) en dat viel op in het rijtje. De breedte is die van de
+   breedste, en de code staat gecentreerd. De actieve knop met de domeinnaam valt hier
+   buiten; die volgt zijn eigen lengte. */
+.taalbutton         {box-sizing:border-box;width:35px;justify-content:center;}
+.taalbutton:hover   {background:#F00000;color:#FFFFFF;box-shadow: 0 0 7px 0 #FAFAFA;}
+.taalbutton:focus   {outline:none;border:solid 0.5pt #FFFFFF;}
+.menubutton, .downloadbutton {background:#52565D;color:#FFFFFF;text-align:center;font-size:14.8px;
+                     transition:transform 0.2s;text-decoration:none;cursor:pointer;border-radius:2px;border:hidden 3px #680000;
+                     margin-right:2px;padding:7.5px 13px;font-family:"Helvetica","Arial";}
+.menubutton:focus   {outline:none;border:solid 0.5pt #FFFFFF;}
+.menubutton:hover   {background:#F00000;color:#FFFFFF;box-shadow: 0 0 7px 0 #FAFAFA;}
+/* Sub-voortgang: onderstreping onder het actieve navwoord, breedte gestuurd via --nav-prog (JS) */
+.menubutton         {position:relative;}
+.menubutton::after  {content:'';position:absolute;left:0;bottom:0;height:2.5px;width:var(--nav-prog,0);background:#EEEEEE;pointer-events:none;}
+.downloadbutton       {background:#C00000;}
+.downloadbutton:focus {outline:none;border:solid 0pt #FF0000;}
+.downloadbutton:hover {background:#FF0000;color:#FFFFFF;box-shadow: 0 0 7px 0 #FAFAFA;}
+.bestelbutton {background:#C00000;transition:transform 0.3s;color:#FAFAFA;padding:2px 17px;text-align:center;
+                     font-size:16px;border:solid 0.5pt #800000;text-decoration:none;cursor:pointer;border-radius:40px;letter-spacing:.5pt;font-family:"Helvetica","Arial";
+                     position:relative;top:0.6px;}
+.bestelbutton:hover {background:#FF0000;color:#FFFFFF;}
+.bestelbutton:focus {outline:none;border:solid 0.5pt #FF0000;}
+
+.button1{background-image:linear-gradient(110deg, #C00000, #B00000 100%);transition:transform 0.3s;color:#FAFAFA;padding:0px 6px 2px 6px;
+                     text-align:center;font-size:14px;text-decoration:none;cursor:pointer;border-radius:40px;border: solid 0.5pt #800000;font-family:"Helvetica","Arial";}
+.button1:hover{background-image:linear-gradient(110deg, #F00000, #F00000 100%);color:#FFFFFF;}
+.button1:focus      {outline:none;border:solid 0.5pt #FF0000;}
+
+
+/* Zichtbare focusrand voor toetsenbordgebruikers. De :focus-regels hierboven halen de
+   standaardrand weg; de vervanging was bij drie knoppen onzichtbaar (downloadbutton kreeg
+   een rand van 0pt, bestelbutton en button1 een rode rand op een rode achtergrond).
+   :focus-visible treft alleen toetsenbordfocus, dus bij een muisklik verschijnt er niets —
+   precies de reden waarom de rand ooit is weggehaald. Dubbele ring (wit binnen, zwart
+   buiten) zodat hij zowel op de donkere balk als op de witte pagina opvalt.
+   Elke knop zit in een <a>. Voorheen vingen link en knop allebei focus, dus kostte iedere
+   knop twee keer Tab, met twee verschillende randstijlen. De knoppen staan nu in de HTML
+   op tabindex="-1", zodat de link de enige tabstop is. De ring tekenen we om de knop
+   (die heeft de juiste vorm) en de standaardrand van de link zelf zetten we uit. */
+a:focus-visible:has(> .taalbutton), a:focus-visible:has(> .menubutton),
+a:focus-visible:has(> .downloadbutton), a:focus-visible:has(> .bestelbutton),
+a:focus-visible:has(> .button1), a:focus-visible:has(> .button2)
+                    {outline:none;}
+a:focus-visible > .taalbutton, a:focus-visible > .menubutton,
+a:focus-visible > .downloadbutton, a:focus-visible > .bestelbutton,
+a:focus-visible > .button1, a:focus-visible > .button2,
+.taalbutton:focus-visible, .taalbuttonX:focus-visible, .menubutton:focus-visible,
+.downloadbutton:focus-visible, .bestelbutton:focus-visible,
+.button1:focus-visible, .button2:focus-visible
+                    {outline:2px solid #FFFFFF; outline-offset:1px; box-shadow:0 0 0 4px #000000;}
+
+
+
+
+
+
+
+
+/* Voor de tags en bijschriften in de foto's en video */
+.container     {position:relative;}
+.container2    {position:relative;overflow:hidden;}
+.container3    {position:relative;top:33.8px;transform:scale(1.02);line-height:0;}  /* geen descender-ruimte onder de losse afbeelding (quirks-gedrag) */
+.container5    {position:absolute;}
+.container6    {position:relative;left:18.6px}
+
+.container102  {display:inline-block;position:relative;top:9.05px;left: 26.1px;z-index:1;transform:scale(0.93);pointer-events: auto; /* Parents van .socialmedia: Laat events door */}
+.container103  {display:inline-block;position:relative;top: 9.4px;left: 61.6px;z-index:1;transform:scale(0.9);pointer-events: auto; /* Parents van .socialmedia: Laat events door */}
+.container104  {display:inline-block;position:relative;top: 9.2px;left: 96.6px;z-index:1;transform:scale(0.9);pointer-events: auto; /* Parents van .socialmedia: Laat events door */}
+.container105  {display:inline-block;position:relative;top: 8.9px;left:131.2px;z-index:1;transform:scale(0.9);pointer-events: auto; /* Parents van .socialmedia: Laat events door */}
+.container106  {display:inline-block;position:relative;top: 8.8px;left:165.3px;z-index:1;transform:scale(0.9);pointer-events: auto; /* Parents van .socialmedia: Laat events door */}
+
+
+
+
+.circleloc2    {position:relative;top:0px;left: 17px;z-index:1;height:40px;pointer-events: none;}
+.circleloc3    {position:relative;top:0px;left: 52px;z-index:1;height:40px;pointer-events: none;}
+.circleloc4    {position:relative;top:0px;left: 87px;z-index:1;height:40px;pointer-events: none;}
+.circleloc5    {position:relative;top:0px;left:122px;z-index:1;height:40px;pointer-events: none;}
+
+.europelocS    {width:380px;position:relative;top:0px;left:414px;border-radius:2px;}
+.europelocS2   {position:relative;top:-181px;left:414px;}
+
+/* Voor de tags en bijschriften in de foto's en video */
+/* Herstel pointer-events voor social media: Laat JS en clicks werken */
+.container5:has(.container102), .container5:has(.container103), .container5:has(.container104),
+.container5:has(.container105), .container5:has(.container106) {
+    pointer-events: auto; /* Specifiek voor social .container5 */
+}
+
+.socialmedia {
+    pointer-events: auto; /* Voor onclick */
+    cursor: pointer;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+    padding: 4px; /* Grotere hit-area */
+    border-radius: 50%;
+    display: inline-block;
+    z-index:1;
+}
+
+.socialmedia:hover {
+    transform: scale(1.05);
+}
+/* Hover: logo wordt wit, de cirkel eronder wordt rood */
+.socialmedia:hover .svgmedia {
+    fill:#FFFFFF;
+    filter:opacity(1);
+}
+.container5:has(+ .container5 .socialmedia:hover) .svgcircle {
+    fill:#F00000;
+    stroke:#F00000;
+}
+/* Dezelfde lichte slagschaduw als bij de andere links. Hij staat op de svg en niet op
+   de cirkel zelf: die draagt een transform, en transform plus filter op één element is
+   in Safari eerder misgegaan. */
+.container5:has(+ .container5 .socialmedia:hover) svg {
+    filter:drop-shadow(0 3px 5px rgba(20,0,0,0.28));
+}
+
+.socialmedia:active {
+    transform: scale(0.95); /* Click-feedback */
+}
+
+.svgmedia {
+    pointer-events: auto; /* Nodig voor JS mouseover op SVGs */
+    width: 18px;
+    height: 18px;
+    filter:opacity(0.65);fill:#A00000;display:inline-block;position:relative;top:-4.2px;left:-4.2px;transition:fill 0.2s ease, filter 0.2s ease;
+    vertical-align:top;  /* houdt de icoontjes op de quirks-positie (algemene svg-regel zet bottom) */
+}
+
+/* Circles blijven non-interactief (decoratief) */
+#facebook1, #twitter1, #linkedin1, #whatsapp1, .circleloc2, .circleloc3, .circleloc4, .circleloc5 {
+    pointer-events: none;
+}
+
+.svgcircle     {fill:none;stroke:#B00000;stroke-width:0.7px;cursor:pointer;transform:scale(0.9);transition:fill 0.2s ease, stroke 0.2s ease;}
+.navigation    {width:29px;height:3px;stroke:#FAFAFA;stroke-width:3.5px;stroke-linecap:round;}
+
+.bijschrift3       {color:#900000;filter:url(#f3);cursor:pointer;text-decoration:underline solid #900000;}
+.bijschrift5       {color:#900000;filter:url(#f3);cursor:pointer;text-decoration:underline solid #900000;}
+.eclilight:hover   {box-shadow:0 4px 10px 0 rgba(20,0,0,0.2);}
+.eclidark:hover    {box-shadow:0 4px 10px 0 rgba(20,0,0,0.2);color:red;}
+.eclinum1         {font-size:93%;}
+/* Afkortingen nooit laten afbreken: de omringende tekst heeft hyphens:auto, waardoor het
+   Nederlandse afbreekwoordenboek CTIVD als CTI-VD over twee regels verdeelde. */
+.afk              {font-size:95%;-webkit-hyphens:none;hyphens:none;}
+/* De alinea eromheen staat op line-height:normal, dus elke regel ontleent zijn hoogte aan
+   de fontmetriek van wat erop staat. De Hebreeuwse letters komen uit een terugvalfont (op
+   Android Noto Sans Hebrew) en staan hier bovendien op 105%, waardoor die ene regel hoger
+   uitviel dan de rest en er een gat in de alinea ontstond. Met regelhoogte 0 is het vakje
+   van dit stukje tekst nul hoog en kan het de regel per definitie niet meer oprekken —
+   welk terugvalfont de telefoon ook kiest. Een regelhoogte van 1 hielp maar half: het
+   vakje was dan 15,4px en stak nog 0,4px onder de streep van de alinea uit. De letters
+   zelf staan er ongewijzigd bij: regelhoogte bepaalt alleen de hoogte van het vakje, niet
+   waar de tekens ten opzichte van de basislijn vallen. Zelfde truc als bij .mini-punt in de mobiele stylesheet. */
+.hebr             {font-size:105%;line-height:0;}
+.eclinum5         {font-size:98%;}
+/* .url draagt leesbare tekst (ECLI-codes, verwijzingen als "rechtsoverwegingen 3.1 en 4.10").
+   Daarom niet break-all: dat brak woorden middenin en zonder koppelteken. Breuken vallen nu
+   alleen op de zelfgekozen punten — &shy; in de ECLI-codes, <wbr> in zichtbare URL's. */
+/* Geen overflow-wrap: die brak in smalle kolommen alsnog willekeurig door de code heen
+   (ECLI:NL:R / BDHA:...). Door de &shy; na elke dubbele punt is het grootste ondeelbare
+   stukje zes tekens, dus een noodrem is overbodig. */
+.url              {word-break:normal; -webkit-hyphens:manual;hyphens:manual;}
+/* Het lange cijferblok van een zichtbare URL mag overal breken. Zonder dit blijft het één
+   ondeelbaar blok van ~150px, en rekt de uitvulling de voorgaande regel uit tot een rivier
+   van witruimte. Bij een URL is een breuk middenin het nummer geen bezwaar: er hoort geen
+   koppelteken bij en niemand leest het als tekst. */
+.urlnr            {word-break:break-all;}
+/* .urls toont kale URL's in de bronregels; daar is break-all juist correct (een URL breek je
+   nooit met een koppelteken af, dus hyphens blijft hier uit). */
+.urls             {word-break:break-all; -webkit-hyphens:none;hyphens:none;text-decoration:underline;}
+ 
+
+.vid8               {margin: 11pt 23px 9.5pt 26px;color:black;font-size:10.5pt;line-height:128%;-webkit-hyphens:manual;hyphens:manual;z-index:1}
+.vid5               {margin:    11pt 23px 12pt  19px;color:black;font-size:11.5pt;line-height:130%;-webkit-hyphens:auto;hyphens:auto;z-index:1;}
+.vid6, .vid7, .vid8, .vid9{margin:     0pt  0px 11px   3px;color:black;font-size:11.5pt;line-height:130%;-webkit-hyphens:auto;hyphens:auto;z-index:1;}
+.vid7, .vid9                {font-style:italic;}
+.vid8, .vid9                {margin-bottom:0;line-height:135%;}
+.vid6                       {text-align:justify;} /* rechterkantlijn van het waarom-blok strak */
+
+
+
+.waaromtable     {margin-left:auto;margin-right:auto;background:#F8F8F8;border-radius:0px 0px 3px 3px;}
+.waaromkol1      {min-width:16px;max-width:16px;}
+.waaromkol2      {min-width:190px;max-width:190px;}
+.waaromkol2FR    {min-width:238px;max-width:238px;}
+.waaromkol2BA    {min-width:195px;max-width:195px;}
+.waaromkol3      {min-width:106px;max-width:106px;}
+.waaromkol4      {min-width:25px;max-width:25px;}
+.waaromkol5      {min-width:130px;max-width:130px;}
+.waaromkol6      {min-width:115px;max-width:115px;}
+.waaromkol7      {min-width:176px;max-width:176px;}
+.fontbullet      {font-size:24px;position:relative;top:0.5px;}
+.lijn            {border-bottom: 1px solid #999999;padding-bottom:5.5px;padding-top:6.5px;}
+.lijn2           {padding-bottom:5.5px;padding-top:6.5px;}
+.lijn3           {border-bottom: 1px solid #999999;padding-bottom:0;padding-top:11px;}
+.lijn4           {padding-bottom:0;padding-top:11px;}
+
+
+/* voor de indeling in 4 blokken op rij */
+.column2       {float:left;width:25%;text-align:center;}
+
+.card3         {padding:14pt 0 13.5pt 0;text-align:center;}
+
+/* Op S- en M-scherm witruimte tussen de vier blokken; op G-scherm ontstaat die al via de svg-lijnen */
+@media only screen and (max-width:1079.9px) {#box2 .card3, #box3 .card3, #box4 .card3, #box5 .card3 {margin-left:6px;}}
+@media only screen and (max-width:1079.9px) {.card3 p:first-child {font-size:15.4px !important;} .card3 p:last-child {font-size:15.6px !important;}}
+@media only screen and (max-width:810px)    {.card3 {padding-top:19.67px;padding-bottom:17px;}}
+
+
+
+
+.td1, .td2     {line-height:15.8pt;font-size:10.5pt;color:black;opacity:0;position:relative;top:-0.5px;}
+.td1           {margin:0 12pt 0 0;text-align:right;}
+.td2           {margin:0 0 0 12pt;}
+
+
+.polysvg       {height:200px;width:  40px;position:relative;top:0px;left:260px;z-index:1;}
+.polysvgdown   {height: 40px;width:1064px;position:relative;top:-33px;z-index:1;}
+
+.polygon2      {fill:#3D3D4B;}
+.polygon3      {fill:#900000;}
+.polyline2, .polyline3, .polyline4{stroke:#E7E7E7;stroke-width:4.5pt;fill:#525659;}
+.polyline2     {fill:#3D3D4B;}
+.polyline3     {fill:#900000;}
+.polyline4     {fill:#A20000;}
+
+.cursor        {cursor:pointer;}
+
+.countertext   {font-size:11.0pt;line-height:140%;filter:url(#f3);letter-spacing:0.1px;}
+.counternote   {font-size:   9pt;line-height:135%;}
+
+/* Voor het tonen van de steden op de kaart */
+.stroke2                {stroke-width:1px;stroke:#FFFFFF;fill:#2B2B5B;}
+.stoplichtX1            {z-index:1;}
+.stoplichtY1            {height:15.5px;fill:#FFFFFA;opacity:0.7;}
+.stoplichtZ1            {fill:#333333;font-size:8.7pt;letter-spacing:0.1px;}
+
+/* Interactieve reveal van de Europakaart (#europeanim, alleen NL desktop) — progressieve verbetering:
+   zonder JS of bij prefers-reduced-motion blijft de kaart meteen volledig zichtbaar.
+   0,35 s aanloop, dan een sequentie van 2,5 s; het km-label vloeit als afsluiter in beeld op 2,9-3,5 s. */
+#europeanim .animdot{transform-box:fill-box;transform-origin:center;}
+#europeanim .wipe{transform-box:fill-box;transform-origin:left center;}
+#europeanim.arm .animdot{transform:scale(0);opacity:0;}
+#europeanim.arm .wipe{transform:scaleX(0);}
+#europeanim.arm.play .animdot{transform:none;opacity:1;transition:transform .25s cubic-bezier(.22,.61,.36,1),opacity .22s ease;}
+#europeanim.arm.play .wipe{transform:none;transition:transform .5s cubic-bezier(.22,.61,.36,1);}
+#europeanim.arm.play .dhdot{transition-delay:.35s;}
+#europeanim.arm.play .dhpill{transition-delay:.73s;}
+#europeanim.arm.play .lineclip{transition:transform .6s cubic-bezier(.22,.61,.36,1);transition-delay:1.3s;}
+#europeanim.arm.play .srdot{transition-delay:2s;}
+#europeanim.arm.play .srpill{transition-delay:2.35s;}
+#europeanim.arm .kmlabel{opacity:0;}
+#europeanim.arm.play .kmlabel{opacity:1;transition:opacity .6s ease 2.9s;} /* afstandslabel als afsluiter van de sequentie */
+
+/* voor het oplichten van de boekcover */
+.opacityani {animation:flip2 1.4s ease-out 1.0s 1 forwards;}
+@keyframes flip2 {
+   0% {opacity:0;filter:blur(20px);}
+ 100% {opacity:1;filter:blur(0px);}}
+
+
+
+/* Subtiel knipper-effect: fade opacity van 1.0 naar 0.8 */
+
+
+@keyframes knipper {
+    0%, 100% { opacity: 1.0;r:7;fill:royalblue; }    /* Volledig zichtbaar */
+    50% { opacity: 0.5;r:6.5;fill:#1A2A44; }         /* Licht vervagen voor 'knipper' */
+}
+
+
+@keyframes knipper2 {
+    0%, 100% { opacity: 1.0;r:7;fill:black; }    /* Volledig zichtbaar */
+    50% { opacity: 0.5;r:3.5;fill:white; }         /* Licht vervagen voor 'knipper' */
+}
+
+/* voor de sprite met personen */
+.sprite                {background-repeat:no-repeat;display:block;width:142px;height:142px;border:solid 3px #FFFFFF;border-radius:50%;box-shadow:4.5px 4.5px 4px rgba(0,0,0,0.22);}
+.sprite-alsiadi        {background-position:0 0;}
+.sprite-bossa          {background-position:-145px 0;}
+.sprite-degrave        {background-position:-290px 0;}
+.sprite-dewinter       {background-position:-435px 0;}
+.sprite-flaticon       {background-position:-580px 0;}
+.sprite-colakovic      {background-position:0 -145px;}
+.sprite-durakovic      {background-position:-145px -145px;}
+.sprite-karabulut      {background-position:-290px -145px;}
+.sprite-laroes         {background-position:-435px -145px;}
+.sprite-nuhanovic      {background-position:-580px -145px;}
+.sprite-overduyn       {background-position:0 -290px;}
+.sprite-post           {background-position:-145px -290px;}
+.sprite-pronk          {background-position:-290px -290px;}
+.sprite-sprik          {background-position:-435px -290px;}
+.sprite-vanbommel      {background-position:0 -435px;}
+.sprite-voorhoeve      {background-position:-145px -435px;}
+.sprite-middelkoop     {background-position:-290px -435px;}
+.sprite-vanojik        {background-position:-435px -435px;}
+.sprite-vanwulfen      {background-position:-580px -435px;}
+.sprite-voss           {background-position:0 -580px;}
+.sprite-vistisen       {background-position:-145px -580px;}
+.sprite-diepeveen      {background-position:-290px -580px;}
+.sprite-breljakovic    {background-position:-435px -587px;}
+.sprite-droge          {background-position:0 -725px;}
+.sprite-vleugels       {background-position:-145px -725px;}
+.sprite-vanduijn       {background-position:-292px -725px;}
+.sprite-vanrossem      {background-position:-435px -725px;}
+
+/* voor de sprite met icons */
+.icons {background-repeat:no-repeat;display:block;width:142px;height:142px;border:solid 3px #FFFFFF;border-radius:50%;box-shadow:4.5px 4.5px 4px rgba(0,0,0,0.22);}
+/* Datum van het citaat, klein en gedempt onder het bolletje (via JS uit data-datum) */
+/* alleen het jaartal, recht en gecentreerd onder het bolletje (SVG-tekst in svgicon1).
+   data-datum stuurt bovendien de chronologische sortering in de filters. */
+.kaartdatum {font-size:8.4px;letter-spacing:0.2px;fill:#595959;font-weight:normal;}
+
+/* De twee sprites zijn samen 261 KB en horen bij kaarten die pas rond y=11900 van
+   een pagina van 22000 pixels beginnen. Ze worden daarom pas opgehaald zodra de
+   bezoeker in de buurt van de citaten komt: javascript-v90.js zet dan de klasse
+   op de body. Zonder javascript zet de noscript-regel in de pagina ze meteen aan,
+   anders blijven de rondjes leeg. */
+body.stemmenzicht .sprite{background-image:url(media/personen-v90.webp);}
+body.stemmenzicht .icons {background-image:url(media/iconss-v90.webp?v=2);}
+.icons-burco              {background-position: -580px -290px;}  /* Burco-logo, nu in de sprite */
+.icons-31mag              {background-position:   -8px   -7px;}
+.icons-avaz               {background-position: -294px   -3px;}
+.icons-balkaninsight      {background-position: -297px -576px;}
+.icons-bannedbooks        {background-position: -296px -294px;}
+.icons-biblion            {background-position: -882px -863px;}
+.icons-bibliotheek        {background-position: -596px -720px;}
+.icons-boekjepienter      {background-position: -292px -1006px;}
+.icons-blauwhelm          {background-position:   -5px -148px;}
+.icons-bloem              {background-position: -880px -717px;}
+.icons-boekx              {background-position: -731px -138px;}
+.icons-bosna              {background-position: -442px -153px;}
+.icons-casema             {background-position: -878px -294px;}
+.icons-dbsuriname         {background-position:  -14px -675px;background-size:1173px 1320px;}
+.icons-grok               {background-position: -583px    2px;}
+.icons-hebban             {background-position:    0px -297px;}
+.icons-indexoncensorship {background-position: -585px -437px;}
+.icons-ing                {background-position: -591px -864px;}
+.icons-jazeera            {background-position: -144px -298px;}
+.icons-jazeerabalkans     {background-position:  -11px -712px;}
+.icons-koningin           {background-position: -149px   -3px;}
+.icons-leeskost           {background-position: -290px -430px;}
+.icons-leidsch            {background-position: -438px -294px;}
+.icons-nieuwerevu         {background-position:   -4px -440px;}
+.icons-odb                {background-position: -880px -150px;}
+.icons-randstad           {background-position: -733px -291px;}
+.icons-rechtspraak        {background-position: -145px -439px;}
+.icons-rijk               {background-position: -296px -723px;}
+.icons-schrijven          {background-position:   -1px -1004px;background-color:#ffffff;}
+.icons-sindo              {background-position: -146px -1004px;}
+.icons-rts                {background-position: -439px   -1px;}
+.icons-vaalburg           {background-position: -884px -440px;}
+.icons-vandiepen          {background-position: -440px -438px;}
+.icons-veer               {background-position: -143px -573px;}
+.icons-thrillerlezers     {background-position: -435px -1004px;}
+.icons-haarlemsweekblad   {background-position: -580px -1004px;}
+.icons-eenvandaag         {background-position: -725px -1004px;}
+.icons-vesti              {background-position:-1170px -779px;background-size:1326px 1492px;}
+.icons-veteraneninstituut {background-position: -585px -143px;}
+.icons-vkontakte          {background-position: -296px -150px;}
+.icons-volkskrant         {background-position: -733px -436px;}
+
+/* voor de aanpassing voor grote en kleine schermen */
+ @media only screen and (max-width: 810px)                         {div.S-scherm  {display:inline;}}
+div.SM-scherm {display:none;} @media only screen and (max-width: 1079.9px)                      {div.SM-scherm {display:inline;}}
+ @media screen and (max-width: 1079.9px) and (min-width: 810.1px)  {div.M-scherm  {display:inline;}}
+div.G-scherm  {display:none;} @media only screen and (min-width: 1080px)                        {div.G-scherm  {display:inline;}}
+div.MG-scherm {display:none;} @media only screen and (min-width: 810.1px)                       {div.MG-scherm {display:inline;}}
+
+/* voor het wel of niet tonen van de boektitel */
+#myLinks {display:none;}
+
+/* Responsive maken van website */
+
+
+
+
+.breedte415D    {width:303px;height:170.0px;}
+.breedte415E    {width:750px;border:solid 0.5px #CCCCCC;border-radius:3px;}
+.breedte484     {width:480px}
+
+
+.breedte747     {width:755px}
+.breedte774     {width:772px;}
+.breedte794     {width:794px}
+.button1        {font-size:13px;}
+.align          {text-align:left;}
+
+.vimeo          {border-radius:3px;z-index:1;position:relative;}
+.vimeo2         {width:299px;height:171px;vertical-align:top;right:-27.7px;border-radius:0 0 4px 4px;}
+/* Horizontale posities van de video's en de Grok-afbeelding — centraal in de stylesheet
+   (voorheen inline per taalbestand), zodat een aanpassing meteen voor alle taalversies geldt */
+.vimeos .vimeo, .groktweets .vimeo{right:-23px;}      /* linker video (beide blokken) */
+.vimeos iframe.vimeo2:not(.vimeo){right:-144px;}      /* rechter video (videoblok) */
+.groktweets img{width:400px;margin:4px 0 0 141px;vertical-align:top;}  /* rechter afbeelding (Grok-blok) */
+
+
+
+
+
+/* Als de viewport een minimale breedte heeft van 980 pixels, dan de site optimaliseren voor breed */
+@media only screen and (min-width: 1080px) {
+
+.breedte415E    {width:1009px;}
+.breedte484     {width:728px}
+
+
+.breedte747     {width:1010px}
+.breedte774     {width:1024px}
+.breedte794     {width:1054px}
+.menubutton     {padding:7.5px 15px;margin-right:4px;background-image:linear-gradient(110deg, #52565D, #52565D 100%);}
+.auteurtxt      {text-align:justify;margin-left:20px;}
+.button1        {font-size:14px;}
+.blurbbar       {border-radius:3px 3px 3px 3px;}
+.blurbstyle     {font-size:12.9pt;letter-spacing:0.15px;}
+
+.countertext    {font-size:14pt;}
+.counternote    {font-size:10.2pt;margin-bottom:12px;margin-top:1.5px;}
+
+
+
+
+
+
+
+.europelocS     {left:674px;}
+.europelocS2    {left:674px;}
+.align          {text-align:right;}
+.container6     {position:relative;left:0px}
+
+.min            {min-height:137px;}
+
+
+
+
+.col2a, .col2b  {margin-left:3pt;font-size:10.5pt;}
+.col4           {margin-left:3pt;}
+.table1, .table2 {height:165px;}
+.tableDEU       {height:192px;}
+.tableFR        {height:192px;}
+.tablewidth     {width:59.5pt}
+.portretcirkel  {width:366px;margin:3px 5px 0 25px;}
+.auteurstyle    {margin:38px 0 24px 418px}
+.auteurfoto     {margin:10px 40px 0 26px;}
+
+}
+
+/* Als de viewport een maximale breedte heeft van 810 pixels, dan de site optimaliseren voor smal */
+@media only screen and (max-width:810px) {
+
+.breedte415E    {min-width:650px;max-width:650px;}
+.breedte484     {width:379px}
+
+
+.breedte747     {width:658px}
+.breedte774     {width:672px}
+.breedte794     {width:694px}
+.counternote    {font-size:7.5pt;}
+.countertext    {font-size:10pt;}
+
+.auteurtxt      {font-size:10.2pt}
+.star           {letter-spacing:0em;font-size:11.2pt;}
+.button1        {font-size:12px;}
+.blurbstyle     {font-size:11pt;letter-spacing:0.05px;}
+.tekst          {font-size:11pt;line-height:125%;}
+.align          {text-align:left;}
+.button1{padding:5.5px 9px;}
+.europelocS     {left:314px;}
+.europelocS2    {left:314px;}
+
+
+
+
+
+.table1, .table2 {height:292px;}
+.tableDEU       {height:324px;}
+.tableFR        {height:326px;}
+
+
+}
+
+.statcounter{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap;border:0;margin:-1px;padding:0;}
+
+/* Mediatijdlijn – zelfde lettertype/grootte als de nieuwssectie; links donkerrood, rest zwart.
+   Geen marges links en rechts: die levert het kader (.ddg-mediabox) waarin de tijdlijn staat.
+   Het grote bolletje steekt een pixel links van de tijdlijn uit en komt zo een pixel links
+   van de filterknoppen erboven te staan. Boven twintig pixels, gerekend vanaf de knoppen;
+   het bolletje begint anderhalve pixel boven de eerste gebeurtenis, dus daar blijft 18,5 over. */
+.ddg-timeline{font-family:"Helvetica","Arial";font-size:11.5pt;line-height:135%;color:#000000;
+              text-align:left;-webkit-hyphens:none;hyphens:none;margin:20px 0 0 0;}
+.ddg-timeline *,.ddg-timeline *::before,.ddg-timeline *::after{box-sizing:border-box;}
+.ddg-timeline .tl{position:relative;padding-left:28px;margin-top:6px;padding-bottom:16px;}
+.ddg-timeline .tl::before{content:"";position:absolute;left:8px;top:6px;bottom:10px;width:1.5px;background:linear-gradient(#000000 0%,#000000 calc(100% - 40px),transparent 100%);}
+.ddg-timeline .tl-item{position:relative;margin:0 0 16px;}
+.ddg-timeline .tl-item:last-child{margin-bottom:2px;}
+/* Dezelfde 2px voor de laatste zíchtbare gebeurtenis. Met een filter aan zijn gebeurtenissen
+   zonder passende media verborgen (.tl-empty), en bij 'Nederlandse media' zijn dat juist de
+   laatste twee. De laatste zichtbare is dan niet meer :last-child, hield zijn 16px en de
+   doorlopende lijn liep 14px te ver door. Niet in de stand 'alleen tijdlijn': daar delen de
+   twee kolommen hun rijhoogtes en hoort elke gebeurtenis dezelfde 15px te houden. */
+.ddg-timeline:not([data-filter="geen"]) .tl-item:not(:has(~ .tl-item:not(.tl-empty))){margin-bottom:2px;}
+.ddg-timeline .tl-item::before{content:"";position:absolute;left:-25.5px;top:2px;width:13px;height:13px;
+                               border-radius:50%;background:#52565D;border:0.5px solid #000000;}
+/* De drie mijlpalen vergroot en van een symbool voorzien: de boeklancering als
+   startpunt (grijze bal met witte binnencirkel), het totaalverbod als
+   verbodsbord (rode bal met witte balk), de zege als groene bal met een wit
+   vinkje. De open ring staat twee keer: bij de Nederlandse lancering en bij de
+   internationale, zodat die twee als paar leesbaar zijn. Symbolen als ingebedde SVG,
+   gecentreerd op dezelfde lijnas. De startbal stond een pixel lager dan de andere twee,
+   voor wat lucht erboven; sinds de tekst kleiner is gezet viel dat op als scheefstand en
+   staat hij gelijk. */
+.ddg-timeline .tl-item.tl-start::before,
+.ddg-timeline .tl-item.tl-ban::before,
+.ddg-timeline .tl-item.tl-win::before{width:20px;height:20px;left:-29px;top:-1.5px;
+                               background-size:100% 100%;background-repeat:no-repeat;}
+.ddg-timeline .tl-item.tl-start::before{top:-1.5px;background-color:#52565D;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Ccircle cx='10' cy='10' r='4.4' fill='%23fff' stroke='%23000' stroke-width='0.5'/%3E%3C/svg%3E");}
+.ddg-timeline .tl-item.tl-ban::before{background-color:#E60000;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Crect x='4.1' y='8.4' width='11.8' height='3.2' rx='1.6' fill='%23fff' stroke='%23000' stroke-width='0.5'/%3E%3C/svg%3E");}
+.ddg-timeline .tl-item.tl-win::before{background-color:#2E9E40;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M5.1 10.7 8.4 14 14.9 6.5' fill='none' stroke='%23000' stroke-width='3.7' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M5.1 10.7 8.4 14 14.9 6.5' fill='none' stroke='%23fff' stroke-width='2.7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");}
+
+.ddg-timeline .tl-date{font-size:90%;text-transform:uppercase;letter-spacing:.5px;color:#000000;line-height:1.28;}
+.ddg-timeline .tl-title{font-weight:normal;font-size:96%;color:#000000;margin:0 0 3px;line-height:1.28;}
+.ddg-timeline .tl-out{color:#000000;}
+/* Vlaggen-webfont: gesubset tot de 18 gebruikte vlaggen; laat Windows/Linux
+   de emoji-regional-indicators ook als vlag tonen i.p.v. lettercodes */
+@font-face{
+  font-family:'ddgvlag';
+  src:url(media/flags-v90.woff2?v=3) format('woff2');
+  unicode-range:U+1F1E6-1F1FF;
+  font-display:swap;
+}
+.vlag,.kleinvlaggetje{font-family:'ddgvlag',system-ui,'Segoe UI Emoji','Apple Color Emoji',sans-serif;}
+/* Dezelfde haarlijn als om de vlaggen in de landenbalk: de mediapil is wit, dus zonder
+   die schaduw valt de witte baan van bijvoorbeeld de Indonesische of de Estse vlag weg
+   in de pil. drop-shadow volgt de vorm van de glyph, dus ook de afgeronde hoeken. */
+.ddg-timeline .vlag{font-size:0.9em;line-height:0;vertical-align:baseline;
+                 filter:drop-shadow(0 0 0.5px rgba(0,0,0,0.55));}
+.ddg-timeline .tl-out .o{display:inline-block;border-radius:2px;padding:0.5px 7px 0.125pt 7px;margin:0 2.5px 4px 0;
+                         white-space:nowrap;background:#FFFFFF;border:1px solid #d9cfcf;color:#111111;text-decoration:none;font-size:88%;word-spacing:-0.02em;}
+.ddg-timeline .tl-out a.o:link,.ddg-timeline .tl-out a.o:visited{background:#FFFFFF;border:1px solid #d9cfcf;
+                         color:#900000;text-decoration:none;}
+.ddg-timeline .tl-out a.o:hover{background:#F00000;color:#ffffff;border-color:#F00000;}
+
+/* Interactieve mediafilter: knoppenbalk boven de tijdlijn (alleen zichtbaar met JS) */
+.ddg-mediafilter{display:flex;flex-wrap:wrap;gap:6px;margin:12px 20pt 2px 30pt;
+                 font-family:"Helvetica","Arial";}
+/* De knoppen boven de tijdlijn even groot als de mediapillen eronder. Beide staan
+   op 88%, maar de knoppen erfden 16px van de body en de pillen 11,5pt uit de
+   tijdlijn; deze grondmaat trekt dat gelijk. Alleen de mediafilter, want de
+   citatenbalk heeft geen pillen onder zich om zich naar te voegen. De padding is
+   op die van .tl-out .o geent en daarna met de hand nagesteld. */
+#mediaFilter,#mediaSub{font-size:11.5pt;}
+/* Boven 0,8px meer en onder 0,8px minder dan de 2,75px die hier stond (Edwin, 8 sept 2026):
+   met gelijke padding zit de basislijn op 17,75px van 27,64px, dus staat het opschrift bijna een
+   pixel te hoog in de pil. De hoogte blijft gelijk. */
+#mediaFilter button,#mediaSub button{padding:3.55px 7.5px 1.95px 7.5px;
+/* Even hoog als de mediapil eronder. Die is 23,36px: 20,7px regelhoogte (135%% van
+   11,5pt, geerfd uit de tijdlijn) plus 0,5 en 0,167px padding plus twee randen.
+   Deze knop heeft iets meer padding, dus blijft er 20,14px regelhoogte over. */
+                     line-height:20.14px;word-spacing:-0.02em;}
+/* De telling een fractie omhoog, net als in de citatenbalk. Relatief geplaatst,
+   dus het raakt de regelval niet. */
+#mediaFilter .mf-count,#mediaSub .mf-count {position:relative;top:-0.1px;}
+.ddg-mediafilter button{cursor:pointer;font-family:inherit;font-size:88%;line-height:1.25;
+                 background:#FFFFFF;border:1px solid #d9cfcf;border-radius:2px;color:#900000;
+                 padding:3.75px 9px;display:inline-flex;align-items:baseline;gap:6px;
+                 /* baseline en niet center: de telling staat op 85%% en zou bij centreren
+                    met haar basislijn boven die van het opschrift uitkomen. */
+                 -webkit-appearance:none;appearance:none;transition:background .12s,color .12s,border-color .12s;}
+/* Safari tekent na een tik of klik zijn eigen blauwe focusring om de knop, 2px dik en 1px
+   van de rand: die bedekte de bovenste 3px van de stam uit de schakelaar, zodat de stam
+   korter leek dan de pootjes eronder (ze zijn allebei 14,5px). Alleen bij toetsenbordfocus
+   (:focus-visible) blijft de ring staan, zoals bij de andere knoppen op de pagina. */
+.ddg-mediafilter button:focus:not(:focus-visible) {outline:none;}
+/* Aanwijzen geeft hetzelfde donkere grijsblauw als een gekozen knop, voor beide
+   balken. De cirkel krijgt geen eigen kleur: alleen zijn rand wordt wit, net als
+   het opschrift. */
+.ddg-mediafilter button:hover{background:#F00000;color:#ffffff;border-color:#F00000;box-shadow:0 4px 10px 0 rgba(20,0,0,0.2);}
+.ddg-mediafilter button[aria-pressed="true"]{background:#900000;color:#ffffff;border-color:#900000;
+                 cursor:default;}   /* opnieuw klikken verandert niets */
+/* De gekozen knop is geen link naar iets nieuws, dus die licht niet op en krijgt ook
+   geen schaduw bij aanwijzen. */
+.ddg-mediafilter button[aria-pressed="true"]:hover{box-shadow:none;}
+.ddg-mediafilter .mf-count{font-size:85%;color:#565a62;}
+.ddg-mediafilter button:hover .mf-count,
+.ddg-mediafilter button[aria-pressed="true"] .mf-count{color:#ffffff;}
+/* Radioknop rechts in de pill: leeg als uit, wit gevuld op de donkerrode geselecteerde pill.
+   Tien pixels en niet elf: in de landenbalk staat het bolletje naast twee letters, en op
+   elf werd het daar de zwaarste vorm in de knop. De andere balken en de puntjes onder de
+   staafjes van de tijdlijn volgen diezelfde maat, want ze horen een bolletje te delen. */
+.ddg-mediafilter .mf-dot{width:10px;height:10px;border-radius:50%;flex:none;align-self:center;
+                 border:1.5px solid #848484;background:#FFFFFF;
+                 transition:background .12s,border-color .12s;}
+.ddg-mediafilter button:hover .mf-dot{border-color:#ffffff;background:transparent;}
+.ddg-mediafilter button[aria-pressed="true"] .mf-dot{background:#111111;border-color:#ffffff;}
+/* Verberg de pills die niet bij de gekozen regio horen, en lege tijdvakken */
+.ddg-timeline[data-filter="nl"] .tl-out .o:not(.r-nl),
+.ddg-timeline[data-filter="balkan"] .tl-out .o:not(.r-balkan),
+.ddg-timeline[data-filter="other"] .tl-out .o:not(.r-other){display:none;}
+.ddg-timeline .tl-item.tl-empty{display:none;}
+/* Alleen de tijdlijn: de mediapillen gaan uit beeld maar blijven in de pagina staan, zodat
+   de bronlinks vindbaar blijven. Achter elke gebeurtenis komt dan de telling te staan die
+   javascript erbij zet; in de andere standen zie je de media zelf en is dat cijfer
+   overbodig. */
+.ddg-timeline[data-filter="geen"] .tl-out{display:none;}
+.ddg-timeline .tl-tel{display:none;}
+/* De aantallen achter de gebeurtenissen leidden af in de kale tijdlijn (Edwin, 26 sept 2026); ze blijven verborgen. */
+/* Tellingen op de knoppen alleen tijdens het filteren: in de kopregel pas als de regiorij openstaat. */
+#mediaFilter .mf-count{display:none;}
+#mediaFilter:has(.paneel-knop[aria-expanded="true"]) .mf-count{display:inline;}
+
+/* Zonder de media is elke gebeurtenis nog maar twee regels hoog en wordt de kolom een
+   smalle sliert over het halve scherm. Dan naast elkaar in twee kolommen: het aantal
+   rijen komt van javascript, want het hangt af van hoeveel gebeurtenissen er zijn, en met
+   grid-auto-flow:column vult de eerste kolom zich eerst helemaal. Alle gebeurtenissen zijn
+   in deze stand even hoog, dus de gedeelde rijhoogtes van een grid vallen precies goed. */
+/* De maat van het S-scherm, ook op M en L. Het blok eromheen groeit met het venster mee,
+   en dan werden de twee kolommen zo breed dat er een gat viel tussen de datum en de kolom
+   ernaast. Op 627px, de breedte die de tijdlijn op een S-scherm heeft, staat het rustiger.
+   Alleen in deze stand: met de mediapillen erbij is alle breedte juist welkom. */
+.ddg-timeline[data-filter="geen"] .tl{display:grid;grid-auto-flow:column;
+                                      grid-template-rows:repeat(var(--tl-rijen,6), auto);
+                                      grid-auto-columns:1fr;column-gap:64px;max-width:627px;}
+/* Twee pixels minder onderrand dan met de media erbij (16px): het kader eromheen heeft in
+   deze stand geen eigen onderrand meer, en zo komt de bocht van de verbindingslijn dichter
+   op de kaderrand te liggen. Het script tekent die bocht 15px boven de onderkant van .tl
+   (was 17), zodat de bocht zelf niet meeschuift maar op dezelfde hoogte onder de laatste
+   gebeurtenis blijft. */
+.ddg-timeline[data-filter="geen"] .tl{padding-bottom:14px;}
+/* De rechterkolom zakt vijftien pixels. Daarboven is dan ruimte voor de bocht waarmee de
+   lijn uit de eerste kolom op het bolletje van de eerste gebeurtenis rechts uitkomt. Het
+   is een verschuiving en geen marge: die zou de rij hoger maken en dus ook de linkerkolom
+   omlaag duwen, want in een grid delen twee kolommen dezelfde rijhoogtes. */
+.ddg-timeline[data-filter="geen"] .tl-item.tl-kolom2{position:relative;top:15px;}
+/* Zonder de mediapillen staan de gebeurtenissen twee pixels dichter op elkaar (Edwin, 22 sept 2026:
+   van 15 naar 14px): er staat dan alleen tekst onder elkaar en die verdraagt een strakkere zetting
+   dan een lijst pillen. Het lijnstuk per gebeurtenis (::after, bottom) en het doorgetrokken stuk
+   van .tl-voorslot lopen met deze marge mee. */
+.ddg-timeline[data-filter="geen"] .tl-item{margin-bottom:14px;}
+/* De doorlopende lijn hangt aan .tl en zou maar één kolom bedienen. Daarom hier een stukje
+   lijn per gebeurtenis, dat doorloopt in de marge eronder en zo aansluit op het volgende.
+   De bol moet erbovenop blijven liggen: die is een ::before en wordt dus eerder getekend
+   dan dit ::after, vandaar de z-index. */
+.ddg-timeline[data-filter="geen"] .tl::before{display:none;}
+.ddg-timeline[data-filter="geen"] .tl-item::before{z-index:1;}
+.ddg-timeline[data-filter="geen"] .tl-item::after{content:"";position:absolute;
+                                      left:-20px;top:0;bottom:-14px;width:1.5px;background:#000000;}
+/* Bovenaan een kolom begint de lijn een paar pixels lager, zoals de doorlopende lijn dat
+   ook deed; aan het eind van de hele tijdlijn dooft hij uit in plaats van hard af te breken. */
+.ddg-timeline[data-filter="geen"] .tl-item.tl-kolomstart::after{top:6px;}
+/* Het slot van de hele tijdlijn dooft uit in plaats van hard af te breken. Vijf pixels
+   lager dan de onderkant van de laatste gebeurtenis, zodat de lijn nog even doorloopt
+   voordat hij vervaagt: dat leest als 'hier houdt het niet op'. */
+.ddg-timeline[data-filter="geen"] .tl-item.tl-kolomeind::after{bottom:-5px;
+                                      background:linear-gradient(#000000 0%,#000000 calc(100% - 24px),transparent 100%);}
+
+/* De verbinding tussen de twee kolommen is één getekend pad: onderaan de eerste kolom naar
+   rechts, door de tussenruimte omhoog en met een bocht op het bolletje van de eerste
+   gebeurtenis rechts. Het wordt door javascript in de tijdlijn gezet, want de hoogte hangt
+   af van het aantal gebeurtenissen en die kan de stylesheet niet weten.
+   Het kleurverloop zit op dat ene pad. De as ervan loopt alleen over de bocht, van de
+   stijger tot het bolletje; alles wat daar links van ligt valt buiten de as en houdt de
+   eerste kleur, dus de bodem en de stijger blijven egaal grijs. De overgang van zwart naar
+   grijs zit niet hier maar in het staartje van de tijdlijn zelf, onder het laatste
+   bolletje links: dat is de tijdlijn die uitdooft, niet de verbinding die begint. */
+.ddg-timeline .tl-verbinding{display:none;}
+.ddg-timeline[data-filter="geen"] .tl-verbinding{display:block;position:absolute;
+                                      left:0;top:0;width:100%;height:100%;
+                                      overflow:visible;pointer-events:none;}
+
+/* De onderste gebeurtenis van de linkerkolom tekent zelf geen lijn meer: vanaf haar
+   bolletje neemt het pad van de verbinding het over, in één streek tot aan het bolletje
+   rechtsboven. */
+.ddg-timeline[data-filter="geen"] .tl-item.tl-eind1::after{display:none;}
+
+/* Het slot van de tijdlijn (tekenSlot in de pagina): de css-lijn van de voorlaatste
+   gebeurtenis loopt egaal zwart door tot in het bolletje van de laatste, en daar begint het
+   getekende pad: onder de gebeurtenis een verloop naar het grijs van de verbinding, een
+   bocht naar rechts, een pijlpunt en het woord uit data-slot, in de letter van de titels
+   (96%, kleine letters) maar in het grijs van de tellingen: wat nog moet komen. */
+.ddg-timeline .tl-slot{position:absolute;left:0;top:0;width:100%;height:100%;overflow:visible;pointer-events:none;}
+.ddg-timeline .tl-slot text{font-family:"Helvetica","Arial";font-size:96%;fill:#565a62;}
+/* Alleen in de stand 'alleen tijdlijn' (twee kolommen): de laatste gebeurtenis tekent daar
+   geen eigen lijnstuk meer, want het getekende pad begint al in haar bolletje, en de
+   gebeurtenis erboven trekt haar lijnstuk door tot in dat bolletje (14px marge plus 8,5px
+   tot het hart van de bol), zodat lijn en pad elkaar achter de bol ontmoeten. Met de media
+   erbij, en op mobiel, blijft het korte uitdovende staartje. */
+.ddg-timeline.tl-metslot[data-filter="geen"] .tl-item.tl-kolomeind::after{display:none;}
+.ddg-timeline.tl-metslot[data-filter="geen"] .tl-item.tl-voorslot::after{bottom:-22.5px;}
+/* Het slot wordt getekend zodra het in beeld komt (tl-slot-aan, gezet door tekenSlot). Elk
+   pad is één streep met een gat erachter, beide zo lang als het pad (--tl-lengte, uit de
+   pagina); eerst staat de streep net buiten het pad en met stroke-dashoffset schuift hij er
+   in één gelijkmatige beweging in: uit het bolletje omlaag, door de bocht, naar rechts. De
+   lijn duurt --tl-lijn; vanaf --tl-pijl (een tiende seconde vóór het eind van de lijn)
+   groeien de twee vleugels van de pijl tegelijk van links naar rechts naar de punt toe, en
+   vanaf --tl-woord wordt het woord getypt: elke letter staat in een eigen tspan
+   en verschijnt op zijn beurt (--tl-tik, uit de pagina), zonder vervagen.
+   Met tl-slot-stil (al eens getekend, of beweging beperkt) staat alles er meteen.
+   De overgangen staan bewust alleen onder tl-slot-aan: een overgang volgt de stijl ná de
+   wijziging, dus zodra die klasse erbij komt loopt hij, maar het opzetten ervoor (maten die
+   het script één voor één zet, met een stijlberekening ertussen) animeert nooit mee. */
+.ddg-timeline .tl-slot .tl-slot-lijn,
+.ddg-timeline .tl-slot .tl-slot-pijl{stroke-dasharray:var(--tl-lengte,0);stroke-dashoffset:calc(var(--tl-lengte,0px) + 2px);}
+.ddg-timeline .tl-slot text tspan{opacity:0;}
+.ddg-timeline .tl-slot.tl-slot-aan .tl-slot-lijn{stroke-dashoffset:0px;transition:stroke-dashoffset var(--tl-lijn,0s) linear;}
+.ddg-timeline .tl-slot.tl-slot-aan .tl-slot-pijl{stroke-dashoffset:0px;transition:stroke-dashoffset 0.15s linear var(--tl-pijl,0s);}
+.ddg-timeline .tl-slot.tl-slot-aan text tspan{opacity:1;transition:opacity 0.01s linear calc(var(--tl-woord,0s) + var(--tl-tik,0s));}
+.ddg-timeline .tl-slot.tl-slot-stil .tl-slot-lijn,
+.ddg-timeline .tl-slot.tl-slot-stil .tl-slot-pijl,
+.ddg-timeline .tl-slot.tl-slot-stil text tspan{transition:none;}
+
+/* De medialijst staat op de desktop altijd open, ongeacht de vensterbreedte. Dat stond tot
+   nu toe alleen boven de 1080px aan; daaronder moest je eerst op 'Lees meer' klikken. De
+   tijdlijn is de kern van dit blok en hoort niet achter een knop te zitten. De knop en de
+   maximumhoogte staan nog in de HTML omdat de mobiele versie ze wel gebruikt; hier worden
+   ze uitgezet. Mobiel laadt zijn eigen stylesheet en houdt dus zijn uitklapknop. */
+#publicationsList{max-height:none !important;overflow:visible !important;}
+/* De kop na het kader: 23px lucht erboven, drie meer dan de 20px die een h3 na een alinea
+   krijgt, omdat een kaderrand optisch dichterbij staat dan een tekstregel. Het kader brengt
+   zelf 14px ondermarge mee, maar verticale marges vallen samen en de grootste wint, dus
+   deze 23 bepaalt de afstand. */
+.ddg-na-tl{margin-top:23px;}
+
+/* === Eén kader om de hele medialijst: introzin, filterknoppen, tijdlijn én de verwijzing
+   naar de geannoteerde pdf onderaan. In dezelfde vorm als de inhoudstabel (.mini-toc):
+   hetzelfde grijs en dezelfde halve-pixelrand met hoeken van 3px, maar zonder de dikke
+   donkergrijze kantlijn links. Geen vaste breedte: het kader staat tussen dezelfde
+   kantlijnen als de tekst (18,5pt links en rechts, de marges van .mediastyle) en vult
+   die dus op elke schermmaat precies uit. === */
+.ddg-mediabox{box-sizing:border-box;margin:12px 18.5pt 14px 18.5pt;padding:13px 18px 11px 18px;
+              background:#E8E9EB;border:solid 0.5px #CCCCCC;border-radius:3px;}
+/* In de stand 'alleen tijdlijn' maar één pixel onderrand: de tijdlijn eindigt daar met de
+   bocht van de verbindingslijn en die brengt via .tl zelf al veertien pixels lucht mee. Met
+   de media erbij staat de pdf-zin onderaan en past de volle elf pixels wel. */
+.ddg-mediabox:has(.ddg-timeline[data-filter="geen"]){padding-bottom:1px;}
+/* Introzin bovenin het kader. Twee pixels naar links, net als de knoppen eronder en de
+   pdf-zin onderaan; de tijdlijn zelf blijft staan. Elf en een halve punt en niet de 12pt van
+   hiervoor: dezelfde grondmaat als de filterbalk eronder (#mediaFilter), zodat de introzin
+   en de knoppen uit één letterfamilie in één maat komen. */
+.ddg-stats-note{margin:0 0 0 -2px;font-family:"Helvetica","Arial";font-size:11.5pt;
+                line-height:1.35;color:#000000;font-style:italic;}
+.ddg-mediabox .ddg-mediafilter{margin:7.7px 0 0 -2px;}
+/* De regiorij onder de kopregel (javascript maakt hem, zie het inline script bij #mediaFilter)
+   hangt met dunne lijntjes aan de schakelaar 'filter media': een stam recht omlaag uit de
+   pil, een rail, en van die rail een pootje naar elke knop. Die lijntjes lopen door deze
+   strook van 29px: 14,5px stam boven de rail en 14,5px pootje eronder, dezelfde maat als
+   bij de citatenfilter op een S- en M-scherm. Zelfde 6px eronder als de kopregel had naar
+   de tijdlijn (.tl heeft 6px marge boven), dus die verspringt niet als de rij openklapt. */
+.ddg-mediabox #mediaSub{margin-top:29px;}
+/* De verwijzing naar de geannoteerde pdf sluit het kader af, als gewone cursieve regel in
+   dezelfde letter als de introzin bovenin. Hij hoort bij de medialijst en niet bij de
+   tijdlijn, dus in de stand 'alleen tijdlijn' staat hij er niet: dan is er geen selectie
+   in beeld om naar te verwijzen. Geen marge erboven: de tijdlijn brengt zelf al zestien
+   pixels onderrand mee (.tl) en de laatste gebeurtenis nog twee. */
+.ddg-pdf-note{margin:0 0 0 -2px;font-family:"Helvetica","Arial";font-style:italic;font-size:11.5pt;
+              line-height:1.35;color:#000000;}
+.ddg-timeline[data-filter="geen"] + .ddg-pdf-note{display:none;}
+
+/* === Inhoudstabel (mini-TOC): box in de stijl van het videoblok (.vimeos) === */
+/* Alleen op groot scherm (>=1080px), net als .G-scherm / het videoblok */
+.mini-toc{display:none;position:relative;box-sizing:border-box;min-width:999px;max-width:999px;
+          margin:14px 0 14px 30px;padding:12px 26px 11px 22px;
+          background:#E8E9EB;border:solid 0.5px #CCCCCC;border-radius:3px;
+          font-family:Helvetica,Arial,sans-serif;}
+.mini-toc::before{content:"";position:absolute;left:-6px;top:0;bottom:0;width:13px;
+          background:#52565D;border-radius:3px 0 0 3px;}
+h3[id]{scroll-margin-top:75px;}
+.mini-toc .lbl{font-size:14px;letter-spacing:.05em;text-transform:uppercase;color:#1A1A1A;margin-bottom:9px;}
+.mini-toc ol{display:grid;grid-auto-flow:column;grid-template-rows:repeat(6,auto);
+          grid-template-columns:410px auto;row-gap:4px;column-gap:12px;
+          margin:0;padding:0;list-style:none;counter-reset:toc;}
+.mini-toc li{counter-increment:toc;font-size:14px;line-height:1.3;
+          position:relative;padding-left:calc(1.7em + 3px);}
+.mini-toc a:link, .mini-toc a:visited{color:#900000;text-decoration:underline;}
+/* Het volgnummer hangt aan de li en niet aan de link: zo valt de hoverschaduw onder de
+   linktekst zelf, net als bij de andere hyperlinks in het essay, in plaats van onder een
+   breed vak met de 1,7em nummerruimte erbij. */
+.mini-toc a:hover{color:#900000;text-decoration:underline;box-shadow:0 4px 10px 0 rgba(20,0,0,0.2);}
+.mini-toc li::before{content:counter(toc) ".";position:absolute;left:0;top:0;
+          color:#1A1A1A;text-decoration:none;box-shadow:none;}
+@media only screen and (min-width:1080px){.mini-toc{display:block;}}
+/* === Medium schermen (810–1080px): de drie brede blokken passend maken voor de tekstkolom.
+   Inhoudstabel wordt verkleind; de videoblokken houden hun volledige videoformaat maar worden
+   heringedeeld (video's/afbeelding eerlijk over de breedte, bijschriften op ware grootte). === */
+@media only screen and (min-width:810.1px) and (max-width:1079.9px){
+  /* Inhoudstabel op normale grootte, passend binnen de tekstkolom (videoblokken op S verborgen) */
+  .mini-toc{display:block; min-width:0 !important; max-width:none !important; width:739px !important;}
+  .mini-toc ol{display:block; width:660px; column-count:2; column-gap:36px; row-gap:0;}
+  .mini-toc li{break-inside:avoid; margin-bottom:4px;}
+  .mini-toc li:nth-child(7){break-before:column;}
+  /* Videoblokken op M: van 999px naar de mini-TOC-breedte (739px), maar ZONDER zoom — video's en
+     bijschriften blijven op ware grootte. height:auto zodat afgebroken bijschriften ruimte krijgen. */
+  .vimeos, .groktweets{min-width:0 !important; max-width:739px !important; width:739px !important;
+                       height:auto !important; position:relative; padding-bottom:7px;}
+  /* Vaste-hoogte SVG-balk vervangen door een CSS-balk die met de blokhoogte meegroeit (zoals de mini-TOC) */
+  .vimeos::before, .groktweets::before{content:""; position:absolute; left:-6px; top:0; bottom:0;
+                       width:13px; background:#52565D; border-radius:3px 0 0 3px; z-index:3;}
+  .vimeos > div.container5:first-child svg, .groktweets > div.container5:first-child svg{height:0; visibility:hidden;}
+  /* Kolommen uitlijnen op de mini-TOC-kolommen (linkerkolom 23–335, rechterkolom 371–683 t.o.v. de box):
+     linkervideo blijft op x≈24; rechtervideo/-afbeelding schuift naar x≈371 zodat de rechterkolom
+     samenvalt met die van de inhoudstabel. */
+  .vimeos iframe.vimeo2:not(.vimeo){right:-66.5px;}          /* rechtervideo → linkerrand rechterkolom (x≈371) */
+  .groktweets svg[width="1020"]{display:none;}               /* decoratieve onderlijn (1020px-SVG) past niet in deze indeling */
+  .groktweets img{width:360px; margin-left:66.5px;}          /* Grok-afbeelding tot 731; smalle marge van 8 px rechts */
+  .groktweets .container5:has(.mediastyle3){width:360px !important;}   /* bijschrift even breed als de afbeelding */
+  .groktweets .mediastyle3{max-width:360px !important;}
+  /* Bijschriften als twee bovenaan-uitgelijnde kolommen (inline-block), elk begrensd tot de kolombreedte (312px)
+     zodat de tekst afbreekt i.p.v. door te lopen naar het midden. Bovenaan uitlijnen is robuust bij verschillende
+     regelaantallen (talen); de oorspronkelijke vaste negatieve margin-top klopt alleen bij één-regelige titels. */
+  .vimeos .container5:has(.mediastyle2), .vimeos .container5:has(.mediastyle3),
+  .groktweets .container5:has(.mediastyle2), .groktweets .container5:has(.mediastyle3){
+                       position:static !important; display:inline-block; vertical-align:top; width:312px;}
+  .vimeos .mediastyle2, .vimeos .mediastyle3,
+  .groktweets .mediastyle2, .groktweets .mediastyle3{margin:0 !important; max-width:312px;}
+  .vimeos .container5:has(.mediastyle2), .groktweets .container5:has(.mediastyle2){margin:6px 0 0 22px !important;}  /* linkerkolom (x≈23) */
+  .vimeos .container5:has(.mediastyle3), .groktweets .container5:has(.mediastyle3){margin:6px 0 0 31px !important;} /* rechterkolom (x≈371) */
+  /* groktweets: dunne scheidingslijn boven het rechter bijschrift (vervangt de verborgen 1020px-SVG-lijn van L) */
+  .groktweets .container5:has(.mediastyle3){position:relative !important; left:0 !important;}
+  .groktweets .container5:has(.mediastyle3)::before{content:""; position:absolute; left:0; right:0; top:-5px; border-top:0.5px solid #000;}
+}
+/* Inhoudstabel én videoblokken op S-schermen (<=810px), passend in de 694px-kolom */
+@media only screen and (max-width:810px){
+  .mini-toc{display:block; min-width:0 !important; max-width:none !important; width:639px !important;}
+  .mini-toc ol{display:block; width:585px; column-count:2; column-gap:30px; row-gap:0;}
+  .mini-toc li{break-inside:avoid; margin-bottom:4px;}
+  .mini-toc li:nth-child(7){break-before:column;}
+  /* === Videoblokken ook op S tonen, geschaald naar de mini-TOC-kolommen (blok 639px, kolommen 277px).
+     De video's worden kleiner geschaald zodat ze in de smallere kolommen passen; de bijschriften
+     blijven op ware grootte en breken af binnen hun kolom (twee bovenaan-uitgelijnde inline-blocks). === */
+  div.MG-scherm:has(.vimeos), div.MG-scherm:has(.groktweets){display:inline;}
+  .vimeos, .groktweets{min-width:0 !important; max-width:639px !important; width:639px !important;
+                       height:auto !important; position:relative; padding-bottom:7px;}
+  .vimeos::before, .groktweets::before{content:""; position:absolute; left:-6px; top:0; bottom:0;
+                       width:13px; background:#52565D; border-radius:3px 0 0 3px; z-index:3;}
+  .vimeos > div.container5:first-child svg, .groktweets > div.container5:first-child svg{height:0; visibility:hidden;}
+  .vimeos iframe.vimeo2, .groktweets iframe.vimeo2{width:277px; height:158px;}   /* video's naar kolombreedte (van 299×171) */
+  .vimeos iframe.vimeo2:not(.vimeo){right:-48px;}                                /* rechtervideo → rechterkolom (x≈330) */
+  .groktweets svg[width="1020"]{display:none;}
+  .groktweets img{width:300px; margin-left:48px;}                                /* Grok-afbeelding tot 631; smalle marge van 8 px rechts */
+  .groktweets .container5:has(.mediastyle3){width:300px !important;}
+  .groktweets .mediastyle3{max-width:300px !important;}
+  .vimeos .container5:has(.mediastyle2), .vimeos .container5:has(.mediastyle3),
+  .groktweets .container5:has(.mediastyle2), .groktweets .container5:has(.mediastyle3){
+                       position:static !important; display:inline-block; vertical-align:top; width:277px;}
+  .vimeos .mediastyle2, .vimeos .mediastyle3,
+  .groktweets .mediastyle2, .groktweets .mediastyle3{margin:0 !important; max-width:277px;}
+  .vimeos .container5:has(.mediastyle2), .groktweets .container5:has(.mediastyle2){margin:6px 0 0 22px !important;}  /* linkerkolom (x≈23) */
+  .vimeos .container5:has(.mediastyle3), .groktweets .container5:has(.mediastyle3){margin:6px 0 0 26px !important;} /* rechterkolom (x≈330) */
+  .groktweets .container5:has(.mediastyle3){position:relative !important; left:0 !important;}
+  .groktweets .container5:has(.mediastyle3)::before{content:""; position:absolute; left:0; right:0; top:-5px; border-top:0.5px solid #000;}
+}
+
+/* De width/height-attributen op <img> zijn er voor het reserveren van ruimte
+   (voorkomt layout shift). Ze werken echter ook als presentational hint en
+   zouden de maat vastzetten. Deze regel heeft lagere specificiteit dan elke
+   class- of inline-regel, maar hogere dan de hint, zodat de verhouding klopt. */
+img {width:auto;height:auto;}
+
+/* De knop naar de mobiele site: het rode vlak zit op de cel, de link omsloot
+   alleen het woord. Deze overlay rekt de link op tot de hele cel, zodat je
+   overal in het rood kunt klikken. De cel krijgt position:relative als anker. */
+#ton4 {position:relative;}
+#ton3::after {content:"";position:absolute;top:0;right:0;bottom:0;left:0;}
+
+/* Skip-link (toegankelijkheid): verschijnt bij toetsenbordfocus */
+a.skiplink{position:absolute;left:8px;top:-52px;z-index:2000;background:#2B2B34!important;color:#FFFFFF!important;padding:9px 15px;border-radius:0 0 1px 1px;text-decoration:none!important;font-family:"Helvetica","Arial";font-size:15px;line-height:1;transition:top 0.15s ease;}
+a.skiplink:focus{top:0!important;outline:1.5px solid #FFFFFF;}
+
+/* Respecteer verminderde beweging (toegankelijkheid) */
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{animation-duration:0.001ms!important;animation-iteration-count:1!important;transition-duration:0.001ms!important;scroll-behavior:auto!important;}
+  .ddg-timeline .tl-slot *{transition-delay:0s!important;}   /* slot van de tijdlijn: ook niet wachten */
+}
+
+/* Bronregel ook tonen bij toetsenbordfocus (naast hover) */
+a.citations:focus p.col4 { opacity: 1; }
+
+
+/* ###########################################################################
+   Citatenfilter boven de citaatsecties
+   ###########################################################################
+   De vorm komt van .ddg-mediafilter; hier staan de breedte, de centrering en
+   de kleuren. Die kleuren zijn met opzet niet het rood van de mediafilter maar
+   het blauwgrijs van de citaatsecties zelf. Let op: de sectiekoppen en de
+   cijfercirkels staan in een blok met filter:grayscale(0.4), dus hun zichtbare
+   kleur is niet die uit .tablehead. Onderstaande waarden zijn de gemeten uitkomst
+   na dat filter, zodat de knoppen echt dezelfde tint krijgen: het verloop van de
+   sectiekoppen loopt zichtbaar van #404959 naar #606979. Op een pil van nog geen
+   honderdvijftig pixels oogt zo'n verloop overdreven, dus staat hier het gemiddelde
+   van die twee als vaste kleur: #505969. Aangewezen en aangeklikt krijgen dezelfde
+   achtergrond; het bolletje rechts in de knop zegt welke aanstaat. */
+/* row-gap is de afstand tussen twee regels knoppen; de 6px van de mediafilter is
+   daarvoor te los. */
+/* Geen vaste breedte: dezelfde zijmarges als .citatenintro, zodat de balk precies
+   zo breed is als de alinea's eromheen en op elke schermbreedte meeloopt. */
+/* Tijdlijn boven de citaten: één staafje per jaar, hoogte naar het aantal stemmen.
+   De lege jaren houden hun plek, zodat de stilte tussen 2000 en 2014 zichtbaar blijft.
+   Zonder javascript blijft de balk leeg en pakt :not(:empty) niet, dus geen leeg vak. */
+.ddg-tijdlijn {display:none;}
+/* De jarenbalk sluit naadloos aan op de sprekerbalk erboven: samen één kader.
+   Dat is ook wat ze zijn — kies je een jaar, dan vervalt de sprekerkeuze en
+   andersom, dus het is één filter met twee ingangen. Geen bovenrand en geen
+   ronding boven; de onderste twee hoeken sluiten het gedeelde kader af. Zonder
+   javascript blijven beide balken leeg, pakt :not(:empty) niet en is er dus
+   ook geen half kader te zien. */
+.ddg-tijdlijn:not(:empty) {display:block;margin:0 22px 10px 22px;box-sizing:border-box;
+                 background:#EDEEF0;border:1px solid #d9cfcf;border-top:0;
+                 border-radius:0 0 3px 3px;padding:20px 8.5px 6.5px;}
+/* Op S en M dezelfde 20px als de drie knoppenrijen: ook de tijdlijn tekent daar nu zijn
+   verbindingslijntjes, en met de 9px van de kopregel erbij komt de rail dan op 14,5px onder
+   de schakelaar — dezelfde hoogte als bij die rijen, zodat hij niet verspringt als je van
+   rij wisselt. Ze stond op 7,5px toen de tijdlijn daar nog geen lijntjes had.
+   Op een L-scherm vier
+   pixels krapper dan die rijen: 19,5px tegen hun 23,5px. Daarmee komt de staafbalk zover
+   omhoog dat er nog twaalf pixels tussen de rail van de verbindingslijntjes en de top van
+   de hoogste staaf zit, terwijl die rail op dezelfde hoogte blijft liggen als bij de drie
+   andere rijen — javascript-v90.js zet hem daar met railBij. Ze stond hiervoor op 7,5px en
+   4px, toen de tijdlijn nog los van de andere rijen werd afgesteld. */
+@media only screen and (min-width:1080px) {.ddg-tijdlijn:not(:empty) {padding-top:19.5px;}}
+/* Ruimte voor de hoogste staaf (57px), plus 2px lucht en het bolletje van 11px, en
+   dan nog dezelfde marge boven als de balk eerder had. De staafruimte is dertig procent
+   hoger dan de 44px van hiervoor; de hoogtes zelf worden in javascript-v90.js met dezelfde
+   factor berekend, dus die twee horen bij elkaar. */
+/* De staven liggen voor de lijntjes uit de schakelaar (zie .paneel-lijnen). De rail loopt
+   boven de langste staaf en elk pootje blijft binnen zijn eigen kolom, dus normaal kruist er
+   niets; komt er ooit een jaar bij dat hoger uitvalt dan de rail, dan verdwijnt die kruising
+   achter het rood in plaats van er overheen te lopen. Alleen daarvoor staan hier een position
+   en een z-index; aan de opmaak verandert het niets. */
+.tl-balk   {display:flex;align-items:flex-end;gap:2px;height:73px;position:relative;z-index:1;}
+/* Een kolom stapelt van onder naar boven: het staafje staat op de bodem en het
+   bolletje er vlak boven. Het volgt dus de hoogte van zijn eigen staaf en staat niet
+   met de andere op één lijn. */
+.tl-jaar   {flex:1 1 0;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;
+            height:100%;background:none;border:0;padding:0;cursor:pointer;}
+.tl-leeg   {cursor:default;}
+.tl-leeg .tl-staaf {background:#8A8F96;}
+/* Het lege jaar heeft geen keuze te bieden, dus geen zichtbaar bolletje — maar wel de
+   ruimte ervan, anders zakt zijn streepje 13,5px onder de bodem van de staven ernaast. */
+.tl-leeg .tl-punt {visibility:hidden;}
+/* Hetzelfde radiobolletje als rechts in de filterknoppen erboven, met dezelfde maat,
+   rand en vulling. Het bolletje kleurt mee met zijn staaf: vuurrood onder de muis,
+   donkerblauwgrijs als het jaar gekozen is. */
+/* Het bolletje staat ONDER zijn staaf, niet erboven: een rondje boven een brede, lage
+   staaf leest als een hoofd op schouders, en dat is op deze pagina een associatie die we
+   niet willen. Onder de staaf verdwijnt die vorm en blijft het een keuzerij langs de as.
+   `order` zet het na de staaf in de kolom; die stapelt van onder naar boven. */
+.tl-punt   {width:10px;height:10px;border-radius:50%;flex:none;order:1;margin-top:2.5px;
+            border:1.5px solid #848484;background:#FFFFFF;
+            transition:background .15s,border-color .15s;}
+.tl-staaf  {display:flex;align-items:center;justify-content:center;overflow:hidden;
+            width:100%;background:#700000;border-radius:1.5px 1.5px 0 0;transition:background .15s;}  /* klikbaar jaar: donkerrood */
+/* Het aantal citaten in de staaf, wit op het donkerrood. Even groot als de tellingen in de
+   jaartallen op de as eronder: allebei twaalf pixels. Het cijfer stond op 11,968px, de maat
+   van de tellingen in de filterknoppen; dat is nu een ronde twaalf, wat op een honderdste na
+   dezelfde maat is en dus niets verschuift. Op mobiel staan deze twee op elf pixels, want
+   daar staat het cijfer rechtop in een smallere staaf. In pixels en niet in procenten, want
+   de tijdlijn erft geen zestien maar dertien en een derde pixel, en een percentage zou hier
+   dus een andere maat opleveren. Geen eigen kleur
+   bij aanwijzen of kiezen: wit blijft leesbaar op alle drie de staafkleuren.
+   javascript-v90.js zet het cijfer er alleen in waar de staaf hoog genoeg voor is. */
+.tl-getal  {font-size:12px;line-height:1;color:#FFFFFF;font-family:"Helvetica","Arial";}
+/* Is de staaf te laag voor het cijfer, dan staat het er donkergrijs bovenop: hetzelfde grijs
+   als de jaartallen op de as. Zo houdt elk jaar zijn telling en zegt de aan- of afwezigheid
+   van een cijfer niets over het belang van dat jaar. flex:none, want in een kolom die naar
+   beneden stapelt zou het anders meekrimpen. */
+.tl-getal-boven {color:#5a5a5a;margin-bottom:1.5px;flex:none;}
+/* gekozen jaar in hetzelfde donkerblauwgrijs als een actieve filterknop (#505969),
+   zodat de twee filterbalken dezelfde taal spreken; hover blijft rood */
+.tl-jaar:not(.tl-leeg):hover .tl-staaf,
+.tl-jaar:not(.tl-leeg):hover .tl-punt {background:#F00000;border-color:#F00000;}   /* aanwijzen: vuurrood */
+/* Het gekozen jaar blijft blauwgrijs, ook onder de muis: de hoverregel hierboven weegt
+   zwaarder (`:not()` telt mee in de specificiteit), dus de gekozen stand moet het
+   hover-geval expliciet noemen om te winnen. Opnieuw klikken op hetzelfde jaar
+   verandert niets, dus daar hoort ook geen wijzende hand bij. Het bolletje gaat wel
+   zwart, net als de gevulde radioknop in een gekozen filterknop hierboven. */
+/* De gekozen staaf krijgt dezelfde kleuren als het bolletje eronder: donkergrijze vulling
+   met een zwarte rand. Die rand ligt als binnenschaduw over de staaf heen en niet als
+   border, want een border zou de staaf een pixel hoger en breder maken en dan klopt de
+   hoogte niet meer met het aantal citaten. */
+.tl-jaar[aria-pressed=true] .tl-staaf,
+.tl-jaar[aria-pressed=true]:hover .tl-staaf {background:#4a4a4a;
+                 box-shadow:inset 0 0 0 1px #111111;}
+/* Gekozen: een zwart bolletje met een zwarte rand. Zwart en niet donkergrijs, want op deze
+   lichte balk moet in een oogopslag te zien zijn welk jaar aanstaat. */
+.tl-jaar[aria-pressed=true] .tl-punt,
+.tl-jaar[aria-pressed=true]:hover .tl-punt {background:#000000;border-color:#111111;}
+.tl-jaar[aria-pressed=true] {cursor:default;}   /* gekozen jaar: donkerblauwgrijs met zwart bolletje */
+/* zelfde stramien als de staven, zodat elk jaartal onder zijn eigen staafje valt */
+.tl-as     {display:flex;gap:2px;margin-top:5.5px;
+            font-size:12px;color:#5a5a5a;letter-spacing:0.2px;}
+.tl-ascel  {flex:1 1 0;text-align:center;white-space:nowrap;}
+/* De tussenruimte tussen de staven groeit mee met het scherm: hoe breder de kolom,
+   hoe meer lucht ertussen mag. De asregel krijgt dezelfde waarde, anders schuiven de
+   jaartallen weg van hun staaf. Basis is het S-scherm. */
+@media only screen and (min-width:810.1px) {.tl-balk, .tl-as {gap:2.5px;}}
+@media only screen and (min-width:1080px)  {.tl-balk, .tl-as {gap:3px;}}
+.ddg-stemfilter {margin:0 26px 0 25px;justify-content:flex-start;row-gap:5px;}
+/* Hetzelfde lichtgrijze kader als om de knoppen bij de medialijst. Het zit op de
+   balk zelf en niet op een extra omhulsel, zodat er zonder JS geen leeg vakje
+   overblijft: dan is de balk leeg en pakt deze regel niet, en dus ook de marges
+   eromheen niet. Box-sizing houdt de padding binnen de breedte. */
+/* Hetzelfde kader als om de knoppen bij de medialijst, maar een tint lichter: #EDEEF0 in
+   plaats van #E8E9EB, zodat het vlak de staven niet naar de achtergrond drukt. Het zit op de
+   balk zelf en niet op een extra omhulsel, zodat er zonder JS geen leeg vakje overblijft:
+   dan is de balk leeg en pakt deze regel niet, en dus ook de marges eromheen niet.
+   Box-sizing houdt de padding binnen de breedte. */
+.ddg-stemfilter:not(:empty) {margin:13px 22px 0 22px;
+                 background:#EDEEF0;border:1px solid #d9cfcf;border-bottom:0;
+                 border-radius:3px 3px 0 0;padding:8.5px 7px 0;box-sizing:border-box;}
+
+/* Iets rondere hoeken dan de mediafilter. */
+/* Twee pixels lager: de verticale padding van 3px naar 2px. De regelhoogte blijft,
+   zodat de tekst niet krapper in de knop komt te staan. */
+/* Alle citatenknoppen even hoog. Dat lukt alleen als niets in de knop hoger is dan de
+   tekstregel zelf: het chevronnetje van de schakelaars stond op 20px en rekte daarmee
+   alleen die rij op, vandaar dat het nu 16px is. De rest doet deze padding. */
+.ddg-stemfilter button {border-radius:5px;padding-top:4px;padding-bottom:4px;}
+/* Een pixel meer lucht tussen de uitleg en de eerste knoppenrij. Dat moet hier en niet op
+   de marge van die alinea: de twee marges vallen samen en de twaalf van deze balk wint,
+   dus een grotere waarde op de alinea zou niets doen. */
+#stemKop {margin-top:14px;}
+/* De uitleg boven de knoppen krijgt iets meer regelafstand dan de andere introzinnen: hij
+   staat als enige in een grijs kader en op twee regels, en dan leest 135% krap. */
+#stemUitleg {line-height:143%;}
+/* De telling in de citatenknoppen een fractie omhoog. Relatief geplaatst, dus het
+   raakt de regelval niet. Alleen hier: de mediafilter staat goed op de basislijn. */
+#stemFilter .mf-count {position:relative;top:-0.1px;}
+
+/* Aangeklikt en aangewezen: het verloop van de sectiekoppen. De mediafilter boven
+   de tijdlijn gebruikt dezelfde achtergrond voor zijn gekozen pil, zodat de twee
+   filterbalken op de pagina dezelfde taal spreken; daar blijft hover wel rood. Ook de
+   regiorij onder de schakelaar 'filter media' (#mediaSub), anders viel die terug op het
+   donkerrood van de algemene regel. */
+.ddg-stemfilter button[aria-pressed="true"],
+#mediaFilter button[aria-pressed="true"],
+#mediaSub button[aria-pressed="true"] {background-image:none;background-color:#505969;
+                 border-color:#505969;color:#FFFFFF;}
+/* aanwijzen is rood, gekozen is blauwgrijs — dezelfde taal als de jaarstaven */
+.ddg-stemfilter button:hover {background-image:none;background-color:#F00000;
+                 border-color:#F00000;color:#FFFFFF;box-shadow:0 4px 10px 0 rgba(20,0,0,0.2);}
+/* Een gekozen knop blijft blauwgrijs, ook onder de muis. De hoverregel hierboven weegt
+   even zwaar als de regel voor de gekozen stand en staat erna, dus die zou anders
+   winnen; met :hover erbij weegt deze zwaarder. Opnieuw klikken op dezelfde knop
+   verandert niets, dus daar hoort ook geen wijzende hand bij. */
+.ddg-stemfilter button[aria-pressed="true"]:hover {background-image:none;background-color:#505969;
+                 border-color:#505969;color:#FFFFFF;box-shadow:none;}
+
+/* De kopregel is de bovenkant van het gedeelde kader: 'alle citaten' plus de drie
+   schakelaars. Ronding en bovenrand zitten dus hier, en de onderrand niet. Dezelfde
+   specificiteit als de algemene regel voor de citatenbalken en verderop in het bestand,
+   dus deze wint. */
+.ddg-stemkop:not(:empty) {margin:12px 22px 0 22px;background:#EDEEF0;box-sizing:border-box;
+                 border:1px solid #d9cfcf;border-bottom:0;border-radius:3px 3px 0 0;
+                 /* Boven en onder even veel. Er stond onder een halve pixel meer, omdat de
+                    chevrons en de bolletjes de onderste helft van de pillen zwaarder maken en
+                    de regel daardoor onderaan krapper oogt; met de knop 'alle citaten' links
+                    en de schakelaars rechts gaat die vlieger niet meer op. */
+                 padding:8.5px 7px 8px;}
+/* Zijn alle rijen dicht, dan staat er geen paneel meer onder om het kader af te maken:
+   dan sluit de kopregel zichzelf, met dezelfde rand, ronding en ruimte eronder als een
+   paneel zou geven. */
+.ddg-stemkop.kop-dicht {border-bottom:1px solid #d9cfcf;border-radius:3px;
+                 /* Een pixel krapper dan onder een opengeklapt paneel: zonder rij knoppen
+                    eronder oogt dezelfde marge ruimer dan hij is. */
+                 margin-bottom:9px;}
+/* De rij die openstaat sluit het kader onderaan af: er staat er hooguit een open, dus die
+   is vanzelf de laatste. Staat er niets open, zoals bij het laden, dan sluit de kopregel
+   zichzelf (.kop-dicht). Geen bovenrand en geen ronding boven, want daar sluit hij aan. */
+/* De knoppen staan lager in het paneel dan de padding van 10,5px die hier stond: dat is de
+   lucht waar de lijntjes uit de schakelaar doorheen lopen (zie .paneel-lijnen). Zonder die
+   extra strook lopen ze over een handbreed hoogteverschil naar knoppen honderden pixels
+   verderop, en dan liggen ze bijna vlak. De rij zelf zakt er dus mee mee; alleen de
+   sprekers, de landen en de brondocumenten, want de tijdlijn is geen knoppenrij.
+   Op een S- en een M-scherm is de rij smaller en staan de knoppen dichter bij de
+   schakelaar, dus is er minder strook nodig: 12,5px hier, en 17,5px op een G-scherm
+   hieronder. */
+#stemFilter:not(:empty),
+.ddg-vlagfilter:not(:empty),
+.ddg-bronfilter:not(:empty) {margin:0 22px 10px 22px;background:#EDEEF0;box-sizing:border-box;
+                 border:1px solid #d9cfcf;border-top:0;border-radius:0 0 3px 3px;
+                 padding:12.5px 7px 9px;}
+/* Op een L-scherm zakt de bovenpadding van de tijdlijn van 9,5px naar 5px, omdat de
+   knoppen daar op minder regels staan en het blok dan strakker mag. Onder een rij knoppen
+   is dat te krap: die 8px hieronder maken er samen met de 5px van de tijdlijn 13px van.
+   Erboven komt er op dat formaat een pixel bij, zodat de rij tussen twee ongeveer gelijke
+   stroken lucht staat. */
+/* De drie knoppenrijen houden dezelfde afstand tot de kopregel, op elk formaat: de lucht
+   tussen de schakelaars en de pillen eronder is 8,5px padding van de kopregel plus de
+   padding hier, en die is voor de sprekers, de landen en de brondocumenten gelijk. Anders
+   verspringt de rij bij het wisselen van schakelaar.
+   Op een L-scherm twee pixels meer dan de 21,5px van hiervoor. De tijdlijn doet daar
+   bewust niet aan mee en houdt zijn 21,5px (zie .ddg-tijdlijn hierboven); zijn rail komt
+   daardoor een pixel hoger te liggen dan die van deze drie. */
+@media only screen and (min-width:1080px) {
+  #stemFilter:not(:empty),
+  .ddg-vlagfilter:not(:empty),
+  .ddg-bronfilter:not(:empty) {padding-top:23.5px;}
+}
+/* Op een S- en een M-scherm vallen deze rijen over meer dan een regel. Ook daar horen de
+   verbindingslijntjes: de rail wijst naar de bovenste regel, en tussen de regels loopt de
+   boom door (rijlijnen in javascript-v90.js). Dat vraagt twee dingen. De pillen zakken van
+   12,5 naar 20px onder de kopregel, zodat er een strook is voor de rail — met de 9px van de
+   kopregel erbij is de afstand 29px, en dan zijn de stam boven de rail en de spaken eronder
+   allebei 14,5px. En de regelafstand binnen de rij gaat van 5 naar 7px, zodat de lijntjes tussen
+   de regels er ruimte voor hebben. */
+@media only screen and (max-width:1079.9px) {
+  #stemFilter:not(:empty),
+  .ddg-vlagfilter:not(:empty),
+  .ddg-bronfilter:not(:empty) {padding-top:20px;row-gap:7px;}
+}
+/* De schakelaars in de kopregel: dezelfde pil als een filterknop, maar met een chevron en
+   zonder bolletje, want het is een schakelaar en geen keuze. */
+
+/* Het opschrift 'Of kies een filter:' staat in hetzelfde kader als de knoppen, op dezelfde
+   regel, met de drie schakelaars er direct achter, samen tegen de rechterkant. Javascript
+   verhuist de alinea hierheen en haalt haar eigen marges weg. Rechts blijft er negen pixels
+   over tussen de laatste letter van het opschrift en de eerste pil: een marge van een pixel,
+   de zes van de flex-gap en de twee padding die de schuine staart van de cursief ruimte
+   geven. Drie meer dan de zes tussen de pillen onderling, zodat het opschrift zich net van
+   de schakelaars losmaakt zonder er los bij te hangen. */
+.ddg-stemkop .kaderuitleg {order:1;flex:0 0 auto;align-self:center;margin:0 1px 0 0;padding:0 2px;
+                 font-style:italic;font-size:88%;}
+/* De knop 'alle citaten' is geen filter om te kiezen maar de stand waarin niets gekozen is;
+   die staat daarom vooraan de regel, los van het opschrift en de drie schakelaars: eerst de
+   volle lijst, en dan pas de vraag of je er een deel uit wilt lichten. De marge-auto ernaast
+   duwt het opschrift met zijn schakelaars naar de rechterkant. De volgordenummers moeten alle
+   drie staan, want javascript zet de alinea vooraan in de HTML en de schakelaars erachter. */
+.ddg-stemkop > button:not(.paneel-knop) {order:0;margin-right:auto;}
+/* De zijpadding van de sprekerknoppen en de brondocumentknoppen is een ondergrens en geen
+   eindmaat: javascript-v90.js verdeelt de ruimte die op een regel overblijft daarna weer
+   over die knoppen, en brengt de padding zo terug op ongeveer negen pixels. Krap beginnen
+   scheelt hier een regel: met de negen pixels van de mediafilter komt de rij met de zeven
+   brondocumenten zeven pixels tekort, en valt Sociale media alleen op een tweede regel. */
+#stemFilter button,
+.ddg-bronfilter button {padding-left:6px;padding-right:6px;}
+
+/* Elke uitklaprij hangt met dunne grijze lijntjes aan zijn schakelaar: uit het midden van
+   de onderkant van de pil loopt er een naar het midden van de bovenkant van elke knop
+   eronder — bij de tijdlijn naar de top van elk staafje. javascript-v90.js tekent ze en
+   meet ze opnieuw zodra een rij opengaat of het venster van breedte verandert; hier staat
+   alleen hoe ze eruitzien. De laag steekt met een negatieve top de kopregel in, waar het
+   grijze vlak gewoon doorloopt, en vangt geen muis, dus klikken gaat er doorheen. Alleen op
+   de desktoppagina's: m/stylesheet-v90.css is een eigen bestand en kent deze regels niet. */
+#stemFilter, .ddg-vlagfilter, .ddg-bronfilter, .ddg-tijdlijn, #mediaSub {position:relative;}
+.paneel-lijnen {position:absolute;pointer-events:none;overflow:visible;}
+/* Een lichte tint van #808690, de randkleur van de schakelaar die openstaat: daarmee lijkt
+   het stammetje dat uit die pil zakt een voortzetting van diezelfde omtrek. Niet die kleur
+   zelf, want bij de tijdlijn hangen er vijftien pootjes aan de rail en die vormen in het
+   volle grijs een hek dat met de rode staven concurreert. Dezelfde tint als #b4bac2 van
+   hiervoor, maar een stap lichter. Daarvóór stond hier #c6bebe, warm grijs, en dat hoorde
+   bij niets op deze balk. Geen crispEdges: dat zou de twee
+   boogjes in de buitenhoeken tot trapjes maken. De rechte stukken blijven toch scherp, want
+   javascript-v90.js legt elke lijn op een halve pixel en dan valt een lijn van een pixel
+   precies op één pixelrij. */
+.paneel-lijnen path {fill:none;stroke:#c4c9d0;stroke-width:1;}
+/* De pootjes onder de rail van de tijdlijn lopen in dezelfde kleur uit naar niets
+   (het verloop zelf maakt javascript-v90.js). */
+.paneel-lijnen stop {stop-color:#c4c9d0;}
+
+.ddg-stemkop .paneel-knop {order:2;gap:3px;padding-right:7px;}
+/* Dezelfde schakelaar in de kopregel van de mediafilter: die pillen zijn anderhalve pixel
+   krapper (7,5px zijpadding tegen 9px), dus de chevron staat er ook anderhalve pixel
+   dichter op de rand. Geen volgorde-nummer: daar staat hij gewoon als derde in de rij. */
+#mediaFilter .paneel-knop {gap:3px;padding-right:5.5px;}
+/* Dezelfde chevron als op de leesmeerknoppen, en dan de grote uit de tekstkolom en niet
+   het kleine broertje uit de creditsbalk: twintig bij twintig met een lijn van 2,5px en
+   dezelfde halve pixel omhoog (zie .meer1 en .meer2). Alleen de kleur wijkt af en volgt
+   het opschrift, zodat hij wit wordt zodra de pil rood of blauwgrijs kleurt. Omklappen
+   gaat door te draaien (zie hieronder), net als bij de klapblokken op mobiel. */
+.ddg-stemkop .paneel-pijl, #mediaFilter .paneel-pijl {width:16px;height:16px;flex:none;align-self:center;
+                 position:relative;top:0;fill:none;stroke:currentColor;stroke-width:2.5px;
+                 transition:transform .35s,top .35s;}
+/* Openstaand draait de chevron een halve slag, in dezelfde 0,35s als de rij eronder
+   schuift; zo klapt hij niet in één frame om terwijl de rest nog beweegt. */
+.ddg-stemkop .paneel-knop[aria-expanded="true"] .paneel-pijl,
+#mediaFilter .paneel-knop[aria-expanded="true"] .paneel-pijl {transform:rotate(180deg);top:1px;}
+/* Opschrift en telling staan op dezelfde hoogte als in de rijen eronder. Ze zakten hier
+   anderhalve pixel mee met een chevron van 20px; die is nu 16 en centreert zichzelf, dus
+   die verzakking is vervallen. Het bolletje bleef altijd al waar het was. */
+/* De chevron die naar beneden wijst een halve pixel lager dan die naar boven: de punt zit
+   bij de een onderaan de tekening en bij de ander bovenaan, en dan staan ze optisch niet
+   op dezelfde hoogte in de pil. */
+/* Beide een pixel lager dan eerst (0 en -1px): zo hangt de chevron tussen de kapitaal- en
+   de x-hoogte van het opschrift in plaats van op de kapitaalhoogte, waar hij te hoog las. */
+.ddg-stemkop .paneel-knop[aria-expanded="false"] .paneel-pijl,
+#mediaFilter .paneel-knop[aria-expanded="false"] .paneel-pijl {top:0;}
+/* De schakelaar die openstaat krijgt een lichtgrijze vulling: ingedrukt, niet gekozen. Bewust
+   niet het blauwgrijs van een gekozen filter, want dit is geen keuze maar een la die
+   openstaat; met die kleur zou de knop zeggen dat er op iets gefilterd wordt. Aanwijzen
+   blijft rood, ook als hij openstaat. */
+.ddg-stemkop .paneel-knop[aria-expanded="true"],
+#mediaFilter .paneel-knop[aria-expanded="true"] {border-color:#808690;box-shadow:inset 0 0 0 0.5px #808690;}
+.ddg-stemkop .paneel-knop[aria-expanded="true"]:hover,
+#mediaFilter .paneel-knop[aria-expanded="true"]:hover {background:#F00000;border-color:#F00000;
+                 color:#FFFFFF;}
+/* Het vlaggetje komt uit flags-v90.woff2 (zie .vlag hierboven). Op knopgrootte is de
+   glyph net te fors naast twee kapitalen, vandaar 0,85em. De halve pixel omlaag zet de
+   inhoud van de pil optisch in het midden: op de basislijn staan vlag en letters net te
+   hoog naast het bolletje. Relatief geplaatst, dus het raakt de regelval en de
+   knophoogte niet, net als de telling in de sprekerbalk. De schaduw eromheen is er voor
+   de witte banen: op een witte pil vallen die weg in de achtergrond, en dan lijkt de
+   Indonesische vlag een los rood balkje. drop-shadow volgt de vorm van de glyph zelf,
+   dus ook de licht afgeronde hoeken; een rand om het element zou een rechthoek om het
+   hele letterblok trekken. */
+.ddg-vlagfilter .vlag {font-size:0.935em;filter:drop-shadow(0 0 0.5px rgba(0,0,0,0.55));}
+/* Vlag, landcode en telling zakken samen een pixel: op de basislijn staan ze net te hoog
+   in de pil. In één regel, zodat ze niet uit elkaar kunnen lopen. Relatief geplaatst,
+   dus het raakt de regelval en de knophoogte niet, net als de telling in de sprekerbalk. */
+.ddg-vlagfilter .vlag,
+.ddg-vlagfilter .landcode,
+.ddg-vlagfilter .mf-count {position:relative;top:0.5px;}
+/* Krappere tussenruimte dan in de sprekerbalk: daar scheidt de gap een opschrift van
+   een telling, hier een vlag van twee letters. Het uitvullen door javascript-v90.js
+   verdeelt de overgebleven ruimte per regel weer over de knoppen, dus de padding
+   hieronder is een ondergrens en geen eindmaat. */
+.ddg-vlagfilter:not(:empty) {column-gap:4px;}
+/* De knoppen krijgen van javascript-v90.js allemaal dezelfde breedte, dus centreren:
+   anders hangt de inhoud links in een pil die breder is dan haar tekst. */
+.ddg-vlagfilter button {gap:4px;padding-left:8px;padding-right:8px;justify-content:center;}
+/* Voor het bolletje dezelfde 6px als in de sprekerknoppen. De gap van 4px houdt de vlag,
+   de landcode en de telling bij elkaar; de marge legt er voor het bolletje 2px bovenop. */
+.ddg-vlagfilter .mf-dot {margin-left:2px;}
+/* De landcode iets kleiner dan het opschrift van een sprekerknop: twee kapitalen op
+   volle grootte zijn zwaarder dan een woord in kleine letters, en het scheelt de breedte
+   die de veertiende knop nodig heeft om op dezelfde regel te blijven. Het vlaggetje
+   houdt zijn maat. */
+/* De landnaam op de maat van de andere opschriften: hij erft de font-size en de
+   regelhoogte van de knop, zodat de knop even hoog blijft als in de balken erboven. */
+.ddg-vlagfilter .landcode {letter-spacing:0.02em;}
+/* 0,85 x 1,47 komt uit op de 1,25 regelhoogte van een sprekerknop: zonder die
+   regelhoogte zou de kleinere letter de knop tweeeneenhalve pixel lager maken dan de
+   knoppen in de balk erboven, en dat zie je meteen als de drie balken op elkaar staan. */
+
+/* Secties zonder treffers vallen weg, samen met de tussenruimte eronder. */
+.stem-leeg {display:none;}
+
+/* Alleen Safari. Daar is de taalknop een paar pixels hoger dan de 24px waarop hij is
+   vastgezet, en omdat de knoppenregel met position:relative omhoog is geschoven bleef
+   er boven maar 3,6px lucht over: net te weinig, dus stak hij boven de balk uit. Deze
+   padding geeft daar ruimte.
+   Twee onafhankelijke toetsen, want een enkele browserherkenning is broos. Chrome
+   antwoordt op beide 'nee' (gemeten met CSS.supports), Safari op minstens een van de
+   twee; het prefix -webkit-hyphens heeft Safari zelf nodig, zie de regels hierboven. */
+@supports (-webkit-hyphens: none) {
+  .languagebar {padding-top:9px;padding-bottom:0.5px;}
+}
+@supports (background: -webkit-named-image(i)) {
+  .languagebar {padding-top:9px;padding-bottom:0.5px;}
+}
+
+/* Zachte overgang bij het filteren (View Transitions). Iets korter dan de standaard van
+   een kwart seconde, zodat de lijst niet traag aanvoelt bij het doorstappen. */
+@media (prefers-reduced-motion: no-preference){
+  ::view-transition-old(root),
+  ::view-transition-new(root){animation-duration:0.2s;}
+}
+
+/* === Zwijgmatrix in het essay, onder "Nooit een inhoudelijk antwoord" (sept 2026) ===
+   Tussen de kantlijnen van .mediastyle, met dezelfde marges als .ddg-mediabox, maar sinds
+   7 sept 2026 zónder kaderrand en kaderachtergrond (Edwin): de rijen liggen als afgeronde
+   stroken los op de pagina, elk in zijn eigen tint. Erin een tabel met per moment drie vragen en per rij
+   het stuk waaruit het antwoord blijkt. Geen afbreking in de cellen: de antwoorden zijn
+   één woord en de bijschriften kort. Geen padding (Edwin, 7 sept 2026: de kopregel begint op 0px en
+   onder de totaalregel geen pixel meer; eerder 14/12px): alleen de marges, 17px boven en 20px
+   onder (Edwin, 7 sept 2026, eerst 16/18 en 18/20; het mediakader heeft 12/14). Links en
+   rechts geen padding: de kantstroken zijn twee lege tabelkolommen (zm-rand) van 16px, zodat
+   de rijtinten en alle lijnen vanzelf tot de kaderrand doorlopen (Edwins idee, 7 sept 2026;
+   pseudo-elementen die de padding overbrugden bleken per browser te verschuiven). */
+.ddg-zwijgmatrix{box-sizing:border-box;margin:17px 18.5pt 20px 18.5pt;padding:0;
+                 background:transparent;border:none;
+                 font-family:"Helvetica","Arial";font-size:11.5pt;line-height:1.35;color:#000000;
+                 -webkit-hyphens:auto;hyphens:auto;text-align:left;}
+/* auto (Edwin, 6 sept 2026): woorden mogen aan het regeleinde van een cel worden
+   afgebroken, net als in de lopende tekst van het essay (.mediastyle). De zachte
+   afbreekpunten (&shy;) in staats­ge­vaar­lijk en ombudsman­rapport blijven daarnaast gelden.
+   hyphenate-limit-chars 6 3 3: alleen woorden van zes letters of meer, minstens drie letters
+   voor en na de streep; anders breekt Chrome 'be-riep', 'om-budsman' en 'ont-kende'. */
+.ddg-zwijgmatrix .zm td{hyphenate-limit-chars:6 3 3;-webkit-hyphenate-limit-before:3;-webkit-hyphenate-limit-after:3;}
+/* De kopregel niet automatisch afbreken ('minis-terie'); de zachte afbreekpunten blijven. */
+.ddg-zwijgmatrix .zm th{-webkit-hyphens:manual;hyphens:manual;}
+.ddg-zwijgmatrix .zm .zm-nb{white-space:nowrap;}  /* "a-t-il" in de Franse kolomkop niet op het streepje breken (S-scherm) */
+/* table-layout:fixed: anders rekt de browser de kolommen naar hun langste woord
+   (ombudsmanrapport) en wijken de maten hieronder af. */
+/* Gescheiden celranden (separate, zonder tussenruimte): elke rand ligt exact binnen de eigen
+   cel. Elke regel heeft zijn eigen omtrek, maar zonder bovenrand (alleen de kop houdt die):
+   de onderrand van de regel erboven is de gedeelde lijn, alsof de randen 1px overlappen
+   (Edwin, 7 sept 2026; een negatieve border-spacing bestaat niet). */
+.ddg-zwijgmatrix table.zm{width:100%;table-layout:fixed;border-collapse:separate;border-spacing:0;margin:0;}
+/* Onderschrift en de labels van de lege kopcellen (jaar, ministerie en moment, stuk) bestaan alleen
+   voor schermlezers (Edwin, 7 sept 2026): visueel verborgen, niet display:none, anders leest
+   een schermlezer ze ook niet. */
+.ddg-zwijgmatrix .zm caption,.ddg-zwijgmatrix .zm .zm-sr{position:absolute;width:1px;height:1px;margin:-1px;padding:0;border:0;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap;}
+.ddg-zwijgmatrix .zm th,.ddg-zwijgmatrix .zm td{padding:6px 8px;vertical-align:top;
+                 text-align:left;}
+/* Elke rij heeft dezelfde omtrek als de kopregel: 1px #CCCCCC rondom, de kleur van de
+   buitenrand van het mediablok (Edwin, 7 sept 2026; eerst #B9BBBF), de zijkanten op de
+   randcellen met hun 9px-hoeken (Edwin, 7 sept 2026). De dunne rijlijnen van eerder zijn
+   daarmee vervallen. */
+.ddg-zwijgmatrix .zm td{border-top:none;border-bottom:1px solid #CCCCCC;padding-top:6.5px;}
+.ddg-zwijgmatrix .zm tbody td.zm-rand:first-child{border-left:1px solid #CCCCCC;}
+/* De rijen: 6,2px boven en 4,4px onder de tekst (Edwin, 8 sept 2026: eerst 0,2px erbij onderaan,
+   daarna 0,3px eraf boven én onder, dus per saldo 0,6px lager dan 7/5,2; de koprij en de knoppenbalk
+   bleven ongemoeid; 22 sept 2026: nog een halve pixel eraf boven én onder, 6,7/4,9 → 6,2/4,4, de onderste
+   rij uitgezonderd, zie tr:last-child hieronder). */
+.ddg-zwijgmatrix .zm tbody td{padding-top:6.2px;padding-bottom:4.4px;}
+/* Regelafstand van de antwoorden 17,1px (18px vóór de verkleining van 5%) in plaats van normal: bij
+   afbreking stonden de regels te dicht op elkaar (Edwin, 7 sept 2026; 19,5px even geprobeerd). Chrome legt de ene extra
+   pixel onder de regel, dus de bovenpadding blijft gelijk aan die van de andere cellen (sinds 7 sept laat 7,5px; gemeten: eerste regel op dezelfde hoogte,
+   gelijk aan jaartal en ministerie; met 6,5px kwam hij op 6,5). */
+.ddg-zwijgmatrix .zm tbody td:nth-child(5),.ddg-zwijgmatrix .zm tbody td:nth-child(6){line-height:17.1px;padding-top:6.2px;}
+/* De antwoorden gecentreerd in hun cel, horizontaal én verticaal (Edwin, 7 sept 2026). Sinds
+   8 sept 2026 is elk antwoord één woord, dus er valt niets meer af te breken; text-wrap:balance
+   bleek in Chrome toch onbetrouwbaar (92/137px) en staat alleen nog op de kolomkoppen, die
+   centreren mee, anders staan vraag en antwoord scheef boven elkaar. */
+.ddg-zwijgmatrix .zm tbody td:nth-child(5),.ddg-zwijgmatrix .zm tbody td:nth-child(6){text-align:center;vertical-align:middle;}
+.ddg-zwijgmatrix .zm thead th:nth-child(5),.ddg-zwijgmatrix .zm thead th:nth-child(6){text-align:center;text-wrap:balance;}
+/* De media-query die op M- en S-schermen de vaste regelovergang uit de generator ophief (die liet
+   in het Duits en Frans een los woord op een derde regel staan), is op 8 sept 2026 vervallen:
+   sinds de twee ja-cellen "Deels" heten is elk antwoord één woord en valt er niets te breken
+   of te balanceren. */
+/* De onderste rij houdt 6,7px boven en 5,4px onder "staatsgevaarlijk" (Edwin, 22 sept 2026: alleen de
+   andere rijen een halve pixel krapper). */
+.ddg-zwijgmatrix .zm tbody tr:last-child td{padding-top:6.7px;padding-bottom:5.4px;}
+.ddg-zwijgmatrix .zm tbody td.zm-rand:last-child{border-right:1px solid #CCCCCC;}
+/* Vaste lettermaten (Edwin, 7 sept 2026), los van de 16px die de algemene table-regel geeft.
+   Sinds 7 sept laat alles 5% kleiner (Edwin, na een proefweergave): rijen, kopvragen en antwoorden
+   14,25px (was 15); ministeries 13,965px (was 14,7, eerst 14,5); cursieve omschrijving 13,3px (was 14);
+   pdf-pil 12,16px (was 12,8, eerder 13,5, 13 en 12,5); regelafstand van vragen en antwoorden 17,1px
+   (was 18). Zie de regels bij .zm-min, .zm-sub, th en a.zm-pdf. Daarvóór stonden hier percentages
+   (96% / 93% / 95% / 90%), die zeven verschillende maten opleverden. */
+.ddg-zwijgmatrix .zm tbody td{font-size:14.25px;}
+/* Bovenpadding van de tabelrijen 7px en onder 5px (Edwin, 6 sept 2026: 6; daarna in halve pixels
+   op en neer; 8 sept: van 7,5/5,5 een halve pixel af, ook bij de kopregel). */
+/* De totaalregel (tfoot met "TOTAAL:" en "7 × Nee", 6 sept 2026) is op 7 sept 2026 weer geschrapt:
+   hij telde maar één kolom op en de kortom-alinea eronder zegt het al. */
+/* Geen verticale lijnen tussen de kolommen (Edwin, 6 sept 2026: eerst toegevoegd, daarna weer
+   weggehaald); de kolommen worden gescheiden door hun eigen ruimte. */
+.ddg-zwijgmatrix .zm th.zm-rand,.ddg-zwijgmatrix .zm td.zm-rand{width:16px;padding:0;}
+/* De buitenhoeken van elke rij afgerond op 3px (Edwin, 8 sept 2026; eerst 9, toen 3, 4, kort 30, 4,5, 4, 6, 5, 4): de linker- en
+   rechterrand van een rij loopt zo licht bol naar buiten in plaats van kaarsrecht. Een grotere ronding
+   dan 16px kan niet: de boog past niet buiten zijn 16px-randcel. Bij de tabelrijen alle vier de
+   buitenhoeken; de kopregel en de knoppenbalk krijgen hieronder dezelfde 3px. */
+.ddg-zwijgmatrix .zm tbody td.zm-rand:first-child{border-top-left-radius:3px;border-bottom-left-radius:3px;}
+.ddg-zwijgmatrix .zm tbody td.zm-rand:last-child{border-top-right-radius:3px;border-bottom-right-radius:3px;}
+/* Kopregel niet kaal (Edwin, 7 sept 2026): een tint donkerder dan de rijen,
+   #E8E9EB (eerst #E1E2E5), zodat hij als kop van het geheel leest; alle hoeken 3px zoals de rijen (Edwin, 8 sept 2026;
+   onderweg 3 boven / 5 onder en een 3px-onderkant van de laatste rij, weer gelijkgetrokken). */
+.ddg-zwijgmatrix .zm thead th{background:#E8E9EB;}
+.ddg-zwijgmatrix .zm thead th.zm-rand:first-child{border-top-left-radius:3px;border-bottom-left-radius:3px;}
+.ddg-zwijgmatrix .zm thead th.zm-rand:last-child{border-top-right-radius:3px;border-bottom-right-radius:3px;}
+/* Een duidelijke rand om de kopregel (Edwin, 7 sept 2026): 1px #CCCCCC rondom, opgebouwd uit
+   celranden. Bovenrand op alle cellen van de regel, de zijranden op de randcellen, die met hun
+   hoeken de rand mee laten ronden; de onderrand komt van de th-regel hieronder. */
+.ddg-zwijgmatrix .zm thead th{border-top:1px solid #CCCCCC;}
+.ddg-zwijgmatrix .zm thead th.zm-rand:first-child{border-left:1px solid #CCCCCC;}
+.ddg-zwijgmatrix .zm thead th.zm-rand:last-child{border-right:1px solid #CCCCCC;}
+.ddg-zwijgmatrix .zm th.zm-jaarkol,.ddg-zwijgmatrix .zm td.zm-jaarkol{padding-left:1px;}
+/* De ministerie-/omschrijvingskolom houdt rechts weer de gewone 8px aan (Edwin, 7 sept 2026 laat:
+   "veel kleiner"; het was 20px en op een L-scherm 40px). De eerste vraagkolom houdt rechts 16px aan,
+   op een L-scherm 20px, zodat het antwoord los staat van de kolom ernaast (Edwin, 6 sept 2026). */
+.ddg-zwijgmatrix .zm th.zm-moment,.ddg-zwijgmatrix .zm td.zm-moment{padding-left:2px;padding-right:8px;}
+/* De ministerie-/momentkolom staat verder naar rechts als de losse kolommen dicht zijn (Edwin,
+   8 sept 2026): gemeten vanaf de tabelrand begint de ministerienaam dan op 110px, en op 88px
+   zodra alle kolommen open staan en elke pixel nodig is. */
+.ddg-zwijgmatrix[data-alles="uit"] .zm th.zm-moment,
+.ddg-zwijgmatrix[data-alles="uit"] .zm td.zm-moment{padding-left:24px;}
+/* Andersom bij de twee vraagkolommen: staan de losse kolommen dicht, dan worden ze bréder
+   (Edwin, 8 sept 2026). De 140px van de ministerkolom en de 49px van de brievenkolom gingen
+   anders allebei naar de momentkolom, de enige kolom zonder maat, en dan bleef er tot 328px
+   leegte staan tussen het einde van de cursieve omschrijving en het antwoord; op 23% is dat
+   62 tot 258px. Niet meer dan 23%: bij 24% breekt de Duitse omschrijving van 2015 naar een
+   tweede regel en bij 26% ook de Nederlandse, de Engelse en de Bosnische. Alle vijf talen
+   gemeten op 1280px (tabel 1004,7px); de kopregel blijft overal 46px. Dit verving de oude
+   verschuiving van de inhoud twintig pixels naar links, die het gat maar half dichtte. */
+.ddg-zwijgmatrix[data-alles="uit"] .zm th:nth-child(5),
+.ddg-zwijgmatrix[data-alles="uit"] .zm th:nth-child(6){width:23%;}
+/* En in diezelfde ingeklapte stand staat de reactiekolom iets meer naar links (Edwin, 8 sept 2026):
+   12px extra rechterpadding schuift de gecentreerde vraag én het antwoord 6px op. Dat gebeurt
+   binnen de kolom, dus de omschrijvingskolom ernaast houdt zijn 440,5px en de Duitse omschrijving
+   van 2015 blijft op één regel. In de volledige weergave staat deze kolom bewust op 8/8. */
+.ddg-zwijgmatrix[data-alles="uit"] .zm thead th:nth-child(5),
+.ddg-zwijgmatrix[data-alles="uit"] .zm tbody td:nth-child(5){padding-right:20px;}
+/* De extra rechterpadding van de eerste vraagkolom (16px, boven 1080px 20px, met een media-query
+   erachteraan omdat bij gelijke specificiteit de laatste wint) is op 8 sept 2026 vervallen: Edwin
+   zette alle kolommen op de gedeelde 8px van de th/td-regel. */
+/* Kopregel: volle vragen (Edwin, 6 sept 2026), dus geen kapitalen met letterspatiëring
+   meer (die liepen over vier regels en raakten elkaar). Romein (cursief tweemaal geprobeerd
+   en verworpen; alleen de bijschriften zijn cursief), onderaan uitgelijnd, met een lijn eronder. */
+.ddg-zwijgmatrix .zm th{font-weight:normal;font-style:normal;font-size:14.25px;line-height:18.3px;vertical-align:bottom;
+                 border-bottom:1px solid #CCCCCC;padding-top:5.9px;padding-bottom:4.9px;}
+/* Regelafstand van de kopregel 18,3px (Edwin, 8 sept 2026; 18,1 was even de eindstand), oftewel 1,28 × de letter van
+   14,25px. Onderweg die dag: 17,1px (1,2, gelijk aan de antwoordcellen) en 17,8125px (1,25);
+   daarvóór 18, en op 7 sept is 1,28 geprobeerd met 8,5/7 en 8/6,5 padding. De koprij hoeft niet
+   meer even hoog te zijn als de rijen (Edwin, 8 sept 2026: "daarmee mag de hoogte van deze rij
+   groter worden"): met twee regels en de randen komt hij op 47,97px, tegen 45,95px voor een rij.
+   Boven 5,9px en onder 4,9px (was 6/5 vóór de verkleining, daarna 5,9/4,9; op 8 sept eerst een
+   halve pixel eraf naar 5,4/4,4 en diezelfde dag weer terug). */
+/* Vaste kolomverdeling: de drie antwoordkolommen even breed, de pdf-kolom net zo breed
+   als de pil, en de momentkolom zonder maat. Die krijgt bij table-layout:fixed de rest.
+   Dat moet zo: geef je alle kolommen een maat, dan verdeelt de browser de restruimte over
+   álle kolommen, ook de pdf-kolom in pixels, en op een breed scherm stond die pil ineens
+   veertien pixels van zijn lijn (gemeten 6 sept 2026). */
+/* Jaarkolom helemaal links (Edwin, 6 sept 2026): 52px, jaartal vet; de bullet tussen jaar
+   en ministerie is daarmee vervallen. De omschrijvingskolom (zm-moment) heeft geen maat en
+   krijgt de rest. */
+/* Het jaartal links in zijn cel, op dezelfde 8px als TOTAAL: onderaan (Edwin, 6 sept 2026;
+   gecentreerd is geprobeerd en weer losgelaten). */
+.ddg-zwijgmatrix .zm th.zm-jaarkol,.ddg-zwijgmatrix .zm td.zm-jaarkol{width:70px;padding-right:0;}
+/* Vóór elk jaartal een bolletje in de maat en vorm van de bolletjes van de mediatijdlijn
+   (.tl-punt: 10px, border-box, rond), gevuld in het donkerblauwgrijs #505969 van een gekozen
+   filterknop en het gekozen tijdlijnjaar, sinds 7 sept 2026 (laat) 10px met een zwarte rand van 0,5px (11px even geprobeerd) (Chrome tekent die op 1x als 1px), alle zeven (Edwin, 7 sept 2026; donkergrijs
+   #666666 en een groen bolletje bij 2021 zijn onderweg geprobeerd en weer losgelaten). De jaarkolom is daarvoor
+   van 52 naar 60px gegaan, en daarna in twee stappen naar 66 (Edwin: telkens drie pixels erbij, uit
+   de ministeriekolom); tussen bolletje en jaartal 8px in plaats van 6. */
+.ddg-zwijgmatrix .zm .zm-jaar::before{content:"";display:inline-block;box-sizing:border-box;width:10px;height:10px;
+                 border-radius:50%;border:0.5px solid #000000;background:#505969;margin-right:8px;vertical-align:0.5px;}
+/* De bolletjes zijn met een dunne verticale lijn verbonden, zodat de jaarkolom als tijdlijn
+   leest (Edwin, 7 sept 2026: "ja, beter"). De lijn hangt als pseudo-element aan de jaarcel,
+   binnen de cel, dus zonder de browserverschillen van de eerdere stukjes in de kantstroken.
+   Het midden van het bolletje ligt 6px uit de celrand (1px inspringing + halve bolletjesmaat)
+   en 16px onder de celbovenkant; de lijn begint in de eerste rij en eindigt in de laatste rij
+   in dat midden. Het jaartal met zijn bolletje ligt met z-index 1 óver de lijn. */
+/* Pdf-pillen verticaal gecentreerd in hun cel, net als de antwoorden (Edwin, 7 sept 2026). Het
+   jaartal staat bovenaan, op de basislijn van de ministerienaam (even gecentreerd geweest, op
+   Edwins verzoek terug: "2014 DEFENSIE" is de kopregel van de rij). De tijdlijn begint en eindigt
+   bij het bolletje van de eerste en de laatste rij; het uiteinde valt achter het bolletje. De losse tweede pil van 2015 is absoluut
+   gepositioneerd en wordt apart op dezelfde hoogte gezet (calc, hieronder). */
+.ddg-zwijgmatrix .zm tbody td.zm-jaarkol{position:relative;vertical-align:top;}
+.ddg-zwijgmatrix .zm tbody td.zm-stuk{vertical-align:middle;}
+.ddg-zwijgmatrix .zm tbody td.zm-jaarkol::before{content:"";position:absolute;left:5.25px;top:-1px;bottom:-1px;width:1.5px;
+                 background:#B9BBBF;pointer-events:none;}
+.ddg-zwijgmatrix .zm tbody tr:first-child td.zm-jaarkol::before{top:15.5px;}  /* 22 sept 2026: het bolletje van de eerste rij staat een halve pixel hoger (padding 6,2px) */
+.ddg-zwijgmatrix .zm tbody tr:last-child td.zm-jaarkol::before{bottom:auto;height:16px;}
+/* top/bottom −1px: de lijn loopt door de eigen rand heen, zodat hij tussen de rijen niet
+   onderbroken wordt. */
+.ddg-zwijgmatrix .zm .zm-jaar{position:relative;z-index:1;}
+/* Sinds 6 sept 2026 (laat): twee vraagkolommen; de motiveringskolom is op Edwins verzoek
+   geschrapt en de gemotiveerde weigering van 2017 staat weer in de kortom-alinea. Het
+   ministerie staat met de cursieve omschrijving eronder in één kolom (zm-moment, zonder maat);
+   een aparte ministeriekolom is even geprobeerd en teruggedraaid. */
+/* De eerste vraagkolom breder dan de tweede (Edwin, 6 sept 2026, in twee stappen): elke
+   procentpunt is op de gebruikelijke tabelbreedte van ruim duizend pixels ongeveer tien pixels.
+   In calc() opgegeven breedtes negeert de browser hier, vandaar deze percentages. Sinds de
+   randkolommen is de tabel 32px breder; 24,5/16,8 in plaats van 25,3/17,4 houdt de
+   pixelmaten gelijk. Kolomnummers: 1 rand, 2 jaar, 3 ministerie, 4 en 5 vragen, 6 pdf, 7 rand. */
+/* De twee vraagkolommen bijna even breed sinds de koppen "de minister" noemen (Edwin, 8 sept 2026):
+   met de oude 24,1/16,5 liep de tweede vraag op een L-scherm over drie regels en werd de kopregel
+   63px hoog. Nu allebei 19,5%: dat is de smalste stand waarin de eerste vraag in álle vijf talen
+   op twee regels blijft (Edwin, 8 sept 2026: pixels naar de ministeriekolom). Op 19% breekt de
+   Engelse vraag naar drie regels en wordt de kopregel 63px. */
+.ddg-zwijgmatrix .zm th:nth-child(5){width:19.5%;}
+/* De ministerkolom (Edwin, 8 sept 2026): de naam van de bewindspersoon die op dat moment
+   verantwoordelijk was, zoals het essay ze ook noemt. Vaste breedte, want de langste naam
+   (Hennis-Plasschaert) bepaalt hem; de ruimte komt uit de ministeriekolom. */
+.ddg-zwijgmatrix .zm th.zm-mini,.ddg-zwijgmatrix .zm td.zm-mini{width:140px;text-align:center;vertical-align:middle;padding-left:6px;padding-right:6px;}
+.ddg-zwijgmatrix .zm thead th.zm-mini{vertical-align:bottom;}
+.ddg-zwijgmatrix .zm th:nth-child(6){width:18%;}  /* driemaal +0,5% en daarna +1,2% = 3 × 5px + 12px op 1280px, uit de ministeriekolom (Edwin, 7 sept 2026);
+   op 8 sept 2026 van 19,5 naar 18% (Edwin), 195,9 → 180,8px op 1280px, de ruimte gaat naar de momentkolom. Smaller kan niet:
+   bij 17% valt de kopvraag in het Nederlands, Duits en Frans op een derde regel (alle vijf talen gemeten). */
+/* De pdf-kolom in pixels en niet in procenten (Edwin, 6 sept 2026: smaller): precies de
+   pil van 42,9px met 2px lucht links en niets rechts: de pil sluit af tegen de celrand. De pixels
+   die dat scheelt gaan naar de omschrijvingskolom, die geen vaste breedte heeft (Edwin, 6 sept 2026; gecentreerd in 56px is
+   geprobeerd en weer losgelaten). 52px en niet 51: bij 51 stak de pil een halve pixel over
+   de celrand en dus over het begin van het verloop. */
+.ddg-zwijgmatrix .zm th.zm-stuk,.ddg-zwijgmatrix .zm td.zm-stuk{width:49px;padding-left:5px;padding-right:0;text-align:left;}
+/* De kopregel "Brieven" gecentreerd bóven de pillen, niet in de kolom: de pil begint op de 5px
+   linkerpadding van de cel en is 40,3px breed, dus zijn midden ligt rechts van het midden van de
+   49px-kolom. De kopcel krijgt daarom een ándere linkerpadding dan de cellen eronder, 1px
+   (Edwin, 8 sept 2026; met dezelfde 5px stond de kop 4px te ver rechts). Gemeten verschil met het
+   pilmidden: 0,00px in het Nederlands en 0,17px in de vier andere talen, waar het woord anders
+   afrondt op de subpixel. */
+.ddg-zwijgmatrix .zm th.zm-stuk{text-align:center;padding-left:1px;padding-right:0;}  /* 4px erbij links van de pillen, uit de ministeriekolom (Edwin, 7 sept 2026) */
+/* Twee stukken in één rij (2015: start en intrekking van het CTIVD-onderzoek) stapelen
+   als twee pillen onder elkaar; de cel is te smal voor twee naast elkaar. */
+.ddg-zwijgmatrix .zm td.zm-stuk a.zm-pdf{margin-bottom:4px;}
+/* De onderste pil in een cel zonder ondermarge, anders krijgt de 2015-rij (twee gestapelde pillen)
+   11,5px onder de laatste pil waar de tekstrijen 7,5px hebben (Edwin, 7 sept 2026). */
+.ddg-zwijgmatrix .zm td.zm-stuk a.zm-pdf:last-child{margin-bottom:0;}
+/* Twee stukken in één rij (2015): beide pillen gestapeld, maar zonder de rij hoger te maken
+   (Edwin, 7 sept 2026; ernaast heeft ook even gestaan): allebei absoluut gepositioneerd, zodat
+   de rij zijn hoogte van de tekstkolom houdt. Bovenste pil 4px van de bovenrand, 3px ertussen,
+   onderste 3px van de onderrand (gemeten op een rij van 49px). Links op 6px, gelijk aan de pillen
+   in de andere rijen. */
+.ddg-zwijgmatrix .zm td.zm-stuk{position:relative;}
+.ddg-zwijgmatrix .zm td.zm-stuk a.zm-pdf:first-child:not(:last-child){position:absolute;left:6px;top:calc(50% + 1px - 1.5px);transform:translateY(-100%);margin-bottom:0;}
+.ddg-zwijgmatrix .zm td.zm-stuk a.zm-pdf:last-child:not(:first-child){position:absolute;left:6px;top:calc(50% + 1px + 1.5px);}
+/* Het jaartal staat in zijn eigen kolom en de ministerienaam in kapitalen op 95%; beide in
+   de gewone letter (Edwin, 6 sept 2026: vet geprobeerd en weer weggehaald). In de tabel staat
+   niets vet, ook TOTAAL: onderaan niet. */
+.ddg-zwijgmatrix .zm .zm-jaar{font-weight:normal;}
+.ddg-zwijgmatrix .zm .zm-min{text-transform:uppercase;letter-spacing:0.4px;}
+.ddg-zwijgmatrix .zm tbody .zm-min{font-size:13.965px;}
+/* 0,4px tracking in de kapitalen (Edwin, 6 sept 2026: wel iets, niet overdrijven); de oude
+   kopregel in kapitalen had 0,5px. */
+/* Bijschrift onder een antwoord of onder het ministerie: iets kleiner en in het grijs van
+   de bronregels (.mediastyle2), zodat het ene woord erboven het antwoord blijft. */
+.ddg-zwijgmatrix .zm .zm-sub{display:block;font-size:13.3px;line-height:1.2;color:#292929;font-style:italic;margin-top:1px;}
+/* De twee cellen die geen "Nee" zijn, zeggen sinds 8 sept 2026 "Deels" en staan in dezelfde letter
+   als de rest (Edwin; eerder 'Ja' plus een zin, niet vet en niet gekleurd). De span.zm-ja en zijn
+   regel font-weight:normal zijn daarmee vervallen; het voorbehoud staat nu in een title op het woord. */
+/* Een kale title wijst nergens op, dus niemand vindt hem (Edwin, 8 sept 2026: "die vallen helemaal
+   niet op"). Daarom een dun stippellijntje onder alleen die twee woorden en een vraagteken-cursor:
+   de gebruikelijke webconventie voor "hier zit een verklaring". De haak is [title], zodat de vijf
+   nee-cellen hem niet krijgen. De tabel wordt er geen pixel hoger van; een klein cursief bijschrift
+   onder het woord is als alternatief gerenderd en verworpen (brak bij Justitie naar twee regels,
+   rij 63,5 in plaats van 46,5px). Naast de tooltip staat dezelfde zin als verborgen span.zm-sr in
+   de cel, zie de generator. */
+.ddg-zwijgmatrix .zm .zm-reactie[title]{text-decoration:underline dotted #9A9A9A;
+                 text-underline-offset:3px;text-decoration-thickness:1px;cursor:help;}
+/* De nee-cellen zijn gewoon het woord "Nee" in de celletter (Edwin, 6 sept 2026, na een
+   dag met rode kruizen U+2715: de tabel is een verslag van antwoorden, geen scorebord). */
+/* De pdf-pil in de vorm van de witte pillen van de mediatijdlijn (.tl-out .o) en de
+   filterknoppen: wit, dunne rand, 2px hoeken, rood opschrift zonder onderstreping. Het
+   opschrift op 13,44px en niet op de 88% van de tijdlijnpillen: dat is dezelfde 13,5px als
+   daar, en een vaste maat omdat de rijen zelf op 96% staan (Edwin, 6 sept 2026). De padding boven 1,5px en
+   onder 0 in plaats van 0,5px/0,125pt bij de tijdlijnpillen: het opschrift een pixel lager
+   in de pil (Edwin). */
+.ddg-zwijgmatrix .zm a.zm-pdf{display:inline-block;background:#FFFFFF;border:1px solid #d9cfcf;border-radius:2px;
+                 padding:1.5px 7px 0 7px;font-size:12.16px;line-height:1.25;color:#900000;
+                 text-decoration:none;white-space:nowrap;vertical-align:1px;}
+/* Bij aanwijzen rood oplichten (Edwin, 6 sept 2026), precies als de pillen van de
+   mediatijdlijn en de filterknoppen: rode vulling, witte letters, rode rand, schaduw. */
+.ddg-zwijgmatrix .zm a.zm-pdf:hover{background:#F00000;color:#ffffff;border-color:#F00000;box-shadow:0 4px 10px 0 rgba(20,0,0,0.2);}
+/* De schakelaar links in de kopregel (Edwin, 8 sept 2026): de stukkenkolom staat standaard uit
+   en komt tevoorschijn zodra de bezoeker op "8 brieven" klikt. Dezelfde pil als de mediapillen
+   van de tijdlijn en als de pdf-pillen eronder: wit, 1px rand, 2px hoeken, rood opschrift, en
+   dezelfde 0,5/7px padding. Aanwijzen kleurt hem felrood, gekozen blauwgrijs (#505969), de taal
+   van de mediafilterknoppen. Het bolletje ernaast is de radioknop uit die balk, in dezelfde maat.
+   De knop staat in de jaarkolom van 70px en loopt daar naar rechts
+   overheen; de kopcel ernaast is leeg, dus dat botst met niets. */
+/* De kopcel met de knop centreert verticaal; de andere kopcellen houden hun basislijn onderaan. */
+.ddg-zwijgmatrix .zm th.zm-jaarkol{white-space:nowrap;vertical-align:middle;}
+/* De balk ónder de tabel met de twee schakelaars (Edwin, 8 sept 2026; eerst erboven geprobeerd).
+   Geen tabelrij, maar hij leest wel als de onderste rij: dezelfde tint en rand als de kopregel,
+   dezelfde 3px-hoeken, dezelfde hoogte als een rij, en een pixel eroverheen zodat de randen
+   samenvallen. Het inspringen van 17px is de 16px van de kantstrook plus de celpadding, zodat het
+   inspringen is 9px (Edwin, 8 sept 2026): met de 1px rand van de knop en zijn 6px padding komt het
+   vierkantje daarmee op 17px van de tabelrand, precies onder de bolletjes van de jaartallen. */
+.ddg-zwijgmatrix .zm-knoprij{display:flex;flex-wrap:wrap;align-items:center;gap:5px;
+                 /* Geen min-height: de hoogte komt uit de knop plus deze padding, zodat er boven en
+                    onder precies evenveel ruimte staat (Edwin, 8 sept 2026: 4px). Met een
+                    min-height verdeelde de browser de restruimte scheef. */
+                 box-sizing:border-box;padding:3px 17px 3px 9px;margin-top:-1px;
+                 background:#E8E9EB;border:1px solid #CCCCCC;border-radius:3px;}
+.ddg-zwijgmatrix .zm-schakel + .zm-schakel{margin-left:0;}
+.ddg-zwijgmatrix .zm-schakel{display:inline-flex;align-items:baseline;gap:5px;cursor:pointer;
+                 font-family:inherit;white-space:nowrap;
+                 /* Even hoog en even groot van letter als de knop "Hele media-selectie" boven de
+                    tijdlijn (Edwin, 8 sept 2026; eerst zo klein als een mediapil): 88% van 11,5pt
+                    is daar 13,4933px. De pil zelf is lager dan die knop (Edwin, 8 sept 2026):
+                    regelhoogte 17,1px zoals de antwoorden in de tabel en krappere padding, samen
+                    23,1px en sinds een halve pixel minder boven en onder 22,1px; de lettergrootte blijft, alleen de ruimte eromheen is krapper: 6px opzij
+                    in plaats van 7,5 en 5px tussen opschrift, telling en bolletje in plaats van 6
+                    (Edwin, 8 sept 2026). De padding staat boven 1,6px hoger dan onder, zodat het opschrift
+                    optisch midden in de pil staat; zie de knoppen boven de tijdlijn. */
+                 font-size:13.4933px;line-height:17.1px;padding:2.3px 6px 0.7px 6px;
+                 background:#FFFFFF;border:1px solid #d9cfcf;border-radius:2px;color:#900000;
+                 -webkit-appearance:none;appearance:none;
+                 transition:background .12s,color .12s,border-color .12s;}
+/* De telling achter het opschrift, zoals bij de mediafilterknoppen: 85% en gedempt grijs, wit
+   zodra de pil rood of blauwgrijs kleurt. Daarom staat de knop op baseline en niet op center:
+   op 85% zou het cijfer bij centreren met zijn basislijn boven die van het opschrift uitkomen. */
+.ddg-zwijgmatrix .zm-schakeltel{font-size:85%;color:#565a62;}
+.ddg-zwijgmatrix .zm-schakel:hover .zm-schakeltel,
+.ddg-zwijgmatrix .zm-schakel[aria-pressed="true"] .zm-schakeltel{color:#FFFFFF;}
+/* Een aankruisvakje in plaats van het ronde bolletje van de filterknoppen (Edwin, 8 sept 2026):
+   de knop staat aan of uit, dus een vierkantje met dezelfde 2px-hoeken als de pil zelf.
+   Een halve pixel omhoog (Edwin, 13 sept 2026): gecentreerd in de pil zakte het vakje op 2x
+   één beeldpunt onder de basislijn; zo valt het precies op hoofdletterhoogte en basislijn. */
+.ddg-zwijgmatrix .zm-vak{position:relative;top:-0.5px;
+                 width:10px;height:10px;border-radius:2px;flex:none;align-self:center;
+                 border:1.5px solid #848484;background:#FFFFFF;
+                 transition:background .12s,border-color .12s;}
+.ddg-zwijgmatrix .zm-schakel[aria-pressed="true"]{background:#505969;border-color:#505969;color:#FFFFFF;}
+.ddg-zwijgmatrix .zm-schakel[aria-pressed="true"] .zm-vak{background:#111111;border-color:#FFFFFF;}
+/* Aanwijzen wint van de gekozen stand: de knop blijft een schakelaar, dus hij moet laten zien
+   dat klikken iets doet. Zelfde rood en dezelfde schaduw als de pdf-pillen. */
+.ddg-zwijgmatrix .zm-schakel:hover{background:#F00000;color:#FFFFFF;border-color:#F00000;
+                 box-shadow:0 4px 10px 0 rgba(20,0,0,0.2);}
+.ddg-zwijgmatrix .zm-schakel:hover .zm-vak{border-color:#FFFFFF;background:transparent;}
+/* Safari tekent na een klik zijn eigen focusring; alleen bij toetsenbordfocus laten staan. */
+.ddg-zwijgmatrix .zm-schakel:focus:not(:focus-visible){outline:none;}
+/* De stukkenkolom uit. Zonder javascript staat data-stukken er niet en blijft de kolom staan,
+   zodat de brieven altijd bereikbaar zijn. */
+.ddg-zwijgmatrix[data-alles="uit"] .zm-stuk,
+.ddg-zwijgmatrix[data-alles="uit"] .zm-mini{display:none;}
+/* Justitie 2021 staat als derde ministerie onderaan, met dezelfde dunne lijn als de andere
+   rijen (Edwin, 6 sept 2026: geen dikkere scheidingslijn). De klasse blijft staan als haak. */
+/* Rijen om en om (Edwin, 6 sept 2026): de oneven rijen een tint lichter dan het kadergrijs
+   #E8E9EB, zodat de eerste rij onder de kopregel meteen de lichte is. */
+/* Sinds 7 sept 2026 (laat) geen om-en-om-tinten meer (Edwin): alle rijen in het lichte grijs van de
+   vroegere oneven rijen, #F0F1F3; de kopregel kreeg het #E8E9EB van de even rijen (was #E1E2E5).
+   Andersom (kop licht, rijen #E8E9EB) is even geprobeerd en teruggedraaid. */
+.ddg-zwijgmatrix .zm tbody td{background:#F0F1F3;}
+/* Nu het kader weg is, hebben beide tinten een eigen achtergrond nodig: de even rijen het
+   oude kadergrijs, de oneven rijen #F0F1F3, donker genoeg om tegen de pagina (#F8F8F8) af te
+   steken; het eerdere #F6F7F8 viel daar weg. */
+/* De kantstroken zijn de lege randkolommen: de rijtint van de oneven rijen en de lijnen onder
+   de kopregel, tussen de rijen en boven de totaalregel lopen daar vanzelf doorheen. De
+   pseudo-elementen die dat eerder nabootsten (tinten, stukjes lijn, met en zonder verloop)
+   zijn op 7 sept 2026 verwijderd. */
+
+/* === Essay op een L-scherm in twee kolommen (25 sept 2026) ===
+   Met de volle blokbreedte (1005px tekst) liep een essayregel op tot 125 à 140 tekens. Op een
+   L-scherm staat het essay daarom in een linkerkolom met precies de maten van een M-scherm
+   (kolom 794px, tekst tussen de kantlijnen van .mediastyle, de brede blokken 739px) en staat
+   de inhoudstabel rechts ernaast, sticky onder de header. Alles in de kolom gedraagt zich als op
+   M: de videoblokken en het Grok-blok krijgen hieronder dezelfde regels als in het M-blok
+   hierboven, de medialijst en de zwijgmatrix volgen vanzelf de kantlijnen. Alle regels hangen
+   aan .essay-l, zodat een taalbestand zonder die omhulling er niets van merkt. */
+@media only screen and (min-width:1080px){
+  /* Raster in plaats van flex (Edwin, 25 sept 2026): de cursieve inleiding staat nu ook in de
+     smalle kolom, boven het essay, en de inhoudstabel begint rechts naast die inleiding. In de
+     HTML staat de inleiding vóór de inhoudstabel, zodat de volgorde op M niet verandert. */
+  .essay-l{display:grid;grid-template-columns:794px minmax(0,1fr);align-items:start;}
+  .essay-l > .essay-intro{grid-column:1;grid-row:1;}
+  .essay-l > .essay-kol{grid-column:1;grid-row:2;min-width:0;}
+  /* Inhoudstabel: rechts van de kolom, even hoog als de cursieve inleiding (de 10px bovenmarge
+     van die alinea), en daarna meelopend */
+  .essay-l > .mini-toc{grid-column:2;grid-row:1 / span 2;min-width:0;max-width:none;
+          position:sticky;top:75px;margin:10px 18.5pt 5.7px 14px;padding:12px 14px 11px 14px;}
+  /* Ondermarge 5,7px: aan het eind van het essay stopt de sticky inhoudstabel met zijn onderrand
+     precies op de basislijn van de laatste essayregel (die ligt 5,7px boven de onderkant van de
+     kolom; gemeten in alle vijf talen, 25 sept 2026). Met 14px stopte hij 8,3px te hoog. */
+  /* Geen donkergrijze kantlijn links (Edwin, 25 sept 2026: te dominant naast het essay); alleen de gewone rand rondom */
+  .essay-l > .mini-toc::before{display:none;}
+  .essay-l > .mini-toc ol{display:block;}
+  /* De regels van de secties die in beeld zijn krijgen een lichte achtergrond (javascript-v90.js
+     zet .inbeeld). De ruimte tussen de regels is daarom padding en geen marge: opeenvolgende
+     regels in beeld vormen zo één doorlopend vlak, met ronde hoeken alleen boven en onder. De
+     achtergrond steekt 6px buiten de tekst uit (negatieve marge), zodat het nummer en de
+     tekst op hun plek blijven. */
+  /* Om het vlak een rand zoals die van de mediapillen in de tijdlijn (.tl-out .o: 1px #d9cfcf,
+     hoeken van 2px; Edwin, 25 sept 2026). Elke regel heeft altijd een rand van 1px, doorzichtig
+     zolang hij niet in beeld is, zodat er bij het oplichten niets verspringt; padding en nummer
+     staan daarom 1px krapper. Bij opeenvolgende regels in beeld komt er alleen een lijn boven
+     de eerste en onder de laatste: één omlijst vlak, geen losse kaartjes. */
+  .essay-l > .mini-toc li{margin:0 -7px;padding:1.5px 6px 1.5px calc(1.7em + 9px);  /* rand 7px buiten de tekst (Edwin: 1px ruimer dan eerst) */
+          border:1px solid transparent;border-radius:0;
+          transition:background-color .2s ease, border-color .2s ease;}
+  .essay-l > .mini-toc li::before{left:6px;top:1.5px;}
+  .essay-l > .mini-toc li.inbeeld{background:#FFFFFF;  /* wit (Edwin, 25 sept 2026; was #F8F8F8) */
+         border-left-color:#d9cfcf;border-right-color:#d9cfcf;}
+  .essay-l > .mini-toc li.inbeeld:not(.inbeeld + li){border-top-color:#d9cfcf;border-top-left-radius:2px;border-top-right-radius:2px;}
+  .essay-l > .mini-toc li.inbeeld:not(:has(+ li.inbeeld)){border-bottom-color:#d9cfcf;border-bottom-left-radius:2px;border-bottom-right-radius:2px;}
+
+  /* Videoblokken en Grok-blok: de M-regels, letterlijk overgenomen */
+  .essay-kol .vimeos, .essay-kol .groktweets{min-width:0 !important; max-width:739px !important; width:739px !important;
+                       height:auto !important; position:relative; padding-bottom:7px;}
+  .essay-kol .vimeos::before, .essay-kol .groktweets::before{content:""; position:absolute; left:-6px; top:0; bottom:0;
+                       width:13px; background:#52565D; border-radius:3px 0 0 3px; z-index:3;}
+  .essay-kol .vimeos > div.container5:first-child svg, .essay-kol .groktweets > div.container5:first-child svg{height:0; visibility:hidden;}
+  .essay-kol .vimeos iframe.vimeo2:not(.vimeo){right:-66.5px;}
+  .essay-kol .groktweets svg[width="1020"]{display:none;}
+  .essay-kol .groktweets img{width:360px; margin-left:66.5px;}
+  .essay-kol .groktweets .container5:has(.mediastyle3){width:360px !important;}
+  .essay-kol .groktweets .mediastyle3{max-width:360px !important;}
+  .essay-kol .vimeos .container5:has(.mediastyle2), .essay-kol .vimeos .container5:has(.mediastyle3),
+  .essay-kol .groktweets .container5:has(.mediastyle2), .essay-kol .groktweets .container5:has(.mediastyle3){
+                       position:static !important; display:inline-block; vertical-align:top; width:312px;}
+  .essay-kol .vimeos .mediastyle2, .essay-kol .vimeos .mediastyle3,
+  .essay-kol .groktweets .mediastyle2, .essay-kol .groktweets .mediastyle3{margin:0 !important; max-width:312px;}
+  .essay-kol .vimeos .container5:has(.mediastyle2), .essay-kol .groktweets .container5:has(.mediastyle2){margin:6px 0 0 22px !important;}
+  .essay-kol .vimeos .container5:has(.mediastyle3), .essay-kol .groktweets .container5:has(.mediastyle3){margin:6px 0 0 31px !important;}
+  .essay-kol .groktweets .container5:has(.mediastyle3){position:relative !important; left:0 !important;}
+  .essay-kol .groktweets .container5:has(.mediastyle3)::before{content:""; position:absolute; left:0; right:0; top:-5px; border-top:0.5px solid #000;}
+}
+
+/* Zwijgmatrix op M en L (25 sept 2026): de tabel staat op beide in dezelfde kolom van 745px en
+   krijgt dus dezelfde verdeling. Eerst alleen op L gebouwd, daarna op Edwins verzoek ook op M.
+   Op S (smallere kolom) blijven de gewone regels gelden. */
+@media only screen and (min-width:810.1px){
+  /* Zwijgmatrix: de omschrijvingskolom (ministerie en moment) 16px dichter bij de jaartallen,
+     zodat hij breder wordt (Edwin, 25 sept 2026); op S blijft de 24px van hierboven. */
+  .essay-kol .ddg-zwijgmatrix[data-alles="uit"] .zm th.zm-moment,
+  .essay-kol .ddg-zwijgmatrix[data-alles="uit"] .zm td.zm-moment{padding-left:8px;}
+  /* En de twee vraagkolommen smaller (20% i.p.v. 23%), zodat de omschrijvingskolom nog breder
+     wordt en de reactiekolom naar rechts schuift; de reactiekolom zonder de 12px extra
+     rechterpadding van hierboven, dus zijn inhoud staat in het midden van de kolom. */
+  .essay-kol .ddg-zwijgmatrix[data-alles="uit"] .zm th:nth-child(5),
+  .essay-kol .ddg-zwijgmatrix[data-alles="uit"] .zm th:nth-child(6){width:20%;}
+  .essay-kol .ddg-zwijgmatrix[data-alles="uit"] .zm thead th:nth-child(5),
+  .essay-kol .ddg-zwijgmatrix[data-alles="uit"] .zm tbody td:nth-child(5){padding-right:8px;}
+  /* De kolomkoppen daarvan met 4px i.p.v. 8px zijmarge: in de smallere kolom viel de Engelse kop
+     anders op vier regels, met 'respond' alleen op de tweede (25 sept 2026). */
+  .essay-kol .ddg-zwijgmatrix[data-alles="uit"] .zm thead th:nth-child(5),
+  .essay-kol .ddg-zwijgmatrix[data-alles="uit"] .zm thead th:nth-child(6){padding-left:4px;padding-right:4px;}
+}
