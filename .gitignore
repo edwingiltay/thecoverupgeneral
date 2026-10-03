@@ -1,0 +1,10 @@
+.DS_Store
+._*
+*.swp
+Thumbs.db
+
+# Claude Code local settings (not part of the website)
+.claude/
+
+# Lokaal back-uparchief — niet publiceren, te groot voor GitHub (>100 MB)
+Archief.zip

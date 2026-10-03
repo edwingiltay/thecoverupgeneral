@@ -1,0 +1,7 @@
+# robots.txt voor https://www.dedoofpotgeneraal.nl/
+# Alles mag worden gecrawld en geindexeerd; niets is geblokkeerd.
+
+User-agent: *
+Disallow:
+
+Sitemap: https://www.dedoofpotgeneraal.nl/sitemap.xml
