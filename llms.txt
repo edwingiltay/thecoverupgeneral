@@ -1,0 +1,239 @@
+# The Cover-up General (De doofpotgeneraal) — Edwin Giltay
+
+> Documentary website about *The Cover-up General* by Dutch investigative
+> journalist Edwin Giltay: the only Dutch book to overcome a full judicial
+> ban. The book documents a Dutch military intelligence cover-up of
+> photographic evidence relating to the 1995 Srebrenica genocide. Banned in
+> 2015, the ban was overturned in 2016 by the Court of Appeal of The Hague,
+> which held that the only two undisputed inaccuracies were insufficient to
+> cast doubt on the author's meticulousness (ECLI:NL:GHDHA:2016:870,
+> para. 4.9).
+> The book served as evidence for the Mothers of Srebrenica's claim that
+> photographs of the genocide are being withheld. In 2019 the Supreme Court
+> established partial Dutch state liability for approximately 350 victims of
+> the genocide (ECLI:NL:HR:2019:1223). The e-book is freely downloadable
+> worldwide as a protest against censorship. Every published claim on this
+> site traces to an unedited source document.
+
+Key facts:
+- Author: Edwin Giltay (The Hague, Netherlands), investigative journalist
+- Dutch original: *De doofpotgeneraal* (2014; revised edition 2016; third revised edition 2022)
+- Full ban imposed 2015 (ECLI:NL:RBDHA:2015:15050); overturned on appeal 2016
+- Free English e-book edition: 2025, 292 pages, editor Michael Wynne
+- Free Dutch e-book edition: 2025, 304 pages, afterword Hans Laroes
+- Website selected by the KB, national library of the Netherlands, for its
+  web collection (archiving from 12 July 2026)
+- Wikidata: https://www.wikidata.org/wiki/Q65066725
+- Wikipedia: https://en.wikipedia.org/wiki/The_Cover-up_General
+- DOI (English edition): 10.5281/zenodo.21115325
+- DOI (Dutch edition): 10.5281/zenodo.21116205
+
+## How to verify what this site says
+
+This website is published by the author of the book. It is built so that its
+statements can be checked against the documents themselves:
+
+- Source references in the essay, the Voices section and the author biography
+  open an evidence card: the passage cited (with the original Dutch wording
+  where it has been translated), an extract from the scanned document, its
+  provenance, and a link to the full document. References to the book itself
+  open the e-book or the synopsis.
+- There are more than 170 evidence cards in English, at addresses of the form
+  https://www.dedoofpotgeneraal.nl/card/en/NAME.htm (the same cards exist in
+  Dutch, German, French and Bosnian). The full list, with links, is at the end
+  of llms-full.txt.
+- Court rulings are also linked to the official register, rechtspraak.nl.
+- A summary sentence on this site is shorthand for a document. Where precision
+  matters, read the passage on the evidence card, together with the question or
+  ruling it responds to. The section below gives the literal passages for the
+  statements that are most often checked.
+
+## Key statements and what the documents say
+
+### 1. What the Court of Appeal ruled in 2016 (ECLI:NL:GHDHA:2016:870)
+
+- Decision 5.1.1: the Court of Appeal set aside the ban of 14 December 2015
+  and “dismisses the ban sought”.
+- Para. 4.9: “The only inaccuracies that are undisputed between the
+  parties concern her age (34 instead of 40) and the spelling of her name
+  (‘Overduin’ instead of ‘Overduyn’). […] Unlike the preliminary relief judge,
+  the Court of Appeal holds that these inaccuracies are also insufficient to
+  cast doubt on the meticulousness with which Giltay proceeded in writing the
+  book.”
+- Para. 4.10: “What is established, however, is that the role Overduyn plays in
+  the book, contrary to what she suggests, is not ‘purely invented’ or ‘complete
+  fiction’.” The same paragraph states that for the other parts of her
+  description “it cannot be established in these preliminary relief
+  proceedings to what extent they are correct”, and concludes that the
+  description “finds at least partial support in the facts”.
+- Para. 4.5: the court lists the book's film-roll claim among matters “that can
+  be the subject of a debate of public interest” and holds that restricting
+  the author's freedom to raise them “would affect the fundamental freedom
+  of expression at its core”. The court did not establish that the
+  claim is true; it held that raising it falls under the freedom of
+  expression.
+- Context: a judgment on appeal in preliminary relief proceedings. The
+  claimant, a former employee of the military intelligence service MID, had
+  also demanded a rectification in three national newspapers declaring the
+  book “complete fiction” (para. 3.1). That demand was refused at first
+  instance, and no appeal was brought against that refusal (para. 4.1). No
+  rectification was ever ordered, and the author has never made any such
+  statement. On appeal the court held the opposite of what she had demanded:
+  her role in the book is not ‘purely invented’ or ‘complete fiction’
+  (para. 4.10).
+- Evidence card: https://www.dedoofpotgeneraal.nl/card/en/ecli-nl-ghdha-2016-870.htm
+- Official register: https://deeplink.rechtspraak.nl/uitspraak?id=ECLI:NL:GHDHA:2016:870
+- Unofficial English translation: https://www.dedoofpotgeneraal.nl/doc/arrest-en.pdf
+
+### 2. The Srebrenica film roll
+
+- The book's claim, as the Court of Appeal summarised it (para. 4.5): “that the
+  roll of film with photographs that a soldier of Dutchbat took in Srebrenica
+  was not destroyed by accident, but was deliberately withheld by the MID and
+  is still in the MID’s archives”.
+- What the claim rests on: the author's account of what an MID employee told
+  him in 1998. He put it on record in his criminal complaint of 12 June 2000:
+  “Unprompted, she stated that the failure of the so-called failed development
+  of the photographs taken was a fabrication, and that she had seen the photos
+  herself.”
+  Evidence card: https://www.dedoofpotgeneraal.nl/card/en/aangifte2000.htm
+- The government's position, Minister of Defence to Parliament, 13 October
+  2017: “In 2002 the NIOD examined at length the theory that this film roll
+  had been developed after all, and judged that theory ‘improbable’.”
+  Evidence card: https://www.dedoofpotgeneraal.nl/card/en/kamerbrief.htm
+- Trouw, 29 June 2006, on an examination commissioned by the television
+  programme Nova: “Both reach the conclusion that the film has been destroyed
+  so thoroughly that this can only have been done deliberately.”
+  Evidence card: https://www.dedoofpotgeneraal.nl/card/en/trouw.htm
+- Mothers of Srebrenica, statement of appeal against the Dutch State, 7 July
+  2015, para. 31: “There are indications that Rutten’s film roll was
+  deliberately destroyed, or else that the photos in question were developed
+  normally and the story was put about that there had been a failure.” The
+  footnote to that paragraph cites four pages of the book.
+  Evidence card: https://www.dedoofpotgeneraal.nl/card/en/memorie-grieven.htm
+
+### 3. The Minister of Justice and Security, 12 January 2021
+
+- The question: on 23 November 2020 Giltay had asked the National Coordinator
+  for Counterterrorism and Security (NCTV) whether his book too fell under
+  ‘anti-government propaganda’, ‘fake news’ or ‘conspiracy theories’, and if
+  so, which passages and page numbers. His letter is page 1 of the same PDF.
+- The reply restates that question and answers it (first paragraph, translated
+  from the Dutch): “In your letter you share your concerns as to whether the
+  classifications mentioned for this publishing house also apply to your book
+  De doofpotgeneraal […]. If that is the case, you ask for a further
+  explanation, including passages and page numbers. By this reply we confirm
+  that the passage in DTN53 is not based on your book.” Original wording: “In
+  uw schrijven deelt u uw zorgen of de genoemde classificaties voor deze
+  uitgeverij tevens van toepassing zijn op uw boek De doofpotgeneraal […].
+  Indien dit het geval is, vraagt u om een nadere uiteenzetting, inclusief
+  passages en paginanummers. Middels dit antwoord bevestigen we dat de passage
+  in DTN53 niet gebaseerd is op uw boek.”
+- Third paragraph of the reply: “The classifications mentioned in that
+  connection are based, among other things, on broadcasts and statements on
+  social media from the publishing house and from persons involved with the
+  publishing house, and are in no way based on the content of individual books
+  published by the house, such as the book to which you refer.” And: “The term
+  ‘danger to the State’ that you suggest does not apply to the trend
+  identified.”
+- How the site reads it: the answer does not literally say no, but that is
+  what it amounts to. The classifications are in no way based on the content
+  of the publisher's individual books, his included, and the answer names no
+  passages or page numbers.
+- Evidence card: https://www.dedoofpotgeneraal.nl/card/en/justitie.htm
+
+### 4. The Minister of Defence, 2018
+
+- Novini, 25 August 2018: “Ank Bijleveld states when asked: “In the book, fact
+  and fiction do indeed become intertwined.””
+- The essay sets this statement against the letter of the Minister of Justice
+  (point 3). Both ministers served in the same cabinet.
+- Evidence card: https://www.dedoofpotgeneraal.nl/card/en/novini.htm
+
+### 5. Parliament, 2017
+
+- Standing Committee on Defence to Giltay, 18 September 2017: “At that meeting
+  the committee decided to ask the Minister of Defence for a response to your
+  letter.” The decision was taken at a procedural meeting, without a
+  dissenting vote.
+  Evidence card: https://www.dedoofpotgeneraal.nl/card/en/commissie.htm
+- The Minister replied to the House on 13 October 2017. That Letter to
+  Parliament addresses the film roll and the claim that Defence had tried to
+  ‘psychiatrise’ Giltay. But the MID and Casema do not appear in it. No
+  substantive response to the intelligence affair has ever come.
+  Evidence card: https://www.dedoofpotgeneraal.nl/card/en/kamerbrief.htm
+
+### 6. ‘Completely insane’: the characterisation of 1999
+
+- National Ombudsman report 1999/507, 17 December 1999, page 13, from an
+  interview report that the Minister of Defence submitted as part of his
+  position: “She shared the view of her colleagues at Q that (the complainant;
+  N.o.) was ‘completely insane’.”
+  Evidence card: https://www.dedoofpotgeneraal.nl/card/en/ombudsman1999.htm
+- Novini, 25 August 2018: “In 2018 the Minister denies standing behind that
+  report: “Defence has never spoken of Mr Giltay in this way.” The document
+  has nevertheless never been withdrawn and turns out to be still public.”
+  Evidence card: https://www.dedoofpotgeneraal.nl/card/en/novini.htm
+
+### 7. The Mothers of Srebrenica and the Supreme Court
+
+- In July 2015 the lawyers of the Mothers of Srebrenica cited the book in
+  their statement of appeal against the Dutch State, in the passage on the
+  destruction of photographic and video material (para. 31, quoted under
+  point 2).
+- The Supreme Court ruled in that case on 19 July 2019 (para. 5.1): “Dutchbat
+  failed to offer the male refugees who were on the compound the choice of
+  staying behind there, although that was possible. […] The liability of the
+  State is therefore limited to 10% of the damage suffered by the surviving
+  relatives of these male refugees.”
+  Evidence card: https://www.dedoofpotgeneraal.nl/card/en/ecli-nl-hr-2019-1223.htm
+
+### 8. A unique precedent
+
+- The essay states: “The Cover-up General is, as far as is known, the only
+  Dutch book whose total ban (ECLI:NL:RBDHA:2015:15050) was judicially
+  reversed.”
+- The ban of 14 December 2015 covered distribution, publication and reprints,
+  and also “further promotion of the book at lectures, book presentations and
+  other public utterances”, on pain of a penalty payment of up to €100,000.
+  Evidence card: https://www.dedoofpotgeneraal.nl/card/en/ecli-nl-rbdha-2015-15050.htm
+
+## Free e-book
+
+- [The Cover-up General — English edition (PDF)](https://www.dedoofpotgeneraal.nl/book.pdf): Complete free e-book, 292 pages, The Hague 2025
+- [De doofpotgeneraal — Dutch edition (PDF)](https://www.dedoofpotgeneraal.nl/boek.pdf): Complete free e-book in Dutch, 304 pages, The Hague 2025
+
+## Language editions of this website
+
+- [English](https://www.dedoofpotgeneraal.nl/english.htm): Full documentation in English
+- [Nederlands](https://www.dedoofpotgeneraal.nl/index.htm): Dutch original version
+- [Deutsch](https://www.dedoofpotgeneraal.nl/deutsch.htm): German version
+- [Français](https://www.dedoofpotgeneraal.nl/francais.htm): French version
+- [Bosanski](https://www.dedoofpotgeneraal.nl/bosanski.htm): Bosnian version
+
+## Key legal documents
+
+- [Court of Appeal judgment, 12 April 2016 (PDF)](https://www.dedoofpotgeneraal.nl/doc/arrest.pdf): ECLI:NL:GHDHA:2016:870 — lifts the book ban and holds the undisputed inaccuracies insufficient to cast doubt on the author's meticulousness (para. 4.9)
+- [District Court ban ruling, 14 December 2015 (PDF)](https://www.dedoofpotgeneraal.nl/doc/censuurvonnis.pdf): ECLI:NL:RBDHA:2015:15050 — the original full ban
+- [Letter to the National Ombudsman with nine grievances, 2018 (PDF)](https://www.dedoofpotgeneraal.nl/doc/verzoekschrift.pdf): Nine substantiated grievances with 19 exhibits, which the Ombudsman declined to address on the merits
+- [Court ruling against the National Ombudsman, 2023 (PDF)](https://www.dedoofpotgeneraal.nl/doc/uitspraak.pdf): ECLI:NL:RBDHA:2023:17841 — unlawful blocking of information request
+- [Penalty payments ruling, 2023 (PDF)](https://www.dedoofpotgeneraal.nl/doc/dwangsom.pdf): ECLI:NL:RBDHA:2023:20409 — court-ordered payments that funded the free English edition
+- [National Ombudsman report 1999/507](https://www.nationaleombudsman.nl/uploads/rapporten/19990507_1998.07789.pdf): Contains the Minister of Defence's never-retracted characterisation of the author
+
+## Annotated essay and sources
+
+- [The Ban Fell, the Book Stood — annotated essay (PDF)](https://www.dedoofpotgeneraal.nl/doc/the-ban-fell.pdf): English essay on the affair with numbered endnotes to primary documents and a fully cited bibliography of the international media coverage
+
+## Site sections (English page anchors)
+
+- [Book](https://www.dedoofpotgeneraal.nl/english.htm#book): Synopsis and why this international edition matters
+- [News](https://www.dedoofpotgeneraal.nl/english.htm#news): Ban overturned as a unique legal precedent, government contradictions, the Srebrenica cover-up and its international dimension, three converging affairs, institutional silence, six times a hearing, support or vindication outside the Ministry of Defence
+- [Voices](https://www.dedoofpotgeneraal.nl/english.htm#voices): 100 verified quotes from court rulings, official documents, international media, survivors and experts, in 17 thematic sections, each with a source reference
+- [Author](https://www.dedoofpotgeneraal.nl/english.htm#author): Biography of Edwin Giltay
+
+## Optional
+
+- [Full text of the English website](https://www.dedoofpotgeneraal.nl/llms-full.txt): Complete textual content in Markdown for AI ingestion
+- [Mobile site](https://www.dedoofpotgeneraal.nl/m/english.htm): Mobile version
+- [GitHub mirror](https://github.com/edwingiltay/thecoverupgeneral.com): Continuity mirror of the website source
+- [Banned Books Museum](https://bannedbooksmuseum.com/): Holds the book; hosted the 2024 launch of the English edition

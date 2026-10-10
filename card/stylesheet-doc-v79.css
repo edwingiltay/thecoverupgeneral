@@ -1,0 +1,303 @@
+/* CSS stylesheet behorend bij de documentpagina's in dedoofpotgeneraal.nl/doc
+   Losse, kleine stylesheet: de pagina's moeten ook los van de site te archiveren zijn.
+   Kleuren, letters en maten volgen bewust m/stylesheet-v79.css; de breedtes volgen per
+   schermmaat de site zelf (zie onderaan). */
+
+html            {box-sizing:border-box;}*,*:before,*:after{box-sizing:inherit;}
+body            {margin:0;padding:0 8px;background:#F4F4F4;font-family:"Helvetica","Arial";color:#000000;
+                 font-size:11pt;-webkit-text-size-adjust:100%;}
+
+/* ---- kopregel: dezelfde balk als op de mobiele site, met een sluitknop
+        op de plek van het hamburgermenu ------------------------------------ */
+/* Boven de balk 8 pixel lucht, net als de bodymarge van de site; bij het scrollen schuift
+   die lucht weg en plakt de balk tegen de bovenrand, ook net als op de site. */
+.header         {position:sticky;left:0;top:0;z-index:4;margin-top:8px;}
+/* Een link naar een passage (#ro-4-9) moet de kop onder de plakkende balk laten uitkomen,
+   niet erachter. Edwin koos op desktop 45 pixel onder de bovenrand (balk 26,66 pixel, dus
+   ruim 18 pixel lucht); mobiel is de balk 40 pixel en krijgt dezelfde lucht: 58 pixel. */
+[id]            {scroll-margin-top:58px;}
+.kopbalk        {width:100%;max-width:350px;margin:0 auto;min-height:40px;height:40px;
+                 border-radius:4px;position:relative;
+                 background-image:radial-gradient(circle, #4B4B58, #3B3B44);}
+/* De balk draagt altijd de schaduw die de site pas onder zijn kopbalk zet als er gescrold
+   wordt. Bovenaan valt die alleen in de voeg tussen balk en kaart en niet over de kaart
+   (Edwin): clip-path knipt de schaduw af op de hoogte van die voeg, 9 pixel hier en 3,33
+   vanaf S. Zodra het script elevated zet, schuift de balk over de tekst en mag de volle
+   schaduw er weer onder, net als op de site. De schaduw staat op 70 procent zwart in plaats
+   van de 50 van de site: in een voeg van een paar pixel viel die anders nauwelijks op. */
+.header .kopbalk        {box-shadow:0 8px 18px -8px rgba(0,0,0,0.7);
+                         clip-path:inset(0 -30px -9px -30px);}
+.header.elevated .kopbalk {clip-path:none;}
+
+/* De sluitknop. Een documentpagina opent in een eigen tabblad, dus terugbladeren heeft
+   hier niets om naar terug te gaan: het kruis sluit het tabblad. Dezelfde tekening en
+   dezelfde maten als het kruis in het menu van de vijf mobiele pagina's, dus ook
+   dezelfde kleurgang: wit, felrood bij aanwijzen, donkerrood bij het indrukken.
+   (Donkerrood als ruststand is geprobeerd en teruggedraaid: onleesbaar op de donkergrijze
+   balk, Edwin 18 sept 2026.)
+   Het aanraakvlak van 54 bij 40 hangt aan de link zelf; die heeft een anker met
+   position:relative nodig, anders vangt hij elke tik in het scherm. */
+.sluitknop      {position:absolute;left:0;top:0;width:54px;height:40px;display:block;}
+/* Het kruis staat in dezelfde doos als op de mobiele site (30 bij 43 over een viewBox
+   van 42 bij 60). De lijnen lopen daarin van y=2 tot y=27, dus van 1,4 tot 19,4 pixel;
+   met de doos op 9,6 pixel staat het kruis precies midden in de balk van 40. */
+/* Links op 14,5 pixel en niet op 12: het kruis begint dan, lijndikte en ronde kapjes
+   meegeteld, anderhalve pixel rechts van de kantlijn van de tekst in de kaart eronder.
+   Optisch staat het zo op die kantlijn (Edwin, 14 sept 2026). Vanaf S: zie onderaan. */
+.sluitknop svg  {position:absolute;left:14.5px;top:9.6px;width:30px;height:43px;overflow:visible;}
+.kruis          {fill:none;stroke:#FAFAFA;stroke-width:3.2;stroke-linecap:round;
+                 transition:stroke .12s;}
+.sluitknop:hover .kruis, .sluitknop:focus-visible .kruis {stroke:#F00000;}
+.sluitknop:active .kruis {stroke:#900000;}
+.sluitknop:focus-visible {outline:2px solid #FFFFFF;outline-offset:-2px;border-radius:3px;}
+
+/* De pil met de domeinnaam, letterlijk de .taalnu van de mobiele site. */
+.taalbalk       {position:absolute;right:11px;top:0;height:40px;display:flex;
+                 align-items:center;gap:6px;}
+.taalnu         {display:inline-flex;align-items:center;justify-content:center;
+                 font-family:"Helvetica","Arial";font-size:15px;line-height:1;
+                 border-radius:2px;border:1px solid #F8F8F8;background:#F8F8F8;
+                 color:#3B3B44;box-sizing:border-box;height:24px;padding:1px 7px 0;
+                 letter-spacing:normal;text-decoration:none;}
+a.taalnu:hover  {background:#FFFFFF;border-color:#FFFFFF;color:#3B3B44;}
+
+/* ---- de pagina zelf --------------------------------------------------- */
+.blad           {width:100%;max-width:350px;margin:0 auto;padding:0 0 30px 0;}
+/* De schaduw is die van .boxshadow op de mobiele site: een zachte waas en daaronder een
+   smalle, donkere slagschaduw die net onder de onderrand uitkomt. Vanaf S die van de
+   desktopsite, met een wat bredere waas (zie onderaan). */
+.kaart          {background:#FFFFFF;border-radius:4px;margin-top:9px;padding:14px 16px 18px 16px;
+                 box-shadow:0 10px 12px 0 rgba(0,0,0,0.1), 0px 76px 52px -82px rgba(0,0,0,0.8);}
+/* ---- letters ----------------------------------------------------------
+   Eén maat voor de lopende tekst en één maat voor het bijwerk, en overal dezelfde
+   regelafstand. De lopende tekst staat op de maat van het nieuwsessay (11pt); de
+   herkomstlijst, de bronregels, het bijschrift en het citaatblok een tikje kleiner.
+   Daarvoor stonden hier vijf maten en vier regelafstanden door elkaar, en dat gaf
+   een onrustig leesbeeld. */
+.soortlabel     {font-size:10pt;line-height:125%;text-transform:uppercase;letter-spacing:0.6px;
+                 color:#5C6E86;margin:0 0 4px 0;}
+/* Het bolletje mag forser dan de kapitalen ernaast. Een grotere letter tilt ook het
+   midden van het bolletje op, dus vertical-align duwt het weer terug tot het midden
+   van de hoofdletters; line-height:0 houdt de regel even hoog als hij was. */
+.soortlabel .stip {font-size:200%;line-height:0;vertical-align:-0.163em;}
+/* Hoofdletterwoorden in de lopende tekst: ISBN-nummers, afkortingen, en koppen die
+   in het brondocument in kapitalen staan. Op volle grootte staan die als een blok
+   tussen de kleine letters; 96 procent haalt daar de scherpste kant af zonder dat
+   het als een andere lettergrootte leest. De kopjes van de pagina zelf blijven
+   ongemoeid, die staan met opzet in kapitalen. Geen automatische afbreking, net als
+   op de site (het Nederlandse woordenboek maakte CTI-VD van CTIVD), maar wel manual
+   en niet none: de ECLI-codes dragen eigen &shy;-tekens en die moeten blijven werken. */
+.kap            {font-size:96%;-webkit-hyphens:manual;hyphens:manual;}
+h1              {font-size:16pt;font-weight:normal;line-height:122%;margin:0 0 8px 0;
+                 -webkit-hyphens:auto;hyphens:auto;}
+/* De metaregel onder de titel is op 19 sept 2026 vervallen: alles erin stond ook in de
+   herkomstlijst (Edwin). Direct onder de titel staat nu een kopje of de inleiding; daar
+   twee pixel minder lucht dan de 22 tussen de andere blokken (Edwin, 19 sept 2026). */
+h1 + h2, h1 + .inleiding {margin-top:20px;}
+
+/* De kopjes dragen de ruimte eronder in hun eigen ondermarge; alles wat erop volgt
+   begint op nul. Zo is de afstand tussen een kopje en zijn alinea overal dezelfde,
+   of daar nu de passage, de vertaling, een gewone alinea of de herkomstlijst staat. */
+h2              {font-size:11pt;font-weight:bold;margin:22px 0 7px 0;text-transform:uppercase;
+                 letter-spacing:0.5px;color:#3B3B44;}
+.waarom         {margin:0;font-size:11pt;line-height:125%;-webkit-hyphens:auto;hyphens:auto;}
+/* Een lang waarom-blok staat in twee of meer alinea's (27 sept 2026); tussen de alinea's
+   dezelfde lucht als onder een kopje. */
+.waarom + .waarom {margin-top:7px;}
+/* Op een kaart met meer passages volgt de inleiding direct op de titel; zonder kopje
+   ertussen krijgt zij zelf de ruimte die een kopje daar zou geven. */
+.inleiding      {margin-top:22px;}
+
+/* De lijn tekent de tekst af: hij begint op de bovenkant van de hoofdletters van de
+   eerste regel en eindigt onder de staarten van de laatste. Dat lukt niet met een
+   border-left, want dan loopt hij mee met de regeldozen en steekt hij er boven en
+   onder uit; vandaar een eigen streepje dat los van de regels wordt neergezet. De
+   maten zijn uitgerekend uit de fontmetriek van Helvetica: van de bovenkant van de
+   regeldoos tot de bovenkant van een hoofdletter, en van de basislijn tot onder de
+   staarten. Sluit de passage af met een bronregel, dan is de laatste regel kleiner
+   en schuift de onderkant naar rato mee. */
+.passage        {position:relative;margin:0;padding:0 0 0 16px;
+                 font-size:11pt;line-height:125%;-webkit-hyphens:auto;hyphens:auto;}
+.passage::before {content:"";position:absolute;left:0;top:0.238em;bottom:0.074em;
+                  width:3px;background:#5C6E86;}
+.passage:has(.bron)::before {bottom:0.1175em;}
+.vertaling      {margin:0 0 0 16px;font-size:11pt;line-height:125%;
+                 -webkit-hyphens:auto;hyphens:auto;}
+/* Op een kaart met meer passages staat de oorspronkelijke tekst zonder kopje onder de
+   bronregel van de vertaling; dezelfde lucht als boven een uitsnede. */
+.passage + .vertaling {margin-top:14px;}
+.bron           {display:block;font-size:10pt;color:#404040;margin-top:7px;line-height:125%;
+                 -webkit-hyphens:none;hyphens:none;}
+
+figure          {margin:14px 0 0 0;}
+figure img      {display:block;width:100%;height:auto;border:1px solid #CCCCCC;border-radius:3px;
+                 background:#FFFFFF;}
+figcaption      {font-size:10pt;color:#505050;margin-top:5px;line-height:125%;}
+
+/* Een raster en geen zwevende termen. Met float:left raakte de lijst uit de pas zodra
+   een label over twee regels brak: de waarde eronder bleef staan waar hij stond, en dan
+   staat er ineens een zaaknummer naast het verkeerde label. In een raster hoort elk paar
+   bij elkaar, hoe lang het label ook is. De regels binnen een item staan even ver uit
+   elkaar als overal; alleen tussen twee items valt wat meer lucht.
+   De lijst staat een tikje dichter dan de rest: regelafstand 120 in plaats van 125 procent
+   (16 in plaats van 16,7 pixel) en 6 in plaats van 9 pixel tussen de rijen. Onder het kopje
+   Herkomst een halve pixel meer lucht dan onder de andere kopjes; dat moet padding zijn, want een
+   bovenmarge van de lijst zou wegvallen tegen de ondermarge van het kopje (Edwin, 18 sept
+   2026). */
+/* minmax(0,1fr) en overflow-wrap:anywhere: een lang webadres als platte tekst (harryvanbommel.sp.nl/
+   weblog/..., mappingmediafreedom.org/reports/...) maakte de tweede kolom breder dan een telefoon,
+   zodat drie kaarten op 375 pixel horizontaal scrolden (nacontrole 28 sept 2026). Gewone woorden
+   breken nog steeds op spaties en afbreekpunten; alleen een onbreekbaar adres breekt waar het moet. */
+dl.herkomst     {margin:0;padding-top:0.5px;font-size:10pt;line-height:120%;
+                 display:grid;grid-template-columns:104px minmax(0,1fr);column-gap:9px;row-gap:6px;}
+dl.herkomst dt  {color:#505050;font-style:italic;-webkit-hyphens:auto;hyphens:auto;}
+dl.herkomst dd  {margin:0;-webkit-hyphens:auto;hyphens:auto;overflow-wrap:anywhere;}
+/* Rij "Zie ook": elke verwante kaart als eigen blokje, met wat lucht ertussen, zodat
+   te zien is waar de ene titel ophoudt en de volgende begint (27 sept 2026). */
+dl.herkomst .zie {display:block;}
+dl.herkomst .zie + .zie {margin-top:0.4em;}
+
+/* ---- knoppen ---------------------------------------------------------- */
+.knoprij        {margin-top:18px;display:flex;flex-wrap:wrap;gap:8px;}
+.knop           {display:inline-flex;align-items:center;justify-content:center;gap:7px;
+                 font-family:"Helvetica","Arial";font-size:16px;line-height:1;cursor:pointer;
+                 border-radius:3px;padding:0 14px;height:38px;text-decoration:none;
+                 border:solid 0.5px #330000;transition:background .15s, box-shadow .15s;}
+.knop svg       {width:17px;height:17px;flex:none;}
+.knoprood, a.knoprood:link, a.knoprood:visited {background:#C00000;color:#FFFFFF;}
+.knoprood:hover, a.knoprood:hover {background:#FF0000;color:#FFFFFF;box-shadow:0 0 7px 0 rgba(0,0,0,0.35);}
+.knopgrijs, a.knopgrijs:link, a.knopgrijs:visited
+                {background-image:radial-gradient(circle, #4B4B58, #3B3B44);color:#FFFFFF;}
+.knopgrijs:hover{background-image:linear-gradient(110deg, #F00000, #F00000 100%);
+                 box-shadow:0 0 7px 0 rgba(0,0,0,0.35);}
+.knop:focus-visible {outline:2px solid #FFFFFF;outline-offset:1px;box-shadow:0 0 0 4px #000000;}
+.knop[hidden]   {display:none;}
+
+/* Het citaatblok dat de kopieerknop meeneemt. Staat er ook zichtbaar, zodat de pagina
+   zonder javascript volledig blijft en het blok mee te archiveren is. */
+/* De achtergrond is die van .kleur46 op de desktopsite, het blok 'Waarom deze internationale
+   editie zo belangrijk is': een zacht radiaal verloop van licht naar lichtgrijs (Edwin). De
+   rand is #CCCCCC, de randkleur van dat blok op de site; #DDDDDD viel op het grijs weg. */
+.citaatblok     {margin-top:11px;background-image:radial-gradient(circle, #F0F1F2, #E4E5E6);
+                 border:1px solid #CCCCCC;border-radius:3px;
+                 padding:10px 12px;font-size:10pt;line-height:125%;color:#202020;
+                 -webkit-hyphens:none;hyphens:none;overflow-wrap:anywhere;}
+/* De plekken waar het stuk wordt aangehaald, elk op een eigen regel met een bolletje
+   (Edwin, 18 sept 2026). Zelfde letter en regelafstand als de rest van het blok. */
+.citaatblok ul.vindplaatsen {margin:1px 0 1px 0;padding-left:1.3em;list-style:disc;}
+.citaatblok ul.vindplaatsen li {margin:0;padding:0;}
+.gelukt         {font-size:10pt;color:#006000;margin-left:2px;align-self:center;}
+
+/* De voetregel stond als losse zin onder de kaart, met een eigen inspringing, en hing
+   daardoor tussen de kaart en de paginarand in. Hij staat nu in een eigen blok, even
+   breed als de kaart erboven en met dezelfde rand en schaduw. */
+.voetkaart      {background:#FFFFFF;border-radius:4px;margin-top:9px;padding:12px 16px;
+                 position:relative;box-shadow:0 10px 12px 0 rgba(0,0,0,0.1);}
+/* De donkere slagschaduw van .boxshadow is 76 pixel omlaag geschoven en 82 pixel aan elke
+   kant ingekrompen. Onder een blok lager dan 164 pixel blijft er van die schaduw niets
+   over, en het voetblok is maar 40 tot 110 hoog. Daarom hangt hij hier aan een onzichtbaar
+   vlak van 400 pixel dat op de onderrand van het voetblok staat: dan valt de schaduw er
+   precies zo onder als onder een hoog blok op de site. Het vlak ligt achter het blok en
+   vangt geen klikken. */
+.voetkaart::after {content:"";position:absolute;left:0;right:0;bottom:0;height:400px;
+                 z-index:-1;pointer-events:none;border-radius:4px;
+                 box-shadow:0px 76px 52px -82px rgba(0,0,0,0.3);}
+.voetregel      {font-size:10pt;color:#505050;margin:0;line-height:125%;}
+/* De regel voor de voetlinks staat met :link en :visited, anders wint de algemene
+   a:link-regel hieronder (zelfde specificiteit, later in het blad) en worden ze zwart. */
+.voetregel a:link, .voetregel a:visited
+                {color:#700000;text-decoration:underline;text-decoration-color:#700000;}
+.voetregel a:hover {color:#900000;text-decoration-color:#900000;}
+a:link, a:visited {color:#000000;}
+a:hover         {color:#900000;}
+/* De donkerrode tekstlinks gedragen zich als in het essay op de site: onderstreept in
+   hun eigen kleur, en bij hover valt er dezelfde zachte schaduw onder. */
+.voetregel a:hover, a.bronlink:hover, .kaart a.uitleg:hover
+                {box-shadow:0 4px 10px 0 rgba(20,0,0,0.2);}
+/* Zichtbare webadressen in de herkomstlijst en het citaatblok. Ze blijven kaal in
+   beeld staan, zoals overal op de site, maar zijn wel aan te klikken. Kleur en gedrag
+   volgen a.redlink van de site; overal breken mag, want een adres is geen woord. */
+a.bronlink:link, a.bronlink:visited {color:#700000;text-decoration:underline;
+                 text-decoration-color:#700000;overflow-wrap:anywhere;
+                 -webkit-hyphens:none;hyphens:none;}
+a.bronlink:hover {color:#900000;text-decoration-color:#900000;}
+/* Kale webadressen, DOI's en accountnamen in een passage of in de toelichting. De browser
+   zou er anders een afbreekstreepje in zetten (htt-ps, www.-dedoof...), en dat staat niet
+   in het document. Breken mag wel, op de <wbr>-plekken die de generator erin zet. */
+.webadres       {-webkit-hyphens:none;hyphens:none;}
+.kaart a.uitleg {color:#700000;text-decoration:underline;text-decoration-color:#700000;}
+
+/* De uitsnede is aantikbaar: op een telefoon staat het gescande regelwerk te klein om
+   te lezen, dus de afbeelding opent op ware grootte in een eigen tabblad. De uitgeschreven
+   passage hierboven is wat je leest; de uitsnede laat zien dat het er zo staat. */
+.uitsnedelink        {display:block;}
+.uitsnedelink:hover  {box-shadow:none;}
+.uitsnedelink:hover img {border-color:#900000;}
+.uitsnedelink:focus-visible {outline:2px solid #900000;outline-offset:2px;border-radius:3px;}
+
+/* ---- breedtes per schermmaat -------------------------------------------
+   De balk en de kaart zijn even breed als de balk en de blokken op de site bij dezelfde
+   vensterbreedte (.breedte794, gemeten 14 sept 2026): 350 op de mobiele site, 694 op S,
+   794 op M en 1054 op L. De grenzen zijn die van de site: tot en met 709 pixel stuurt de
+   desktopsite door naar m/, S loopt tot 810, M tot 1080. Zo opent een kaart vanuit de
+   site precies zo breed als de pagina waar je vandaan komt. Op een telefoon smaller dan
+   366 pixel krimpt alles mee binnen de 8 pixel zijmarge. */
+/* Vanaf S (de desktopsite) wordt de lopende tekst uitgevuld, net als het essay op de
+   site; op de mobiele breedte blijft hij links uitgelijnd. De bronregels en de regels
+   onder een uitsnede worden hier ook uitgevuld, met afbreking (zie de regel daarvoor).
+   De balk neemt vanaf S de vorm aan van de taalbalk bovenaan de desktopsite (gemeten 14
+   sept 2026): 26,66 pixel hoog, effen #52565D, hoeken van 3 pixel, en 4,67 pixel lucht
+   erboven (de bodymarge van 8 pixel min de 2,5pt waarmee de site hem optrekt). De pil
+   met de domeinnaam wordt de .taalbuttonX van de site: 22 hoog, 14,5 pixel, dunne grijze
+   rand, de letters een pixel omhoog zoals .style3 daar doet. Het kruis krimpt mee tot
+   de hoogte van die letters en staat, net als de pil rechts, op de tekstrand van de kaart. */
+@media only screen and (min-width:709.1px) {
+  .kopbalk, .blad {max-width:694px;}
+  .passage, .vertaling, .waarom, figcaption {text-align:justify;}
+  /* De bronregels onder een passage en de regels onder een uitsnede worden sinds 18 sept
+     2026 ook uitgevuld, en mogen dan afbreken; zonder afbreking vielen er gaten tot twee
+     spaties breed (Edwin). Webadressen en kapitalen houden hun eigen regel hierboven. */
+  .bron, figcaption {-webkit-hyphens:auto;hyphens:auto;}
+  .header         {margin-top:4.67px;}
+  .kopbalk        {min-height:0;height:26.66px;border-radius:3px;
+                   background-image:none;background:#52565D;}
+  .sluitknop      {width:44px;height:26.66px;}
+  [id]            {scroll-margin-top:45px;}
+  /* 0,616 van de mobiele maat: de lijnen lopen dan van 0,9 tot 12,5 pixel hoog, dus met
+     de doos op 6,95 pixel staat het kruis midden in de balk; de lijndikte gaat omhoog
+     zodat hij op het scherm ongeveer 2 pixel blijft. */
+  .sluitknop svg  {left:15.9px;top:6.95px;width:18.5px;height:26.5px;}
+  .kruis          {stroke-width:4.5;}
+  .taalbalk       {right:16px;height:26.66px;}
+  /* Zonder verticale padding staat de basislijn op 15,75 pixel onder de bovenkant van de
+     pil: drie kwart pixel lager dan in de .taalbuttonX van de site (Edwin, 14 sept 2026). */
+  .taalnu         {height:22px;font-size:14.5px;letter-spacing:0.12px;padding:0 10px;
+                   border:solid 0.5pt #666666;color:#000000;}
+  a.taalnu:hover  {background:#FFFFFF;border-color:#666666;color:#000000;}
+  /* Onder de balk en boven het voetblok dezelfde smalle voeg als tussen de taalbalk en de
+     donkere kopbalk op de desktopsite (2,5pt, 3,33 pixel); op mobiel blijft het 9. */
+  /* Onder de balk een halve pixel meer dan de 3,33 van de site (Edwin); de knip van de
+     balkschaduw schuift mee, zodat die de voeg precies blijft vullen. */
+  .kaart          {margin-top:3.83px;}
+  .voetkaart      {margin-top:3.33px;}
+  .header .kopbalk {clip-path:inset(0 -30px -3.83px -30px);}
+  .header.elevated .kopbalk {clip-path:none;}
+  /* Op desktop is de uitsnede groot genoeg om te lezen: geen "Tik op de afbeelding om te
+     vergroten" en geen link om de afbeelding heen (Edwin). Het script haalt de link hier
+     ook uit de tabvolgorde. */
+  .vergroot       {display:none;}
+  .uitsnedelink   {pointer-events:none;cursor:default;}
+  /* De uitsnede en het bijschrift eronder springen in tot de tekstrand van de passage
+     erboven, 16 pixel, zodat ze bij de passage horen en niet als los blok over de hele
+     breedte staan (Edwin, 18 sept 2026). Op mobiel blijft de volle breedte, daar telt
+     elke pixel voor de leesbaarheid van de scan. */
+  figure          {margin-left:16px;}
+  .kaart          {box-shadow:0 10px 16px 0 rgba(0,0,0,0.1), 0px 76px 52px -82px rgba(0,0,0,0.8);}
+  .voetkaart      {box-shadow:0 10px 16px 0 rgba(0,0,0,0.1);}
+}
+@media only screen and (min-width:810.1px) {
+  .kopbalk, .blad {max-width:794px;}
+}
+@media only screen and (min-width:1080px) {
+  .kopbalk, .blad {max-width:1054px;}
+}
